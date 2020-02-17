@@ -21,3 +21,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // route admin atasan
 Route::get('/adminatasan', 'AdminAtasanController@index')->name('homeAdminAtasan');
+
+// route admin pegawai
+Route::get('/adminpegawai', 'AdminPegawaiController@index')->name('homeAdminPegawai');
+
+// route admin izin studi lanjut
+Route::get('/adminizinstudilanjut', 'AdminIzinstudilanjutController@index')->name('homeAdminIzinstudilanjut');
