@@ -307,7 +307,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="pages/typography.html">
+                        <a href="{{route('homeAdminPegawai')}}">
                             <i class="material-icons">text_fields</i>
                             <span>Pegawai</span>
                         </a>
@@ -335,10 +335,10 @@
                                 <a href="pages/ui/alerts.html">Rencana Karir</a>
                             </li>
                             <li>
-                                <a href="pages/ui/animations.html">Izin Studi Lanjut</a>
+                                <a href="{{route('homeAdminIzinstudilanjut')}}">Izin Studi Lanjut</a>
                             </li>
                             <li>
-                                <a href="pages/ui/badges.html">Izin Cuti</a>
+                                <a href="{{route('homeAdminIzincuti')}}">Izin Cuti</a>
                             </li>
 
                             <li>
