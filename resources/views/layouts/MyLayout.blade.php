@@ -319,7 +319,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="pages/helper-classes.html">
+                        <a href="{{ route('homeAdminGolongan') }}">
                             <i class="material-icons">layers</i>
                             <span>Golongan</span>
                         </a>
@@ -378,7 +378,7 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="pages/medias/image-gallery.html">Perilaku Kerja</a>
+                                <a href="{{route('homeAdminPerilakukerja')}}">Perilaku Kerja</a>
                             </li>
                             <li>
                                 <a href="pages/medias/carousel.html">Perhitungan Tunjangan Kinerja</a>
