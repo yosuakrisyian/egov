@@ -309,13 +309,19 @@
                     <li>
                         <a href="pages/typography.html">
                             <i class="material-icons">text_fields</i>
-                            <span>Typography</span>
+                            <span>Pegawai</span>
                         </a>
                     </li>
                     <li>
                         <a href="pages/helper-classes.html">
                             <i class="material-icons">layers</i>
-                            <span>Helper Classes</span>
+                            <span>Atasan</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="pages/helper-classes.html">
+                            <i class="material-icons">layers</i>
+                            <span>Golongan</span>
                         </a>
                     </li>
                     <li>
@@ -367,79 +373,26 @@
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">swap_calls</i>
-                            <span>User Interface (UI)</span>
+                            <span>Layanan Karir</span>
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="pages/ui/alerts.html">Alerts</a>
+                                <a href="pages/ui/alerts.html">Rencana Karir</a>
                             </li>
                             <li>
-                                <a href="pages/ui/animations.html">Animations</a>
+                                <a href="pages/ui/animations.html">Izin Studi Lanjut</a>
                             </li>
                             <li>
-                                <a href="pages/ui/badges.html">Badges</a>
+                                <a href="pages/ui/badges.html">Izin Cuti</a>
                             </li>
 
                             <li>
-                                <a href="pages/ui/breadcrumbs.html">Breadcrumbs</a>
+                                <a href="pages/ui/breadcrumbs.html">Kenaikan Pangkat</a>
                             </li>
                             <li>
-                                <a href="pages/ui/buttons.html">Buttons</a>
+                                <a href="pages/ui/buttons.html">Kenaikan Gaji</a>
                             </li>
-                            <li>
-                                <a href="pages/ui/collapse.html">Collapse</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/colors.html">Colors</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/dialogs.html">Dialogs</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/icons.html">Icons</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/labels.html">Labels</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/list-group.html">List Group</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/media-object.html">Media Object</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/modals.html">Modals</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/notifications.html">Notifications</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/pagination.html">Pagination</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/preloaders.html">Preloaders</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/progressbars.html">Progress Bars</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/range-sliders.html">Range Sliders</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/sortable-nestable.html">Sortable & Nestable</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/tabs.html">Tabs</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/thumbnails.html">Thumbnails</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/tooltips-popovers.html">Tooltips & Popovers</a>
-                            </li>
-                            <li>
-                                <a href="pages/ui/waves.html">Waves</a>
-                            </li>
+                                                                                                     
                         </ul>
                     </li>
                     <li>
@@ -471,31 +424,34 @@
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">view_list</i>
-                            <span>Tables</span>
+                            <span>Kinerja</span>
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="pages/tables/normal-tables.html">Normal Tables</a>
+                                <a href="pages/tables/normal-tables.html">Target SKP</a>
                             </li>
                             <li>
-                                <a href="pages/tables/jquery-datatable.html">Jquery Datatables</a>
+                                <a href="pages/tables/jquery-datatable.html">Realisasi SKP</a>
                             </li>
                             <li>
-                                <a href="pages/tables/editable-table.html">Editable Tables</a>
+                                <a href="pages/tables/editable-table.html">Perhitung SKP</a>
+                            </li>
+                            <li>
+                                <a href="pages/tables/editable-table.html">Lihat SKP</a>
                             </li>
                         </ul>
                     </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">perm_media</i>
-                            <span>Medias</span>
+                            <span>Tunjangan Kinerja</span>
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="pages/medias/image-gallery.html">Image Gallery</a>
+                                <a href="pages/medias/image-gallery.html">Perilaku Kerja</a>
                             </li>
                             <li>
-                                <a href="pages/medias/carousel.html">Carousel</a>
+                                <a href="pages/medias/carousel.html">Perhitungan Tunjangan Kinerja</a>
                             </li>
                         </ul>
                     </li>
