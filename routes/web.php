@@ -10,7 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -40,6 +39,7 @@ Route::group(['middleware' => ['auth','ceklevel:1']], function(){
     // route admin izin cuti
     Route::get('/adminizincuti', 'AdminIzincutiController@index')->name('homeAdminIzincuti');
 
+<<<<<<< HEAD
     // route admin perilaku kerja
     Route::get('/adminperilakukerja', 'AdminPerilakukerjaController@index')->name('homeAdminPerilakukerja');
 
@@ -54,3 +54,13 @@ Route::group(['middleware' => ['auth','ceklevel:1']], function(){
 Route::group(['middleware' => ['auth','ceklevel:2']], function(){
     // Route::get('/adminpegawai', 'AdminPegawaiController@index')->name('homeAdminPegawai');
 });
+=======
+// route admin kenaikan pangkatg
+Route::get('/adminkenaikanpangkat', 'AdminKenaikanpangkatController@index')->name('homeAdminKenaikanpangkat');
+
+// route admin kenaikan gaji
+Route::get('/adminkenaikangaji', 'AdminKenaikangajiController@index')->name('homeAdminKenaikangaji');
+
+// route admin kenaikan gaji
+Route::get('/adminperilakukerja', 'AdminPerilakukerjaController@index')->name('homeAdminPerilakukerja');
+>>>>>>> 7ec7638052e49de6d3f8f735a2bea69f37ab96b0

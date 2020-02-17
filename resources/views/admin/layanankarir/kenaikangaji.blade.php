@@ -5,9 +5,9 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title" id="defaultModalLabel">Masukan Data Izin Cuti</h4>
+                            <h4 class="modal-title" id="defaultModalLabel">Masukan Data Kenaikan Gaji</h4>
                         </div>
-                        <form method="post" action="">
+                        <form method="post" action="Kenaikangaji/addKenaikangaji">
                         <div class="modal-body">
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -25,36 +25,57 @@
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="pangkat_gol" id="pangkat_gol" class="form-control" required="required" autocomplete="off">
-                                        <label class="form-label">Pangkat Gol</label>
+                                        <input type="number" name="gaji" id="gaji" class="form-control" required="required" autocomplete="off">
+                                        <label class="form-label">Gaji</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="jabatan" id="jabatan" class="form-control" required="required" autocomplete="off">
-                                        <label class="form-label">Jabatan</label>
+                                        <input type="file" name="sk_cpns" id="sk_cpns" class="form-control" required="required" autocomplete="off">
+                                        <label class="form-label">SK CPNS</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="satuan_organisasi" id="satuan_organisasi" class="form-control" required="required" autocomplete="off">
-                                        <label class="form-label">Satuan Organisasi</label>
+                                        <input type="file" name="sk_pns" id="sk_pns" class="form-control" required="required" autocomplete="off">
+                                        <label class="form-label">SK PNS</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="date" name="tanggal_cuti" id="tanggal_cuti" class="form-control" required="required" autocomplete="off">
-                                        <label class="form-label">Tanggal Cuti</label>
+                                        <input type="file" name="sk_kenaikan_pangkat_terakhir" id="sk_kenaikan_pangkat_terakhir" class="form-control" required="required" autocomplete="off">
+                                        <label class="form-label">SK Kenaikan Pangkat Terakhir</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="alasan_cuti" id="alasan_cuti" class="form-control" required="required" autocomplete="off">
-                                        <label class="form-label">Alasan Cuti</label>
+                                        <input type="number" name="gaji_berkala_sebelumnya" id="gaji_berkala_sebelumnya" class="form-control" required="required" autocomplete="off">
+                                        <label class="form-label">Gaji Berkala Sebelumnya</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="file" name="skp_2tahun_terakhir" id="skp_2tahun_terakhir" class="form-control" required="required" autocomplete="off">
+                                        <label class="form-label">SKP 2tahun Terakhir</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="file" name="sk_mutasi" id="sk_mutasi" class="form-control" required="required" autocomplete="off">
+                                        <label class="form-label">SK Mutasi</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="file" name="surat_pengantar_unit_kerja" id="surat_pengantar_unit_kerja" class="form-control" required="required" autocomplete="off">
+                                        <label class="form-label">Surat Pengantar Unit Kerja</label>
                                     </div>
                                 </div>
 
@@ -73,7 +94,7 @@
         <div class="container-fluid">
             <div class="block-header">
                 <h2>
-                    DATA IZIN CUTI
+                   DATA KENAIKAN GAJI
                 </h2>
             </div>
             <!-- Basic Examples -->
@@ -93,16 +114,18 @@
                                             <th>No.</th>
                                             <th>NIP</th>
                                             <th>Nama Lengkap</th>
-                                            <th>Pangkat Gol</th>
-                                            <th>Jabatan</th>
-                                            <th>Satuan Organisasi</th>
-                                            <th>Tanggal Cuti</th>
-                                            <th>Alasan Cuti</th>
+                                            <th>Gaji</th>
+                                            <th>SK CPNS</th>
+                                            <th>SK PNS</th>
+                                            <th>SK Kenaikan Pangkat Terakhir</th>
+                                            <th>Gaji Berkala Sebelumnya</th>
+                                            <th>SKP 2tahun Terakhir</th>
+                                            <th>SK Mutasi</th>
+                                            <th>Surat Pengantar Unit Kerja</th>
                                             <th width="15%"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    
                                     </tbody>
                                 </table>
                             </div>
@@ -114,4 +137,4 @@
             
         </div>
     </section>
- @endsecton
+@endsecton

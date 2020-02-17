@@ -40,42 +40,42 @@
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="surat_permohonan" id="surat_permohonan" class="form-control" required="required" autocomplete="off">
+                                        <input type="file" name="surat_permohonan" id="surat_permohonan" class="form-control" required="required" autocomplete="off">
                                         <label class="form-label">Surat Permohonan</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="sk_cpns" id="sk_cpns" class="form-control" required="required" autocomplete="off">
+                                        <input type="file" name="sk_cpns" id="sk_cpns" class="form-control" required="required" autocomplete="off">
                                         <label class="form-label">SK Cpns</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="sk_pns" id="sk_pns" class="form-control" required="required" autocomplete="off">
+                                        <input type="file" name="sk_pns" id="sk_pns" class="form-control" required="required" autocomplete="off">
                                         <label class="form-label">SK Pns</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="sk_terakhir" id="sk_terakhir" class="form-control" required="required" autocomplete="off">
+                                        <input type="file" name="sk_terakhir" id="sk_terakhir" class="form-control" required="required" autocomplete="off">
                                         <label class="form-label">SK Terakhir</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="dp3" id="dp3" class="form-control" required="required" autocomplete="off">
+                                        <input type="file" name="dp3" id="dp3" class="form-control" required="required" autocomplete="off">
                                         <label class="form-label">DP3</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="surat_keterangan_pt" id="surat_keterangan_pt" class="form-control" required="required" autocomplete="off">
+                                        <input type="file" name="surat_keterangan_pt" id="surat_keterangan_pt" class="form-control" required="required" autocomplete="off">
                                         <label class="form-label">Surat Keterangan PT</label>
                                     </div>
                                 </div>

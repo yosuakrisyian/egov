@@ -342,10 +342,10 @@
                             </li>
 
                             <li>
-                                <a href="pages/ui/breadcrumbs.html">Kenaikan Pangkat</a>
+                                <a href="{{route('homeAdminKenaikanpangkat')}}">Kenaikan Pangkat</a>
                             </li>
                             <li>
-                                <a href="pages/ui/buttons.html">Kenaikan Gaji</a>
+                                <a href="{{route('homeAdminKenaikangaji')}}">Kenaikan Gaji</a>
                             </li>
                                                                                                      
                         </ul>

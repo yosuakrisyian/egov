@@ -5,7 +5,7 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title" id="defaultModalLabel">Masukan Data Izin Cuti</h4>
+                            <h4 class="modal-title" id="defaultModalLabel">Input Data Kenaikan Pangkat</h4>
                         </div>
                         <form method="post" action="">
                         <div class="modal-body">
@@ -25,13 +25,6 @@
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="pangkat_gol" id="pangkat_gol" class="form-control" required="required" autocomplete="off">
-                                        <label class="form-label">Pangkat Gol</label>
-                                    </div>
-                                </div>
-
-                                <div class="form-group form-float">
-                                    <div class="form-line">
                                         <input type="text" name="jabatan" id="jabatan" class="form-control" required="required" autocomplete="off">
                                         <label class="form-label">Jabatan</label>
                                     </div>
@@ -39,25 +32,52 @@
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="satuan_organisasi" id="satuan_organisasi" class="form-control" required="required" autocomplete="off">
-                                        <label class="form-label">Satuan Organisasi</label>
+                                        <input type="file" name="sk_cpns" id="sk_cpns" class="form-control" required="required" autocomplete="off">
+                                        <label class="form-label">SK CPNS</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="date" name="tanggal_cuti" id="tanggal_cuti" class="form-control" required="required" autocomplete="off">
-                                        <label class="form-label">Tanggal Cuti</label>
+                                        <input type="file" name="sk_pns" id="sk_pns" class="form-control" required="required" autocomplete="off">
+                                        <label class="form-label">SK PNS</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="alasan_cuti" id="alasan_cuti" class="form-control" required="required" autocomplete="off">
-                                        <label class="form-label">Alasan Cuti</label>
+                                        <input type="file" name="sk_pangkat_terakhir" id="sk_pangkat_terakhir" class="form-control" required="required" autocomplete="off">
+                                        <label class="form-label">Sk Pangkat Terakhir</label>
                                     </div>
                                 </div>
 
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="file" name="dp3_2tahun_terakhir" id="dp3_2tahun_terakhir" class="form-control" required="required" autocomplete="off">
+                                        <label class="form-label">DP3 2tahun Terakhir</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="file" name="karpeg" id="karpeg" class="form-control" required="required" autocomplete="off">
+                                        <label class="form-label">Karpeg</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="file" name="daftar_riwayat_pekerjaan" id="daftar_riwayat_pekerjaan" class="form-control" required="required" autocomplete="off">
+                                        <label class="form-label">Daftar Riwayat Pekerjan</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="file" name="nota_persetujuan_bkn" id="nota_persetujuan_bkn" class="form-control" required="required" autocomplete="off">
+                                        <label class="form-label">Nota Persetujuan BKN</label>
+                                    </div>
+                                </div>
 
                         </div>
                         <div class="modal-footer">
@@ -73,7 +93,7 @@
         <div class="container-fluid">
             <div class="block-header">
                 <h2>
-                    DATA IZIN CUTI
+                    DATA Kenaikan pangkat
                 </h2>
             </div>
             <!-- Basic Examples -->
@@ -82,7 +102,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                            <div class="text-left"> <button type="button" class="btn btn-right btn-success waves-effect" data-toggle="modal" data-target="#defaultModal">TAMBAH DATA</button></div>
+                            <div class="text-right"> <button type="button" class="btn btn-right btn-success waves-effect" data-toggle="modal" data-target="#defaultModal">TAMBAH DATA</button></div>
                             </h2>
                         </div>
                         <div class="body">
@@ -93,11 +113,14 @@
                                             <th>No.</th>
                                             <th>NIP</th>
                                             <th>Nama Lengkap</th>
-                                            <th>Pangkat Gol</th>
                                             <th>Jabatan</th>
-                                            <th>Satuan Organisasi</th>
-                                            <th>Tanggal Cuti</th>
-                                            <th>Alasan Cuti</th>
+                                            <th>SK CPNS</th>
+                                            <th>SK PNS</th>
+                                            <th>Sk Pangkat Terakhir</th>
+                                            <th>DP3 2tahun Terakhir</th>
+                                            <th>Karpeg</th>
+                                            <th>Daftar Riwayat Pekerjan</th>
+                                            <th>Nota Persetujuan BKN</th>
                                             <th width="15%"></th>
                                         </tr>
                                     </thead>
@@ -111,7 +134,6 @@
                 </div>
             </div>
             <!-- #END# Basic Examples -->
-            
         </div>
     </section>
- @endsecton
+@endsecton
