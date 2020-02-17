@@ -34,13 +34,8 @@ Route::get('/adminizinstudilanjut', 'AdminIzinstudilanjutController@index')->nam
 // route admin izin cuti
 Route::get('/adminizincuti', 'AdminIzincutiController@index')->name('homeAdminIzincuti');
 
-<<<<<<< HEAD
-// route admin kenaikan pangkat
+// route admin kenaikan pangkatg
 Route::get('/adminkenaikanpangkat', 'AdminKenaikanpangkatController@index')->name('homeAdminKenaikanpangkat');
 
 // route admin kenaikan gaji
 Route::get('/adminkenaikangaji', 'AdminKenaikangajiController@index')->name('homeAdminKenaikangaji');
-=======
-// route admin perilaku kerja
-Route::get('/adminperilakukerja', 'AdminPerilakukerjaController@index')->name('homeAdminPerilakukerja');
->>>>>>> d9c1cdf5cef571b1607a81180e77dec0a4a1dbe6
