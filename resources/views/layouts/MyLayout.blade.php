@@ -313,7 +313,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="pages/helper-classes.html">
+                        <a href="{{ route('homeAdminAtasan') }}">
                             <i class="material-icons">layers</i>
                             <span>Atasan</span>
                         </a>
