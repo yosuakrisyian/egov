@@ -30,3 +30,6 @@ Route::get('/adminizinstudilanjut', 'AdminIzinstudilanjutController@index')->nam
 
 // route admin izin cuti
 Route::get('/adminizincuti', 'AdminIzincutiController@index')->name('homeAdminIzincuti');
+
+// route admin perilaku kerja
+Route::get('/adminperilakukerja', 'AdminPerilakukerjaController@index')->name('homeAdminPerilakukerja');
