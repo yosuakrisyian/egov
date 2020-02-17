@@ -364,7 +364,7 @@
                                 <a href="pages/tables/jquery-datatable.html">Realisasi SKP</a>
                             </li>
                             <li>
-                                <a href="pages/tables/editable-table.html">Perhitung SKP</a>
+                                <a href="pages/tables/editable-table.html">Perhitungan SKP</a>
                             </li>
                             <li>
                                 <a href="pages/tables/editable-table.html">Lihat SKP</a>
