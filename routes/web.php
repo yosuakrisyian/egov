@@ -38,3 +38,6 @@ Route::get('/adminkenaikanpangkat', 'AdminKenaikanpangkatController@index')->nam
 
 // route admin kenaikan gaji
 Route::get('/adminkenaikangaji', 'AdminKenaikangajiController@index')->name('homeAdminKenaikangaji');
+
+// route admin kenaikan gaji
+Route::get('/adminperilakukerja', 'AdminPerilakukerjaController@index')->name('homeAdminPerilakukerja');
