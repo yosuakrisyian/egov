@@ -11,6 +11,20 @@
                 </h2>
             </div>
 
+            @if(session('adaAksi'))
+                @if(session('sukses'))
+                    <div class="alert bg-teal alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        {{ session('pesan') }}
+                    </div>
+                @else
+                    <div class="alert bg-pink alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        {{ session('pesan') }}
+                    </div>
+                @endif
+            @endif
+
             <!-- Basic Examples -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -20,127 +34,6 @@
                             <button type="button" class="btn bg-green waves-effect m-r-20" data-toggle="modal" data-target="#defaultModal">Tambah</button>
                             </h2>
                         </div>
-
-                        <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title" id="defaultModalLabel">DATA PEGAWAI</h4>
-                        </div>
-                        <form method="post" action="">
-                        <div class="modal-body">
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="nik_nip" id="nik_nip" required="required" autocomplete="off">
-                                        <label class="form-label">NIK/NIP</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="nama_lengkap" required="required" autocomplete="off">
-                                        <label class="form-label">Nama Lengkap</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="tempat_lahir" required="required" autocomplete="off">
-                                        <label class="form-label">Tempat Lahir</label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" class="datepicker form-control" name="tanggal_lahir" placeholder="Tanggal Lahir">
-                                    </div>
-                                </div>
-                                <div class="row clearfix">
-                                <div class="col-sm-6">
-                                    <select class="form-control show-tick" name="pangkat_gol" required="required" autocomplete="off">
-                                        <option value="">-- Pilih Pangkat Golongan --</option>
-                                        <option value="GOLONGAN IV (Pembina)">GOLONGAN IV (Pembina)</option>
-                                        <option value="GOLONGAN III (Penata)">GOLONGAN III (Penata)</option>
-                                        <option value="GOLONGAN II (Pengatur)">GOLONGAN II (Pengatur)</option>
-                                        <option value="GOLONGAN I (Juru)">GOLONGAN I (Juru)</option>
-                                        <option value="GOLONGAN II (Juru)">GOLONGAN II (Juru)</option>
-                                    </select>
-                                </div>
-                                </div><br>
-                                <div class="row clearfix">
-                                <div class="col-sm-6">
-                                    <select class="form-control show-tick" name="jabatan" required="required" autocomplete="off">
-                                        <option value="">-- Pilih Jabatan --</option>
-                                        <option value="Manager">Manager</option>
-                                        <option value="Sekretaris">Sekretaris</option>
-                                        <option value="OB">OB</option>
-                                        <option value="CEO">CEO</option>
-                                        <option value="Bendahara">Bendahara</option>
-                                    </select>
-                                </div>
-                                </div><br>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="nama_jalan" required="required" autocomplete="off">
-                                        <label class="form-label">Nama Jalan</label>
-                                    </div>
-                                </div>
-                                <div class="row clearfix">
-                                <div class="col-sm-6">
-                                    <select class="form-control show-tick" name="provinsi" required="required" autocomplete="off">
-                                        <option value="">-- Pilih Provinsi --</option>
-                                        <option value="Lampung">Lampung</option>
-                                        <option value="Aceh">Aceh</option>
-                                        <option value="Bengkulu">Bengkulu</option>
-                                        <option value="Papua">Papua</option>
-                                        <option value="Jambi">Jambi</option>
-                                    </select>
-                                </div>
-                                </div><br>
-                                <div class="row clearfix">
-                                <div class="col-sm-6">
-                                    <select class="form-control show-tick" name="kabupaten" required="required" autocomplete="off">
-                                        <option value="">-- Pilih Kabupaten --</option>
-                                        <option value="Pringsewu">Pringsewu</option>
-                                        <option value="Pesawaran">Pesawaran</option>
-                                        <option value="Bandar Lampung">Bandar Lampung</option>
-                                        <option value="Metro">Metro</option>
-                                        <option value="Mesuji">Mesuji</option>
-                                    </select>
-                                </div>
-                                </div><br>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="kode_pos" required="required" autocomplete="off">
-                                        <label class="form-label">Kode Pos</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="notelp" required="required" autocomplete="off">
-                                        <label class="form-label">No Telpon</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="email" class="form-control" name="email" required="required" autocomplete="off">
-                                        <label class="form-label">Email</label>
-                                    </div>
-                                </div>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <label class="form-label">Pas Foto</label><br>
-                                        <input type="file" class="form-control" name="pasfoto" id="pasfoto" onchange="simpanFoto()" required>
-                                    </div>
-                                </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-link waves-effect">SIMPAN</button>
-                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
-                        </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            
 
                         <div class="body">
                             <div class="table-responsive">
@@ -153,46 +46,121 @@
                                             <th>Tanggal Lahir</th>
                                             <th>Pangkat/Golongan</th>
                                             <th>Jabatan</th>
-                                            <th></th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     
-                                    <tbody> </tbody>
+                                    <tbody>
+                                        @foreach($datas as $data)
+                                            <tr>
+                                                <td>{{ $data->nik }}</td>
+                                                <td>{{ $data->name }}</td>
+                                                <td>{{ $data->tempatLahir }}</td>
+                                                <td>{{ $data->tanggalLahir }}</td>
+                                                <td>{{ $data->pangkat }}</td>
+                                                <td>{{ $data->jabatan }}</td>
+                                                <td>
+                                                    <a href="{{ route('formeditpegawai', $data->nik) }}">
+                                                        <button class="btn btn-warning">Edit</button>
+                                                    </a>
+                                                    <a href="{{ route('deletepegawai', $data->nik) }}">
+                                                        <button onClick="return konfirmasi()" class="btn btn-danger">Delete</button>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
             <!-- #END# Basic Examples -->
         </div>
     </section>
 
-    <script>
-    function simpanFoto(){
-        var nip = document.getElementById("nik_nip").value;
-        var fileSelect = document.getElementById("pasfoto");
-        var files = fileSelect.files[0];
-        form_data = new FormData(); // added
-        form_data.append('nip', nip); // added
-        form_data.append('pasfoto', files); // added
-        console.log(nip);
-        //console.log(files);
-        
-            $.ajax({
-            type: 'POST',
-            data: form_data,
-            url: 'http://egov.ubl.ac.id/ApiEgov/Admin/addBiodata',
-            contentType : false, // added
-            processData : false, // added
-            success: function(data) {
-                console.log("Success");
-            },
-                error: function(xhr, ajaxOptions, thrownError) {
-                    alert(xhr.responseText);
-                        console.log("Error !");
-                    }
-            });
-        }
-    </script>
- @endsecton                  
+    <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="defaultModalLabel">Input Data Pegawai</h4>
+                </div>
+                <form method="post" action="{{ route('inputpegawai') }}">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="text" name="nik" id="nip" class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">NIK</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="text" name="name" id="nama_lengkap" class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">Nama Lengkap</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="text" name="email" id="email" class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">E-Mail</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="text" name="tempatLahir" class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">Tempat Lahir</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="date" name="tanggalLahir" class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">Tanggal Lahir</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-line">
+                                <label class="form-label">Jabatan</label>
+                                <select class="form-control" name="jabatan">
+                                    <option value="Kepala Dinas">Kepala Dinas</option>
+                                    <option value="Kepala Biro">Kepala Biro</option>
+                                    <option value="Kepala Bagian">Kepala Bagian</option>
+                                    <option value="Sekretaris">Sekretaris</option>
+                                    <option value="Bendahara">Bendahara</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-line">
+                                <label class="form-label">Pangkat/Golongan</label>
+                                <select class="form-control" name="pangkat">
+                                    <option value="IIA">IIA</option>
+                                    <option value="IIA">IIB</option>
+                                    <option value="IIA">IIC</option>
+                                    <option value="IIA">IID</option>
+                                    <option value="IIA">IIIA</option>
+                                    <option value="IIA">IIIB</option>
+                                    <option value="IIA">IIIC</option>
+                                    <option value="IIA">IIID</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-link waves-effect">SIMPAN</button>
+                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+ @endsection                

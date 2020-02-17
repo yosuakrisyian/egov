@@ -358,10 +358,10 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="pages/tables/normal-tables.html">Target SKP</a>
+                                <a href="{{url('targetskp')}}">Target SKP level</a>
                             </li>
                             <li>
-                                <a href="pages/tables/jquery-datatable.html">Realisasi SKP</a>
+                                <a href="{{route('homeAdminRealisasiSkp')}}">Realisasi SKP</a>
                             </li>
                             <li>
                                 <a href="pages/tables/editable-table.html">Perhitungan SKP</a>
@@ -546,7 +546,17 @@
     </section>
 
     @yield('content')
-
+    <script type="text/javascript" language="javascript">
+        function konfirmasi () {
+            var pilihan = confirm ("Apakah Anda Yakin ?");
+            if(pilihan){
+                return true
+                }else{
+                alert ("Proses Di Batalkan")
+                return false
+                }
+        }
+    </script>
     <!-- Jquery Core Js -->
     <script src="{{ url('plugins/jquery/jquery.min.js')}}"></script>
 
@@ -554,7 +564,7 @@
     <script src="{{ url('plugins/bootstrap/js/bootstrap.js')}}"></script>
 
     <!-- Select Plugin Js -->
-    <script src="{{ url('plugins/bootstrap-select/js/bootstrap-select.js')}}"></script>
+    <!-- <script src="{{ url('plugins/bootstrap-select/js/bootstrap-select.js')}}"></script> -->
 
     <!-- Slimscroll Plugin Js -->
     <script src="{{ url('plugins/jquery-slimscroll/jquery.slimscroll.js')}}"></script>

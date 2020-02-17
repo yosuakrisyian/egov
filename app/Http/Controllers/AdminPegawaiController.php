@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\User;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminPegawaiController extends Controller
 {
@@ -13,7 +15,8 @@ class AdminPegawaiController extends Controller
      */
     public function index()
     {
-        return view('admin.pegawai.pegawai');
+        $datas = User::where('level', 2)->paginate(5);
+        return view('admin.pegawai.pegawai')->with(['datas' => $datas]);
     }
 
     /**
@@ -23,7 +26,8 @@ class AdminPegawaiController extends Controller
      */
     public function create()
     {
-        //
+        
+        // return view('admin.pegawai.forminputpegawai')-with(['datas' => $datas]);
     }
 
     /**
@@ -34,7 +38,23 @@ class AdminPegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['password'] = Hash::make($data['nik']);
+        // $data['level'] = 3;
+        
+        $input = User::create($data);
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($input) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Input Pegawai';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Input Pegawai';
+        }
+
+        return back()->with($respon);
+        
     }
 
     /**
@@ -43,9 +63,10 @@ class AdminPegawaiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($nik)
     {
-        //
+        $data = User::where('nik', $nik)->first();
+        return view('admin.pegawai.formeditpegawai')->with(['data' => $data]);
     }
 
     /**
@@ -66,9 +87,22 @@ class AdminPegawaiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $nik)
     {
-        //
+        $data=$request->all();
+        unset($data['_token']);
+        $update = User::where('nik', $nik)->update($data);
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($update) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Edit Pegawai';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Edit Pegawai';
+        }
+
+        return redirect()->route('homeAdminPegawai')->with($respon);
     }
 
     /**
@@ -77,8 +111,20 @@ class AdminPegawaiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($nik)
     {
-        //
+        $delete = User::where('nik', $nik)->delete();
+
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($delete) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Hapus Pegawai';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Hapus Pegawai';
+        }
+
+        return redirect()->route('homeAdminPegawai')->with($respon);
     }
 }
