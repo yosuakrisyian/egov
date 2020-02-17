@@ -32,49 +32,49 @@
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="sk_cpns" id="sk_cpns" class="form-control" required="required" autocomplete="off">
+                                        <input type="file" name="sk_cpns" id="sk_cpns" class="form-control" required="required" autocomplete="off">
                                         <label class="form-label">SK CPNS</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="sk_pns" id="sk_pns" class="form-control" required="required" autocomplete="off">
+                                        <input type="file" name="sk_pns" id="sk_pns" class="form-control" required="required" autocomplete="off">
                                         <label class="form-label">SK PNS</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="sk_pangkat_terakhir" id="sk_pangkat_terakhir" class="form-control" required="required" autocomplete="off">
+                                        <input type="file" name="sk_pangkat_terakhir" id="sk_pangkat_terakhir" class="form-control" required="required" autocomplete="off">
                                         <label class="form-label">Sk Pangkat Terakhir</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="dp3_2tahun_terakhir" id="dp3_2tahun_terakhir" class="form-control" required="required" autocomplete="off">
+                                        <input type="file" name="dp3_2tahun_terakhir" id="dp3_2tahun_terakhir" class="form-control" required="required" autocomplete="off">
                                         <label class="form-label">DP3 2tahun Terakhir</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="karpeg" id="karpeg" class="form-control" required="required" autocomplete="off">
+                                        <input type="file" name="karpeg" id="karpeg" class="form-control" required="required" autocomplete="off">
                                         <label class="form-label">Karpeg</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="daftar_riwayat_pekerjaan" id="daftar_riwayat_pekerjaan" class="form-control" required="required" autocomplete="off">
+                                        <input type="file" name="daftar_riwayat_pekerjaan" id="daftar_riwayat_pekerjaan" class="form-control" required="required" autocomplete="off">
                                         <label class="form-label">Daftar Riwayat Pekerjan</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="nota_persetujuan_bkn" id="nota_persetujuan_bkn" class="form-control" required="required" autocomplete="off">
+                                        <input type="file" name="nota_persetujuan_bkn" id="nota_persetujuan_bkn" class="form-control" required="required" autocomplete="off">
                                         <label class="form-label">Nota Persetujuan BKN</label>
                                     </div>
                                 </div>

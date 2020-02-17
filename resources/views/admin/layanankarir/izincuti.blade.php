@@ -46,7 +46,7 @@
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="tanggal_cuti" id="tanggal_cuti" class="form-control" required="required" autocomplete="off">
+                                        <input type="date" name="tanggal_cuti" id="tanggal_cuti" class="form-control" required="required" autocomplete="off">
                                         <label class="form-label">Tanggal Cuti</label>
                                     </div>
                                 </div>
