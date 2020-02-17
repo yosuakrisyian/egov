@@ -27,3 +27,6 @@ Route::get('/adminpegawai', 'AdminPegawaiController@index')->name('homeAdminPega
 
 // route admin izin studi lanjut
 Route::get('/adminizinstudilanjut', 'AdminIzinstudilanjutController@index')->name('homeAdminIzinstudilanjut');
+
+// route admin izin cuti
+Route::get('/adminizincuti', 'AdminIzincutiController@index')->name('homeAdminIzincuti');

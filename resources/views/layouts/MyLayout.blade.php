@@ -335,10 +335,10 @@
                                 <a href="pages/ui/alerts.html">Rencana Karir</a>
                             </li>
                             <li>
-                                <a href="{{route('homeAdminPegawai')}}">Izin Studi Lanjut</a>
+                                <a href="{{route('homeAdminIzinstudilanjut')}}">Izin Studi Lanjut</a>
                             </li>
                             <li>
-                                <a href="pages/ui/badges.html">Izin Cuti</a>
+                                <a href="{{route('homeAdminIzincuti')}}">Izin Cuti</a>
                             </li>
 
                             <li>

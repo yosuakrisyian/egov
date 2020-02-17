@@ -1,12 +1,11 @@
- @extends('layouts.MyLayout')
+@extends('layouts.MyLayout')
 @section('content')
- 
- <!-- Default Size -->
+
  <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title" id="defaultModalLabel">Masukan Data Izin Studi Lanjut</h4>
+                            <h4 class="modal-title" id="defaultModalLabel">Masukan Data Izin Cuti</h4>
                         </div>
                         <form method="post" action="">
                         <div class="modal-body">
@@ -40,43 +39,22 @@
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="surat_permohonan" id="surat_permohonan" class="form-control" required="required" autocomplete="off">
-                                        <label class="form-label">Surat Permohonan</label>
+                                        <input type="text" name="satuan_organisasi" id="satuan_organisasi" class="form-control" required="required" autocomplete="off">
+                                        <label class="form-label">Satuan Organisasi</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="sk_cpns" id="sk_cpns" class="form-control" required="required" autocomplete="off">
-                                        <label class="form-label">SK Cpns</label>
+                                        <input type="text" name="tanggal_cuti" id="tanggal_cuti" class="form-control" required="required" autocomplete="off">
+                                        <label class="form-label">Tanggal Cuti</label>
                                     </div>
                                 </div>
 
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="sk_pns" id="sk_pns" class="form-control" required="required" autocomplete="off">
-                                        <label class="form-label">SK Pns</label>
-                                    </div>
-                                </div>
-
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="sk_terakhir" id="sk_terakhir" class="form-control" required="required" autocomplete="off">
-                                        <label class="form-label">SK Terakhir</label>
-                                    </div>
-                                </div>
-
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="dp3" id="dp3" class="form-control" required="required" autocomplete="off">
-                                        <label class="form-label">DP3</label>
-                                    </div>
-                                </div>
-
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="surat_keterangan_pt" id="surat_keterangan_pt" class="form-control" required="required" autocomplete="off">
-                                        <label class="form-label">Surat Keterangan PT</label>
+                                        <input type="text" name="alasan_cuti" id="alasan_cuti" class="form-control" required="required" autocomplete="off">
+                                        <label class="form-label">Alasan Cuti</label>
                                     </div>
                                 </div>
 
@@ -95,7 +73,7 @@
         <div class="container-fluid">
             <div class="block-header">
                 <h2>
-                    Data Izin Studi Lanjut
+                    DATA IZIN CUTI
                 </h2>
             </div>
             <!-- Basic Examples -->
@@ -117,16 +95,14 @@
                                             <th>Nama Lengkap</th>
                                             <th>Pangkat Gol</th>
                                             <th>Jabatan</th>
-                                            <th>Surat Permohonan</th>
-                                            <th>SK CPNS</th>
-                                            <th>SK PNS</th>
-                                            <th>SK Terakhir</th>
-                                            <th>DP3</th>
-                                            <th>Surat Keterangan PT</th>
+                                            <th>Satuan Organisasi</th>
+                                            <th>Tanggal Cuti</th>
+                                            <th>Alasan Cuti</th>
                                             <th width="15%"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    
                                     </tbody>
                                 </table>
                             </div>
