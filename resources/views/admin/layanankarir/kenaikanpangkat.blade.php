@@ -81,8 +81,8 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-link waves-effect">SIMPAN</button>
-                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                            <button type="submit" class="btn btn-link waves-effect">Ajukan</button>
+                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Batal</button>
                         </div>
                         </form>
                     </div>
