@@ -28,6 +28,16 @@ class LoginController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
+    protected function redirectTo()
+    {
+        if (auth()->user()->level == 1) {
+            return '/home';
+        } else {
+            return '/pegawai';
+        }
+        return '/home';
+    }
+
     /**
      * Create a new controller instance.
      *
