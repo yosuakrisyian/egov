@@ -25,6 +25,10 @@ Route::group(['middleware' => ['auth','ceklevel:1']], function(){
 
     // route admin golongan
     Route::get('/admingolongan', 'AdminGolonganController@index')->name('homeAdminGolongan');
+    Route::post('/admingolongan/inputgolongan', 'AdminGolonganController@store')->name('inputgolongan');
+    Route::get('/admingolongan/formedit/{nik}', 'AdminGolonganController@show')->name('formeditgolongan');
+    Route::post('/admingolongan/update/{nik}', 'AdminGolonganController@update')->name('updategolongan');
+    Route::get('/admingolongan/delete/{nik}', 'AdminGolonganController@destroy')->name('deletegolongan');
 
     // route admin pegawai
     Route::get('/adminpegawai', 'AdminPegawaiController@index')->name('homeAdminPegawai');

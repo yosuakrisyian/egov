@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Golongan;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class AdminGolonganController extends Controller
      */
     public function index()
     {
-        return view('admin.golongan.golongan');
+        $datas = Golongan::paginate(5);
+        return view('admin.golongan.golongan')->with(['datas' => $datas]);
     }
 
     /**
@@ -34,7 +36,22 @@ class AdminGolonganController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        //$data['password'] = Hash::make($data['id_golongan']);
+        // $data['level'] = 3;
+        
+        $input = Golongan::create($data);
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($input) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Input Golongan';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Input Golongan';
+        }
+
+        return back()->with($respon);
     }
 
     /**
@@ -45,7 +62,8 @@ class AdminGolonganController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Golongan::where('id_golongan', $id)->first();
+        return view('admin.golongan.formeditgolongan')->with(['data' => $data]);
     }
 
     /**
@@ -68,7 +86,20 @@ class AdminGolonganController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data=$request->all();
+        unset($data['_token']);
+        $update = Golongan::where('id_golongan', $id)->update($data);
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($update) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Edit Golongan';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Edit Golongan';
+        }
+
+        return redirect()->route('homeAdminGolongan')->with($respon);
     }
 
     /**
@@ -79,6 +110,18 @@ class AdminGolonganController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $delete = Golongan::where('id_golongan', $id)->delete();
+
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($delete) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Hapus Golongan';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Hapus Golongan';
+        }
+
+        return redirect()->route('homeAdminGolongan')->with($respon);
     }
 }

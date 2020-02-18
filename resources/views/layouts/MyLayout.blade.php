@@ -301,7 +301,7 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="active">
-                        <a href="index.html">
+                        <a href="{{route('home')}}">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
