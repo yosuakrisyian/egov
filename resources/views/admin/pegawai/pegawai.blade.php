@@ -44,8 +44,12 @@
                                             <th>Nama Lengkap</th>
                                             <th>Tempat Lahir</th>
                                             <th>Tanggal Lahir</th>
-                                            <th>Pangkat/Golongan</th>
+                                            <th>Golongan</th>
                                             <th>Jabatan</th>
+                                            <th>Alamat</th>
+                                            <th>Provinsi</th>
+                                            <th>Kabupaten</th>
+                                            <th>No Telp</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -57,8 +61,12 @@
                                                 <td>{{ $data->name }}</td>
                                                 <td>{{ $data->tempatLahir }}</td>
                                                 <td>{{ $data->tanggalLahir }}</td>
-                                                <td>{{ $data->pangkat }}</td>
+                                                <td>{{ $data->golongan }}</td>
                                                 <td>{{ $data->jabatan }}</td>
+                                                <td>{{ $data->alamat }}</td>
+                                                <td>{{ $data->provinsi }}</td>
+                                                <td>{{ $data->kabupaten }}</td>
+                                                <td>{{ $data->notelp }}</td>
                                                 <td>
                                                     <a href="{{ route('formeditpegawai', $data->nik) }}">
                                                         <button class="btn btn-warning">Edit</button>
@@ -125,32 +133,61 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group form-float">
                             <div class="form-line">
                                 <label class="form-label">Jabatan</label>
                                 <select class="form-control" name="jabatan">
                                     <option value="Kepala Dinas">Kepala Dinas</option>
                                     <option value="Kepala Biro">Kepala Biro</option>
                                     <option value="Kepala Bagian">Kepala Bagian</option>
-                                    <option value="Sekretaris">Sekretaris</option>
-                                    <option value="Bendahara">Bendahara</option>
+                                    <option value="Sekretaris">Kelapa Sub Bagian</option>
+                                    <option value="Sekretaris">Kelapa Seksi</option>
+                                    <option value="Bendahara">Staff Fungsional Umum</option>
                                 </select>
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group form-float">
                             <div class="form-line">
-                                <label class="form-label">Pangkat/Golongan</label>
-                                <select class="form-control" name="pangkat">
-                                    <option value="IIA">IIA</option>
-                                    <option value="IIA">IIB</option>
-                                    <option value="IIA">IIC</option>
-                                    <option value="IIA">IID</option>
+                                <label class="form-label">Golongan</label>
+                                <select class="form-control" name="golongan">
+                                    <option value="IA">IIA</option>
+                                    <option value="IB">IIB</option>
+                                    <option value="IC">IIC</option>
+                                    <option value="ID">IID</option>
                                     <option value="IIA">IIIA</option>
-                                    <option value="IIA">IIIB</option>
-                                    <option value="IIA">IIIC</option>
-                                    <option value="IIA">IIID</option>
+                                    <option value="IIB">IIIB</option>
+                                    <option value="IIC">IIIC</option>
+                                    <option value="IID">IIID</option>
                                 </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="text" name="alamat" class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">Alamat</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="text" name="provinsi" class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">Provinsi</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="text" name="kabupaten" class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">Kabupaten</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="number" name="notelp" maxlength="13" class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">notelp</label>
                             </div>
                         </div>
                     </div>
