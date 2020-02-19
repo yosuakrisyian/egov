@@ -32,10 +32,14 @@ class LoginController extends Controller
     {
         if (auth()->user()->level == 1) {
             return '/home';
+        } else if (auth()->user()->level == 2) {
+            return '/user/pegawai';
+        } else if  (auth()->user()->level == 3) {
+            return '/user/penilai';
         } else {
-            return '/pegawai';
+            return '/atasan';
         }
-        return '/home';
+        // return '/home';
     }
 
     /**

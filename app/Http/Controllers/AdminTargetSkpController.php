@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\TargetSKP;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class AdminTargetSkpController extends Controller
      */
     public function index()
     {
-        return view('admin.kinerja.targetskp');
+        $datas = TargetSKP::paginate(5);
+        return view('admin.kinerja.targetskp')->with(['datas' => $datas]);
     }
 
     /**
@@ -23,7 +25,7 @@ class AdminTargetSkpController extends Controller
      */
     public function create()
     {
-        return view('admin.kinerja.forminputtargetskp');
+        
     }
 
     /**
@@ -34,7 +36,23 @@ class AdminTargetSkpController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        //$data['password'] = Hash::make($data['id_golongan']);
+        // $data['level'] = 3;
+
+        
+        $input = TargetSKP::create($data);
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($input) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Input Target SKP';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Input Target SKP';
+        }
+
+        return back()->with($respon);
     }
 
     /**
@@ -43,9 +61,10 @@ class AdminTargetSkpController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($nik_nip)
     {
-        //
+        $data = TargetSKP::where('nik_nip', $nik_nip)->first();
+        return view('admin.kinerja.formedittargetskp')->with(['data' => $data]);
 
 
     }
@@ -68,9 +87,22 @@ class AdminTargetSkpController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $nik_nip)
     {
-        //
+        $data=$request->all();
+        unset($data['_token']);
+        $update = TargetSKP::where('nik_nip', $nik_nip)->update($data);
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($update) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Edit Target Skp';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Edit Target SKP';
+        }
+
+        return redirect()->route('homeAdmintargetskp')->with($respon);
     }
 
     /**
@@ -79,8 +111,20 @@ class AdminTargetSkpController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($nik_nip)
     {
-        //
+        $delete = TargetSKP::where('nik_nip', $nik_nip)->delete();
+
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($delete) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Hapus Target SKP';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Hapus Target SKP';
+        }
+
+        return redirect()->route('homeAdmintargetskp')->with($respon);
     }
 }

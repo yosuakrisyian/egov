@@ -60,12 +60,24 @@
                                                 <td>{{ $data->nama_lengkap }}</td>
                                                 <td>{{ $data->pangkat_gol }}</td>
                                                 <td>{{ $data->jabatan }}</td>
-                                                <td>{{ $data->surat_permohonan }}</td>
-                                                <td>{{ $data->sk_cpns }}</td>
-                                                <td>{{ $data->sk_pns }}</td>
-                                                <td>{{ $data->sk_terakhir }}</td>
-                                                <td>{{ $data->dp3 }}</td>
-                                                <td>{{ $data->surat_keterangan_pt }}</td>
+                                                <td>
+                                                    <button onClick="showSuratPermohonan({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
+                                                </td>
+                                                <td>
+                                                    <button onClick="showSkCpns({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
+                                                </td>
+                                                <td>
+                                                    <button onClick="showSkPns({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
+                                                </td>
+                                                <td>
+                                                    <button onClick="showSKTerakhir({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
+                                                </td>
+                                                <td>
+                                                    <button onClick="showDP3({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
+                                                </td>
+                                                <td>
+                                                <button onClick="showSuratKeteranganPT({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
+                                                </td>
                                                 <td>
                                                     <a href="{{ route('formeditizinstudilanjut', $data->nik_nip) }}">
                                                         <button class="btn btn-warning">Edit</button>
@@ -94,7 +106,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title" id="defaultModalLabel">Input Data Izin Studi Lanjut</h4>
                 </div>
-                <form method="post" action="{{ route('inputizinstudilanjut') }}">
+                <form method="post" action="{{ route('inputizinstudilanjut') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group form-float">
@@ -127,42 +139,42 @@
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" name="surat_permohonan" class="form-control" required="required" autocomplete="off">
+                                <input type="file" name="surat_permohonan" class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">Surat Permohonan</label>
                             </div>
                         </div>
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" name="sk_cpns" class="form-control" required="required" autocomplete="off">
+                                <input type="file" name="sk_cpns" class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">SK CPNS</label>
                             </div>
                         </div>
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" name="sk_pns" class="form-control" required="required" autocomplete="off">
+                                <input type="file" name="sk_pns" class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">SK PNS</label>
                             </div>
                         </div>
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" name="sk_terakhir" class="form-control" required="required" autocomplete="off">
+                                <input type="file" name="sk_terakhir" class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">SK Terakhir</label>
                             </div>
                         </div>
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text"  name="dp3" class="form-control" required="required" autocomplete="off">
+                                <input type="file"  name="dp3" class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">DP3</label>
                             </div>
                         </div>
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" name="surat_keterangan_pt" class="form-control" required="required" autocomplete="off">
+                                <input type="file" name="surat_keterangan_pt" class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">Surat Keterangan PT</label>
                             </div>
                         </div>
@@ -176,5 +188,44 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade bs-example-modal-lg1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Gambar</h4>
+            </div>
+            <div class="modal-body">
+                <img width="100%" id="image" class="img-responsive" alt="">
+            </div>
+            <div id="btn-verf1" class="modal-footer">
+            </div>
+
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" language="javascript">
+function showSuratPermohonan (data) {
+    $("#image").attr("src","{!! url('upload/" + data.surat_permohonan + "') !!}")
+}
+function showSkCpns (data) {
+    $("#image").attr("src","{!! url('upload/" + data.sk_cpns + "') !!}")
+}
+function showSkPns (data) {
+    $("#image").attr("src","{!! url('upload/" + data.sk_pns + "') !!}")
+}
+function showSKTerakhir (data) {
+    $("#image").attr("src","{!! url('upload/" + data.sk_terakhir + "') !!}")
+}
+function showDP3 (data) {
+    $("#image").attr("src","{!! url('upload/" + data.dp3 + "') !!}")
+}
+function showSuratKeteranganPT (data) {
+    $("#image").attr("src","{!! url('upload/" + data.surat_keterangan_PT + "') !!}")
+}
+</script>
 
  @endsection

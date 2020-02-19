@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TargetSKP extends Model
+class RealisasiSKP extends Model
 {
-    protected $table = 'tb_targetskp';
+    protected $table = 'tb_realisasiskp';
     protected $fillable = [
         'nik_nip',
         'nama',

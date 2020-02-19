@@ -2,11 +2,21 @@
 
 namespace App\Http\Controllers;
 use App\Izinstudilanjut;
-
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AdminIzinstudilanjutController extends Controller
 {
+    public $messages = [
+        'required' => 'Harap Isi :attribute Anda',
+        'mimes' => 'Format Gambar Harus jpeg, png, jpg',
+        'image' => 'File Harus Berisi Gambar',
+        'max' => 'Gambar Tidak Boleh Lebih Dari 2 Mb'
+    ];
+    public $rulesGambar = [
+        'surat_permohonan' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -36,23 +46,65 @@ class AdminIzinstudilanjutController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        //$data['password'] = Hash::make($data['id_golongan']);
-        // $data['level'] = 3;
-
-        
-        $input = Izinstudilanjut::create($data);
-        $respon = array();
-        $respon['adaAksi'] = true;
-        if ($input) {
-            $respon['sukses'] = true;
-            $respon['pesan'] = 'Berhasil Input Izin Studi Lanjut';
+        $validator = Validator::make($request->allFiles(), $this->rulesGambar, $this->messages);
+        if ($validator->fails()) {
+            return redirect()
+                        ->back()
+                        ->withErrors($validator)
+                        ->withInput();
         } else {
-            $respon['sukses'] = false;
-            $respon['pesan'] = 'Gagal Input Izin Studi Lanjut';
-        }
+            $data = $request->all();
+            // upload surat permohonan
+            $fileSuratPermohonan = $request->file('surat_permohonan');
+            $nameSuratPermohonan = Str::random(32) . round(microtime(true)) . '.' . $fileSuratPermohonan->guessExtension();
+            $fileSuratPermohonan->move('upload', $nameSuratPermohonan);
+            $data['surat_permohonan'] = $nameSuratPermohonan;
 
-        return back()->with($respon);
+            // upload 
+            $fileSkCpns = $request->file('sk_cpns');
+            $nameSkCpns = Str::random(32) . round(microtime(true)) . '.' . $fileSkCpns->guessExtension();
+            $fileSkCpns->move('upload', $nameSkCpns);
+            $data['sk_cpns'] = $nameSkCpns;
+
+            // upload 
+            $fileSkpns = $request->file('sk_pns');
+            $nameSkpns = Str::random(32) . round(microtime(true)) . '.' . $fileSkpns->guessExtension();
+            $fileSkpns->move('upload', $nameSkpns);
+            $data['sk_pns'] = $nameSkpns;
+
+            // upload 
+            $fileskterakhir = $request->file('sk_terakhir');
+            $nameskterakhir = Str::random(32) . round(microtime(true)) . '.' . $fileskterakhir->guessExtension();
+            $fileskterakhir->move('upload', $nameskterakhir);
+            $data['sk_terakhir'] = $nameskterakhir;
+
+            // upload 
+            $fileDP3 = $request->file('dp3');
+            $nameDP3 = Str::random(32) . round(microtime(true)) . '.' . $fileDP3->guessExtension();
+            $fileDP3->move('upload', $nameDP3);
+            $data['dp3'] = $nameDP3;
+
+            // upload 
+            $fileskpt = $request->file('surat_keterangan_pt');
+            $nameskpt = Str::random(32) . round(microtime(true)) . '.' . $fileskpt->guessExtension();
+            $fileskpt->move('upload', $nameskpt);
+            $data['surat_keterangan_pt'] = $nameskpt;
+
+           $input = Izinstudilanjut::create($data);
+            $respon = array();
+            $respon['adaAksi'] = true;
+            if ($input) {
+                $respon['sukses'] = true;
+                $respon['pesan'] = 'Berhasil Input Izin Studi Lanjut';
+            } else {
+                $respon['sukses'] = false;
+                $respon['pesan'] = 'Gagal Input Izin Studi Lanjut';
+            }
+
+            return back()->with($respon);
+        }
+        
+
     }
 
     /**

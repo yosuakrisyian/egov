@@ -11,7 +11,7 @@
 |
 */
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -55,28 +55,35 @@ Route::group(['middleware' => ['auth','ceklevel:1']], function(){
     Route::get('/adminperilakukerja', 'AdminPerilakukerjaController@index')->name('homeAdminPerilakukerja');
 
     // route admin target skp
-    Route::get('/targetskp', 'AdminTargetSkpController@index')->name('targetSkp');
-    Route::get('/targetskp/forminput', 'AdminTargetSkpController@create')->name('forminputskp');
+    Route::get('/admintargetskp', 'AdminTargetSkpController@index')->name('homeAdmintargetskp');
+    Route::post('/admintargetskp/inputtargetskp', 'AdminTargetSkpController@store')->name('inputtargetskp');
+    Route::get('/admintargetskp/formedit/{nik}', 'AdminTargetSkpController@show')->name('formedittargetskp');
+    Route::post('/admintargetskp/update/{nik}', 'AdminTargetSkpController@update')->name('updatetargetskp');
+    Route::get('/admintargetskp/delete/{nik}', 'AdminTargetSkpController@destroy')->name('deletetargetskp');
 
     // route admin realisasi skp
     Route::get('/adminrealisasiskp', 'AdminRealisasiSkpController@index')->name('homeAdminRealisasiSkp');
+    Route::post('/adminrealisasiskp/inputrealisasiskp', 'AdminRealisasiSkpController@store')->name('inputrealisasiskp');
+    Route::get('/adminrealisasiskp/formedit/{nik}', 'AdminRealisasiSkpController@show')->name('formeditrealisasiskp');
+    Route::post('/adminrealisasiskp/update/{nik}', 'AdminRealisasiSkpController@update')->name('updaterealisasiskp');
+    Route::get('/adminrealisasiskp/delete/{nik}', 'AdminRealisasiSkpController@destroy')->name('deleterealisasiskp');
+
+    // route admin kenaikan pangkat
+    Route::get('/adminkenaikanpangkat', 'AdminKenaikanpangkatController@index')->name('homeAdminKenaikanpangkat');
+    Route::post('/adminkenaikanpangkat/inputkenaikanpangkat', 'AdminKenaikanpangkatController@store')->name('inputkenaikanpangkat');
+    Route::get('/adminkenaikanpangkat/formedit/{nik}', 'AdminKenaikanpangkatController@show')->name('formeditkenaikanpangkat');
+    Route::post('/adminkenaikanpangkat/update/{nik}', 'AdminKenaikanpangkatController@update')->name('updatekenaikanpangkat');
+    Route::get('/adminkenaikanpangkat/delete/{nik}', 'AdminKenaikanpangkatController@destroy')->name('deletekenaikanpangkat');
+
+    // route admin kenaikan gaji
+    Route::get('/adminkenaikangaji', 'AdminKenaikangajiController@index')->name('homeAdminKenaikangaji');
+    Route::post('/adminkenaikangaji/inputkenaikangaji', 'AdminKenaikangajiController@store')->name('inputkenaikangaji');
+    Route::get('/adminkenaikangaji/formedit/{nik}', 'AdminKenaikangajiController@show')->name('formeditkenaikangaji');
+    Route::post('/adminkenaikangaji/update/{nik}', 'AdminKenaikangajiController@update')->name('updatekenaikangaji');
+    Route::get('/adminkenaikangaji/delete/{nik}', 'AdminKenaikangajiController@destroy')->name('deletekenaikangaji');
 });
 
+// route jalurnya pegawai
 Route::group(['middleware' => ['auth','ceklevel:2']], function(){
-    // Route::get('/adminpegawai', 'AdminPegawaiController@index')->name('homeAdminPegawai');
+    Route::get('/user/pegawai', 'PegawaiController@index')->name('homePegawai');
 });
-// route admin kenaikan pangkat
-Route::get('/adminkenaikanpangkat', 'AdminKenaikanpangkatController@index')->name('homeAdminKenaikanpangkat');
-Route::post('/adminkenaikanpangkat/inputkenaikanpangkat', 'AdminKenaikanpangkatController@store')->name('inputkenaikanpangkat');
-Route::get('/adminkenaikanpangkat/formedit/{nik}', 'AdminKenaikanpangkatController@show')->name('formeditkenaikanpangkat');
-Route::post('/adminkenaikanpangkat/update/{nik}', 'AdminKenaikanpangkatController@update')->name('updatekenaikanpangkat');
-Route::get('/adminkenaikanpangkat/delete/{nik}', 'AdminKenaikanpangkatController@destroy')->name('deletekenaikanpangkat');
-
-// route admin kenaikan gaji
-Route::get('/adminkenaikangaji', 'AdminKenaikangajiController@index')->name('homeAdminKenaikangaji');
-Route::post('/adminkenaikangaji/inputkenaikangaji', 'AdminKenaikangajiController@store')->name('inputkenaikangaji');
-Route::get('/adminkenaikangaji/formedit/{nik}', 'AdminKenaikangajiController@show')->name('formeditkenaikangaji');
-Route::post('/adminkenaikangaji/update/{nik}', 'AdminKenaikangajiController@update')->name('updatekenaikangaji');
-Route::get('/adminkenaikangaji/delete/{nik}', 'AdminKenaikangajiController@destroy')->name('deletekenaikangaji');
-
-
