@@ -47,7 +47,7 @@
 
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <input type="text" name="satuan_organisasi" value="{{$data->satuan_organisasi}}" class="form-control" required="required" autocomplete="off">
+                                                <input type="file" name="satuan_organisasi" value="{{$data->satuan_organisasi}}" class="form-control" required="required" autocomplete="off">
                                                 <label class="form-label">Satuan Organisasi</label>
                                             </div>
                                         </div>
@@ -63,6 +63,22 @@
                                             <div class="form-line">
                                                 <input type="date"  name="batas_tanggalcuti" value="{{$data->batas_tanggalcuti}}" class="form-control" required="required" autocomplete="off">
                                                 <label class="form-label">Sampai Dengan</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <label class="form-label">Kategori Cuti</label>
+                                                <select class="form-control" name="kategori_cuti" value="{{$data->kategori_cuti}}">
+                                                    <option value="{{$data->kategori_cuti}}">{{$data->kategori_cuti}}</option>
+                                                    <option value="Cuti Tahunan">Cuti Tahunan</option>
+                                                    <option value="Cuti Besar">Cuti Besar</option>
+                                                    <option value="Cuti Sakit">Cuti Sakit</option>
+                                                    <option value="Cuti Melahirkan">Cuti Melahirkan</option>
+                                                    <option value="Cuti Karena Alasan Penting">Cuti Karena Alasan Penting</option>
+                                                    <option value="Cuti Bersama">Cuti Bersama</option>
+                                                    <option value="Cuti di Luar Tanggungan Negara">Cuti di Luar Tanggungan Negara</option>
+                                                </select>
                                             </div>
                                         </div>
 

@@ -15,6 +15,7 @@ class Izincuti extends Model
         'satuan_organisasi',
         'tanggal_cuti',
         'batas_tanggalcuti',
+        'kategori_cuti',
         'alasan_cuti'
     ];
 }

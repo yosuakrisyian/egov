@@ -60,26 +60,54 @@
                                                     <option value="Kepala Dinas">Kepala Dinas</option>
                                                     <option value="Kepala Biro">Kepala Biro</option>
                                                     <option value="Kepala Bagian">Kepala Bagian</option>
-                                                    <option value="Sekretaris">Sekretaris</option>
-                                                    <option value="Bendahara">Bendahara</option>
+                                                    <option value="Sekretaris">Kelapa Sub Bagian</option>
+                                                    <option value="Sekretaris">Kelapa Seksi</option>
+                                                    <option value="Bendahara">Staff Fungsional Umum</option>
                                                 </select>
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <label class="form-label">Pangkat/Golongan</label>
-                                                <select class="form-control" name="pangkat" value="{{$data->pangkat}}">
-                                                    <option value="{{$data->pangkat}}">{{$data->pangkat}}</option>
-                                                    <option value="IIA">IIA</option>
-                                                    <option value="IIA">IIB</option>
-                                                    <option value="IIA">IIC</option>
-                                                    <option value="IIA">IID</option>
+                                                <label class="form-label">Golongan</label>
+                                                <select class="form-control" name="golongan" value="{{$data->golongan}}">
+                                                    <option value="{{$data->golongan}}">{{$data->golongan}}</option>
+                                                    <option value="IA">IIA</option>
+                                                    <option value="IB">IIB</option>
+                                                    <option value="IC">IIC</option>
+                                                    <option value="ID">IID</option>
                                                     <option value="IIA">IIIA</option>
-                                                    <option value="IIA">IIIB</option>
-                                                    <option value="IIA">IIIC</option>
-                                                    <option value="IIA">IIID</option>
+                                                    <option value="IIB">IIIB</option>
+                                                    <option value="IIC">IIIC</option>
+                                                    <option value="IID">IIID</option>
                                                 </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" name="alamat" value="{{$data->alamat}}" class="form-control" required="required" autocomplete="off">
+                                                <label class="form-label">Alamat</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" name="provinsi" value="{{$data->provinsi}}" class="form-control" required="required" autocomplete="off">
+                                                <label class="form-label">Provinsi</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" name="kabupaten" value="{{$data->kabupaten}}" class="form-control" required="required" autocomplete="off">
+                                                <label class="form-label">Kabupaten</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" name="notelp" value="{{$data->notelp}}" class="form-control" required="required" autocomplete="off">
+                                                <label class="form-label">No Telp</label>
                                             </div>
                                         </div>
                                     </div>

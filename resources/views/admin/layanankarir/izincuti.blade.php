@@ -46,6 +46,7 @@
                                             <th>Satuan Organisasi</th>
                                             <th>Tanggal Cuti</th>
                                             <th>Batas Tanggal Cuti</th>
+                                            <th>Kategori Cuti</th>
                                             <th>Alasan Cuti</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -61,6 +62,7 @@
                                                 <td>{{ $data->satuan_organisasi }}</td>
                                                 <td>{{ $data->tanggal_cuti }}</td>
                                                 <td>{{ $data->batas_tanggalcuti }}</td>
+                                                <td>{{ $data->kategori_cuti }}</td>
                                                 <td>{{ $data->alasan_cuti }}</td>
                                                 <td>
                                                     <a href="{{ route('formeditizincuti', $data->nik_nip) }}">
@@ -123,7 +125,7 @@
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" name="satuan_organisasi" class="form-control" required="required" autocomplete="off">
+                                <input type="file" name="satuan_organisasi" class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">Satuan Organisasi</label>
                             </div>
                         </div>
@@ -139,6 +141,21 @@
                             <div class="form-line">
                                 <input type="date"  name="batas_tanggalcuti" class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">Sampai Dengan</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-line">
+                                <label class="form-label">Kategori Cuti</label>
+                                <select class="form-control" name="kategori_cuti" >
+                                    <option value="Cuti Tahunan">Cuti Tahunan</option>
+                                    <option value="Cuti Besar">Cuti Besar</option>
+                                    <option value="Cuti Sakit">Cuti Sakit</option>
+                                    <option value="Cuti Melahirkan">Cuti Melahirkan</option>
+                                    <option value="Cuti Karena Alasan Penting">Cuti Karena Alasan Penting</option>
+                                    <option value="Cuti Bersama">Cuti Bersama</option>
+                                    <option value="Cuti di Luar Tanggungan Negara">Cuti di Luar Tanggungan Negara</option>
+                                </select>
                             </div>
                         </div>
 
