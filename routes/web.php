@@ -39,9 +39,17 @@ Route::group(['middleware' => ['auth','ceklevel:1']], function(){
 
     // route admin izin studi lanjut
     Route::get('/adminizinstudilanjut', 'AdminIzinstudilanjutController@index')->name('homeAdminIzinstudilanjut');
+    Route::post('/adminizinstudilanjut/inputizinstudilanjut', 'AdminIzinstudilanjutController@store')->name('inputizinstudilanjut');
+    Route::get('/adminizinstudilanjut/formedit/{nik}', 'AdminIzinstudilanjutController@show')->name('formeditizinstudilanjut');
+    Route::post('/adminizinstudilanjut/update/{nik}', 'AdminIzinstudilanjutController@update')->name('updateizinstudilanjut');
+    Route::get('/adminizinstudilanjut/delete/{nik}', 'AdminIzinstudilanjutController@destroy')->name('deleteizinstudilanjut');
 
     // route admin izin cuti
     Route::get('/adminizincuti', 'AdminIzincutiController@index')->name('homeAdminIzincuti');
+    Route::post('/adminizincuti/inputizincuti', 'AdminIzincutiController@store')->name('inputizincuti');
+    Route::get('/adminizincuti/formedit/{nik}', 'AdminIzincutiController@show')->name('formeditizincuti');
+    Route::post('/adminizincuti/update/{nik}', 'AdminIzincutiController@update')->name('updateizincuti');
+    Route::get('/adminizincuti/delete/{nik}', 'AdminIzincutiController@destroy')->name('deleteizincuti');
 
     // route admin perilaku kerja
     Route::get('/adminperilakukerja', 'AdminPerilakukerjaController@index')->name('homeAdminPerilakukerja');
@@ -57,11 +65,18 @@ Route::group(['middleware' => ['auth','ceklevel:1']], function(){
 Route::group(['middleware' => ['auth','ceklevel:2']], function(){
     // Route::get('/adminpegawai', 'AdminPegawaiController@index')->name('homeAdminPegawai');
 });
-// route admin kenaikan pangkatg
+// route admin kenaikan pangkat
 Route::get('/adminkenaikanpangkat', 'AdminKenaikanpangkatController@index')->name('homeAdminKenaikanpangkat');
+Route::post('/adminkenaikanpangkat/inputkenaikanpangkat', 'AdminKenaikanpangkatController@store')->name('inputkenaikanpangkat');
+Route::get('/adminkenaikanpangkat/formedit/{nik}', 'AdminKenaikanpangkatController@show')->name('formeditkenaikanpangkat');
+Route::post('/adminkenaikanpangkat/update/{nik}', 'AdminKenaikanpangkatController@update')->name('updatekenaikanpangkat');
+Route::get('/adminkenaikanpangkat/delete/{nik}', 'AdminKenaikanpangkatController@destroy')->name('deletekenaikanpangkat');
 
 // route admin kenaikan gaji
 Route::get('/adminkenaikangaji', 'AdminKenaikangajiController@index')->name('homeAdminKenaikangaji');
+Route::post('/adminkenaikangaji/inputkenaikangaji', 'AdminKenaikangajiController@store')->name('inputkenaikangaji');
+Route::get('/adminkenaikangaji/formedit/{nik}', 'AdminKenaikangajiController@show')->name('formeditkenaikangaji');
+Route::post('/adminkenaikangaji/update/{nik}', 'AdminKenaikangajiController@update')->name('updatekenaikangaji');
+Route::get('/adminkenaikangaji/delete/{nik}', 'AdminKenaikangajiController@destroy')->name('deletekenaikangaji');
 
-// route admin kenaikan gaji
-Route::get('/adminperilakukerja', 'AdminPerilakukerjaController@index')->name('homeAdminPerilakukerja');
+

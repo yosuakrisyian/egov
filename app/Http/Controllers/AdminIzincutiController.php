@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Izincuti;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class AdminIzincutiController extends Controller
      */
     public function index()
     {
-        return view('admin.layanankarir.izincuti');
+        $datas = Izincuti::paginate(5);
+        return view('admin.layanankarir.izincuti')->with(['datas' => $datas]);
     }
 
     /**
@@ -34,7 +36,23 @@ class AdminIzincutiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        //$data['password'] = Hash::make($data['id_golongan']);
+        // $data['level'] = 3;
+
+        
+        $input = Izincuti::create($data);
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($input) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Input Izin Cuti';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Input Izin Cuti';
+        }
+
+        return back()->with($respon);
     }
 
     /**
@@ -43,9 +61,10 @@ class AdminIzincutiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($nik_nip)
     {
-        //
+        $data = Izincuti::where('nik_nip', $nik_nip)->first();
+        return view('admin.layanankarir.formeditizincuti')->with(['data' => $data]);
     }
 
     /**
@@ -66,9 +85,22 @@ class AdminIzincutiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $nik_nip)
     {
-        //
+        $data=$request->all();
+        unset($data['_token']);
+        $update = Izincuti::where('nik_nip', $nik_nip)->update($data);
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($update) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Edit Izin Cuti';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Edit Izin Cuti';
+        }
+
+        return redirect()->route('homeAdminIzincuti')->with($respon);
     }
 
     /**
@@ -77,8 +109,20 @@ class AdminIzincutiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($nik_nip)
     {
-        //
+        $delete = Izincuti::where('nik_nip', $nik_nip)->delete();
+
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($delete) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Hapus Izin Cuti';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Hapus Izin Cuti';
+        }
+
+        return redirect()->route('homeAdminIzincuti')->with($respon);
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Izinstudilanjut;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class AdminIzinstudilanjutController extends Controller
      */
     public function index()
     {
-        return view('admin.layanankarir.izinstudilanjut');
+        $datas = Izinstudilanjut::paginate(5);
+        return view('admin.layanankarir.izinstudilanjut')->with(['datas' => $datas]);
     }
 
     /**
@@ -34,7 +36,23 @@ class AdminIzinstudilanjutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        //$data['password'] = Hash::make($data['id_golongan']);
+        // $data['level'] = 3;
+
+        
+        $input = Izinstudilanjut::create($data);
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($input) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Input Izin Studi Lanjut';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Input Izin Studi Lanjut';
+        }
+
+        return back()->with($respon);
     }
 
     /**
@@ -43,9 +61,10 @@ class AdminIzinstudilanjutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($nik_nip)
     {
-        //
+        $data = Izinstudilanjut::where('nik_nip', $nik_nip)->first();
+        return view('admin.layanankarir.formeditizinstudilanjut')->with(['data' => $data]);
     }
 
     /**
@@ -66,9 +85,22 @@ class AdminIzinstudilanjutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $nik_nip)
     {
-        //
+        $data=$request->all();
+        unset($data['_token']);
+        $update = Izinstudilanjut::where('nik_nip', $nik_nip)->update($data);
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($update) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Edit Izin Studi Lanjut';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Edit Izin Studi Lanjut';
+        }
+
+        return redirect()->route('homeAdminIzinstudilanjut')->with($respon);
     }
 
     /**
@@ -77,8 +109,21 @@ class AdminIzinstudilanjutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($nik_nip)
     {
-        //
+        $delete = Izinstudilanjut::where('nik_nip', $nik_nip)->delete();
+
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($delete) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Hapus Izin Studi Lanjut';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Hapus Izin Studi Lanjut';
+        }
+
+        return redirect()->route('homeAdminIzinstudilanjut')->with($respon);
+   
     }
 }
