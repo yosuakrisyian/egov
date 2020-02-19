@@ -33,56 +33,56 @@
                                         
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <input type="text" name="gaji" value="{{$data->gaji}}" class="form-control" required="required" autocomplete="off">
+                                                <input type="number" name="gaji" value="{{$data->gaji}}" class="form-control" required="required" autocomplete="off">
                                                 <label class="form-label">Gaji</label>
                                             </div>
                                         </div>
 
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <input type="text" name="sk_cpns" value="{{$data->sk_cpns}}" class="form-control" required="required" autocomplete="off">
+                                                <input type="file" name="sk_cpns" value="{{$data->sk_cpns}}" class="form-control" required="required" autocomplete="off">
                                                 <label class="form-label">SK CPNS</label>
                                             </div>
                                         </div>
 
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <input type="text" name="sk_pns" value="{{$data->sk_pns}}" class="form-control" required="required" autocomplete="off">
+                                                <input type="file" name="sk_pns" value="{{$data->sk_pns}}" class="form-control" required="required" autocomplete="off">
                                                 <label class="form-label">SK PNS</label>
                                             </div>
                                         </div>
 
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <input type="text"  name="sk_kenaikan_pangkat_terakhir" value="{{$data->sk_kenaikan_pangkat_terakhir}}" class="form-control" required="required" autocomplete="off">
+                                                <input type="file"  name="sk_kenaikan_pangkat_terakhir" value="{{$data->sk_kenaikan_pangkat_terakhir}}" class="form-control" required="required" autocomplete="off">
                                                 <label class="form-label">SK Kenaikan Pangakat Terakhir</label>
                                             </div>
                                         </div>
 
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <input type="text"  name="gaji_berkala_sebelumnya" value="{{$data->gaji_berkala_sebelumnya}}" class="form-control" required="required" autocomplete="off">
+                                                <input type="number"  name="gaji_berkala_sebelumnya" value="{{$data->gaji_berkala_sebelumnya}}" class="form-control" required="required" autocomplete="off">
                                                 <label class="form-label">Gaji Berkala Sebelumnya</label>
                                             </div>
                                         </div>
 
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <input type="text"  name="skp_2tahun_terakhir" value="{{$data->skp_2tahun_terakhir}}" class="form-control" required="required" autocomplete="off">
+                                                <input type="file"  name="skp_2tahun_terakhir" value="{{$data->skp_2tahun_terakhir}}" class="form-control" required="required" autocomplete="off">
                                                 <label class="form-label">SKP 2Tahun Terakhir</label>
                                             </div>
                                         </div>
 
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <input type="text" name="sk_mutasi" value="{{$data->sk_mutasi}}" class="form-control" required="required" autocomplete="off">
+                                                <input type="file" name="sk_mutasi" value="{{$data->sk_mutasi}}" class="form-control" required="required" autocomplete="off">
                                                 <label class="form-label">SK Mutasi</label>
                                             </div>
                                         </div>
 
                                         <div class="form-group form-float">
                                             <div class="form-line">
-                                                <input type="text" name="surat_pengantar_unit_kerja" value="{{$data->surat_pengantar_unit_kerja}}" class="form-control" required="required" autocomplete="off">
+                                                <input type="file" name="surat_pengantar_unit_kerja" value="{{$data->surat_pengantar_unit_kerja}}" class="form-control" required="required" autocomplete="off">
                                                 <label class="form-label">Surat Pengantar Unit Kerja</label>
                                             </div>
                                         </div>
