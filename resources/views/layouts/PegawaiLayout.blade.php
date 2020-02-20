@@ -381,7 +381,7 @@
                                 <a href="{{route('homePegawaiPerilakukerja')}}">Perilaku Kerja</a>
                             </li>
                             <li>
-                                <a href="pages/medias/carousel.html">Perhitungan Tunjangan Kinerja</a>
+                                <a href="{{route('homeDataPegawaiPerilakukerja')}}">Data Perilaku Kerja</a>
                             </li>
                         </ul>
                     </li>  

@@ -100,7 +100,5 @@ Route::group(['middleware' => ['auth','ceklevel:2']], function(){
     Route::get('/pegawaiperilakukerja/delete/{nik}', 'PegawaiPerilakukerjaController@destroy')->name('deleteperilakukerja');
 
     // route pegawai data perilaku kerja
-    Route::get('/pegawaidataperilakukerja', 'PegawaiPerilakukerjaController@index')->name('homePegawaiPerilakukerja');
-    Route::post('/pegawaidataperilakukerja/inputperilakukerja', 'PegawaiPerilakukerjaController@store')->name('inputperilakukerja');
-    Route::get('/pegawaidataperilakukerja/delete/{nik}', 'PegawaiPerilakukerjaController@destroy')->name('deleteperilakukerja');
+    Route::get('/pegawaidataperilakukerja', 'PegawaiDataPerilakukerjaController@index')->name('homeDataPegawaiPerilakukerja');
 });
