@@ -86,4 +86,11 @@ Route::group(['middleware' => ['auth','ceklevel:1']], function(){
 // route jalurnya pegawai
 Route::group(['middleware' => ['auth','ceklevel:2']], function(){
     Route::get('/user/pegawai', 'PegawaiController@index')->name('homePegawai');
+
+    // route pegawai target skp
+    Route::get('/pegawaitargetskp', 'PegawaiTargetSkpController@index')->name('homePegawaitargetskp');
+    Route::post('/pegawaitargetskp/inputtargetskp', 'PegawaiTargetSkpController@store')->name('inputtargetskp');
+    Route::get('/pegawaitargetskp/formedit/{nik}', 'PegawaiTargetSkpController@show')->name('formedittargetskp');
+    Route::post('/pegawaitargetskp/update/{nik}', 'PegawaiTargetSkpController@update')->name('updatetargetskp');
+    Route::get('/pegawaitargetskp/delete/{nik}', 'PegawaiTargetSkpController@destroy')->name('deletetargetskp');
 });

@@ -358,7 +358,7 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="{{route('homeAdmintargetskp')}}">Target SKP</a>
+                                <a href="{{route('homePegawaitargetskp')}}">Target SKP</a>
                             </li>
                             <li>
                                 <a href="{{route('homeAdminRealisasiSkp')}}">Realisasi SKP</a>
