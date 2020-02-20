@@ -1,4 +1,4 @@
-@extends('layouts.MyLayout')
+@extends('layouts.PegawaiLayout')
 @section('content')
 
 
@@ -35,14 +35,48 @@
                         </div>
 
                         <div class="body">
+                           <div class="row">
+                                <div class="col-md-6">
+                                    <table class="table table-responsive table-bordered">
+                                        <tr>
+                                            <td>
+                                                NIK
+                                            </td>
+                                            <td>
+                                                {{ Auth()->user()->nik }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Nama
+                                            </td>
+                                            <td>
+                                                {{ Auth()->user()->name }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Golongan
+                                            </td>
+                                            <td>
+                                                {{ Auth()->user()->golongan }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Jabatan
+                                            </td>
+                                            <td>
+                                                {{ Auth()->user()->jabatan }}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                           </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
-                                            <th>NIK/NIP</th>
-                                            <th>Nama</th>
-                                            <th>Golongan</th>
-                                            <th>Jabatan</th>
                                             <th>Kegiatan Tugas Jabatan</th>
                                             <th>Kuantitas</th>
                                             <th>Kualitas</th>
@@ -55,10 +89,6 @@
                                     <tbody>
                                         @foreach($datas as $data)
                                             <tr>
-                                                <td>{{ $data->nik_nip }}</td>
-                                                <td>{{ $data->nama }}</td>
-                                                <td>{{ $data->golongan }}</td>
-                                                <td>{{ $data->jabatan }}</td>
                                                 <td>{{ $data->kegiatan_tugas_jabatan }}</td>
                                                 <td>{{ $data->kuantitas }}</td>
                                                 <td>{{ $data->kualitas }}</td>
@@ -97,14 +127,14 @@
                     <div class="modal-body">
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" name="nik_nip" id="nip" class="form-control" required="required" autocomplete="off">
+                                <input type="text" readonly value="{{ Auth()->user()->nik }}" name="nik_nip" id="nip" class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">NIK NIP</label>
                             </div>
                         </div>
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" name="nama" id="nama" class="form-control" required="required" autocomplete="off">
+                                <input type="text" readonly value="{{ Auth()->user()->name }}" name="nama" id="nama" class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">Nama</label>
                             </div>
                         </div>

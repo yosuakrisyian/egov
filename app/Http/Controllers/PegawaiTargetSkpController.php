@@ -14,7 +14,8 @@ class PegawaiTargetSkpController extends Controller
      */
     public function index()
     {
-        $datas = TargetSKP::paginate(5);
+        $datas = TargetSKP::where('nik_nip', Auth()->user()->nik)
+                           ->paginate(5);
         return view('pegawai.kinerja.targetskp')->with(['datas' => $datas]);
     }
 
@@ -37,8 +38,6 @@ class PegawaiTargetSkpController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        //$data['password'] = Hash::make($data['id_golongan']);
-        // $data['level'] = 3;
 
         
         $input = TargetSKP::create($data);
