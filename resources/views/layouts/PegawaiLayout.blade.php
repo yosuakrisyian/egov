@@ -378,7 +378,7 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="{{route('homeAdminPerilakukerja')}}">Perilaku Kerja</a>
+                                <a href="{{route('homePegawaiPerilakukerja')}}">Perilaku Kerja</a>
                             </li>
                             <li>
                                 <a href="pages/medias/carousel.html">Perhitungan Tunjangan Kinerja</a>
