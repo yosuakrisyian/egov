@@ -87,6 +87,7 @@ Route::group(['middleware' => ['auth','ceklevel:1']], function(){
 Route::group(['middleware' => ['auth','ceklevel:2']], function(){
     Route::get('/user/pegawai', 'PegawaiController@index')->name('homePegawai');
 
+<<<<<<< HEAD
     // route admin izin studi lanjut pegawai
     Route::get('/pegawaiizinstudilanjut', 'PegawaiIzinstudilanjutController@index')->name('homePegawaiIzinstudilanjut');
     Route::post('/pegawaiizinstudilanjut/inputizinstudilanjut', 'PegawaiIzinstudilanjutController@store')->name('inputizinstudilanjut');
@@ -94,4 +95,22 @@ Route::group(['middleware' => ['auth','ceklevel:2']], function(){
     Route::post('/pegawaiizinstudilanjut/update/{nik}', 'PegawaiIzinstudilanjutController@update')->name('updateizinstudilanjut');
     Route::get('/pegawaiizinstudilanjut/delete/{nik}', 'PegawaiIzinstudilanjutController@destroy')->name('deleteizinstudilanjut');
 
+=======
+    // route pegawai target skp
+    Route::get('/pegawaitargetskp', 'PegawaiTargetSkpController@index')->name('homePegawaitargetskp');
+    Route::post('/pegawaitargetskp/inputtargetskp', 'PegawaiTargetSkpController@store')->name('inputtargetskp');
+    Route::get('/pegawaitargetskp/formedit/{nik}', 'PegawaiTargetSkpController@show')->name('formedittargetskp');
+    Route::post('/pegawaitargetskp/update/{nik}', 'PegawaiTargetSkpController@update')->name('updatetargetskp');
+    Route::get('/pegawaitargetskp/delete/{nik}', 'PegawaiTargetSkpController@destroy')->name('deletetargetskp');
+
+    // route pegawai perilaku kerja
+    Route::get('/pegawaiperilakukerja', 'PegawaiPerilakukerjaController@index')->name('homePegawaiPerilakukerja');
+    Route::post('/pegawaiperilakukerja/inputperilakukerja', 'PegawaiPerilakukerjaController@store')->name('inputperilakukerja');
+    Route::get('/pegawaiperilakukerja/delete/{nik}', 'PegawaiPerilakukerjaController@destroy')->name('deleteperilakukerja');
+
+    // route pegawai data perilaku kerja
+    Route::get('/pegawaidataperilakukerja', 'PegawaiPerilakukerjaController@index')->name('homePegawaiPerilakukerja');
+    Route::post('/pegawaidataperilakukerja/inputperilakukerja', 'PegawaiPerilakukerjaController@store')->name('inputperilakukerja');
+    Route::get('/pegawaidataperilakukerja/delete/{nik}', 'PegawaiPerilakukerjaController@destroy')->name('deleteperilakukerja');
+>>>>>>> 77f1e3aa0f17680307f4696af796bcefef44cfbc
 });

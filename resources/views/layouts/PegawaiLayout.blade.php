@@ -357,7 +357,7 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="{{route('homeAdmintargetskp')}}">Target SKP</a>
+                                <a href="{{route('homePegawaitargetskp')}}">Target SKP</a>
                             </li>
                             <li>
                                 <a href="{{route('homeAdminRealisasiSkp')}}">Realisasi SKP</a>
@@ -377,7 +377,7 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="{{route('homeAdminPerilakukerja')}}">Perilaku Kerja</a>
+                                <a href="{{route('homePegawaiPerilakukerja')}}">Perilaku Kerja</a>
                             </li>
                             <li>
                                 <a href="pages/medias/carousel.html">Perhitungan Tunjangan Kinerja</a>
