@@ -51,8 +51,8 @@
                                                 <td>{{ $data->golongan }}</td>
                                                 <td>{{ $data->jabatan }}</td>
                                                 <td>
-                                                    <a href="{{ route('deletepegawai', $data->nik) }}">
-                                                        <button onClick="return konfirmasi()" class="btn btn-danger">Delete</button>
+                                                    <a href="{{ route('inputdataperilakukerja', $data->nik) }}">
+                                                        <button class="btn btn-warning">Beri Nilai</button>
                                                     </a>
                                                 </td>
                                             </tr>

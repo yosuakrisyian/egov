@@ -14,7 +14,10 @@ class PegawaiDataPerilakukerjaController extends Controller
      */
     public function index()
     {
-        $datas = User::where('level', 2)->paginate(5);
+        $datas = User::where([
+            ['level', '=',2],
+            ['nik', '<>', Auth()->user()->nik]
+        ])->paginate(5);
         return view('pegawai.tunjangankinerja.dataperilakukerja')->with(['datas' => $datas]);
     }
 
@@ -45,9 +48,10 @@ class PegawaiDataPerilakukerjaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($nik)
     {
-        //
+        $data = User::where('nik', $nik)->first();
+        return view('pegawai.tunjangankinerja.perilakukerja')->with(['data' => $data]);
     }
 
     /**

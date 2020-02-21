@@ -108,4 +108,5 @@ Route::group(['middleware' => ['auth','ceklevel:2']], function(){
 
     // route pegawai data perilaku kerja
     Route::get('/pegawaidataperilakukerja', 'PegawaiDataPerilakukerjaController@index')->name('homeDataPegawaiPerilakukerja');
+    Route::get('/pegawaidataperilakukerja/inputdataperilakukerja/{nik}', 'PegawaiDataPerilakukerjaController@show')->name('inputdataperilakukerja');
 });
