@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="block-header">
                 <h2>
-                    DATA KENAIKAN PANGKAT                    
+                    DATA KENAIKAN PANGKAT                   
                 </h2>
             </div>
 
@@ -59,18 +59,32 @@
                                                 <td>{{ $data->nik_nip }}</td>
                                                 <td>{{ $data->nama_lengkap }}</td>
                                                 <td>{{ $data->jabatan }}</td>
-                                                <td>{{ $data->sk_cpns }}</td>
-                                                <td>{{ $data->sk_pns }}</td>
-                                                <td>{{ $data->sk_pangkat_terakhir }}</td>
-                                                <td>{{ $data->dp3_2tahun_terakhir }}</td>
-                                                <td>{{ $data->karpeg }}</td>
-                                                <td>{{ $data->daftar_riwayat_pekerjaan }}</td>
-                                                <td>{{ $data->nota_persetujuan_bkn }}</td>
                                                 <td>
-                                                    <a href="{{ route('formeditkenaikanpangkat', $data->nik_nip) }}">
+                                                    <button onClick="showSkCpns({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
+                                                </td>
+                                                <td>
+                                                    <button onClick="showSkPns({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
+                                                </td>
+                                                <td>
+                                                    <button onClick="showSKPangkatTerakhir({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
+                                                </td>
+                                                <td>
+                                                    <button onClick="showDP32TahunTerakhir({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
+                                                </td>
+                                                <td>
+                                                    <button onClick="showKarpeg({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
+                                                </td>
+                                                <td>
+                                                    <button onClick="showDaftarRiwayatPekerjaan({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
+                                                </td>
+                                                <td>
+                                                    <button onClick="showNota_persetujuanBKN({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
+                                                </td>
+                                                <td>
+                                                    <a href="{{ route('formeditadminkenaikanpangkat', $data->nik_nip) }}">
                                                         <button class="btn btn-warning">Edit</button>
                                                     </a>
-                                                    <a href="{{ route('deletekenaikanpangkat', $data->nik_nip) }}">
+                                                    <a href="{{ route('deleteadminkenaikanpangkat', $data->nik_nip) }}">
                                                         <button onClick="return konfirmasi()" class="btn btn-danger">Delete</button>
                                                     </a>
                                                 </td>
@@ -94,7 +108,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title" id="defaultModalLabel">Input Data Kenaikan Pangkat</h4>
                 </div>
-                <form method="post" action="{{ route('inputkenaikanpangkat') }}">
+                <form method="post" action="{{ route('inputadminkenaikanpangkat') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group form-float">
@@ -135,14 +149,14 @@
                         <div class="form-group form-float">
                             <div class="form-line">
                                 <input type="file" name="sk_pangkat_terakhir" class="form-control" required="required" autocomplete="off">
-                                <label class="form-label">SK Pangkat Terakhir</label>
+                                <label class="form-label">SK Terakhir</label>
                             </div>
                         </div>
 
                         <div class="form-group form-float">
                             <div class="form-line">
                                 <input type="file"  name="dp3_2tahun_terakhir" class="form-control" required="required" autocomplete="off">
-                                <label class="form-label">DP3 2Tahun Terakhir</label>
+                                <label class="form-label">DP3</label>
                             </div>
                         </div>
 
@@ -155,7 +169,7 @@
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="file" name="daftar_riwayat_pekerjaan" class="form-control" required="required" autocomplete="off">
+                                <input type="file"  name="daftar_riwayat_pekerjaan" class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">Daftar Riwayat Pekerjaan</label>
                             </div>
                         </div>
@@ -176,5 +190,47 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade bs-example-modal-lg1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Gambar</h4>
+            </div>
+            <div class="modal-body">
+                <img width="100%" id="image" class="img-responsive" alt="">
+            </div>
+            <div id="btn-verf1" class="modal-footer">
+            </div>
+
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" language="javascript">
+function showSkCpns (data) {
+    $("#image").attr("src","{!! url('upload/" + data.sk_cpns + "') !!}")
+}
+function showSkPns (data) {
+    $("#image").attr("src","{!! url('upload/" + data.sk_pns + "') !!}")
+}
+function showSKPangkatTerakhir (data) {
+    $("#image").attr("src","{!! url('upload/" + data.sk_pangkat_terakhir + "') !!}")
+}
+function showDP32TahunTerakhir (data) {
+    $("#image").attr("src","{!! url('upload/" + data.dp3_2tahun_terakhir + "') !!}")
+}
+function showKarpeg (data) {
+    $("#image").attr("src","{!! url('upload/" + data.karpeg + "') !!}")
+}
+function showDaftarRiwayatPekerjaan (data) {
+    $("#image").attr("src","{!! url('upload/" + data.daftar_riwayat_pekerjaan + "') !!}")
+}
+function showNota_persetujuanBKN (data) {
+    $("#image").attr("src","{!! url('upload/" + data.nota_persetujuan_bkn + "') !!}")
+}
+</script>
 
  @endsection

@@ -116,7 +116,7 @@ class PegawaiIzinstudilanjutController extends Controller
     public function show($nik_nip)
     {
         $data = Pegawaiizinstudilanjut::where('nik_nip', $nik_nip)->first();
-        return view('pegawai.layanankarir.formeditpegawaiizinstudilanjut')->with(['data' => $data]);
+        return view('pegawai.layanankarirpegawai.formeditpegawaiizinstudilanjut')->with(['data' => $data]);
     }
 
     /**

@@ -1,12 +1,27 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use App\Kenaikangaji;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AdminKenaikangajiController extends Controller
 {
+    public $messages = [
+        'required' => 'Harap Isi :attribute Anda',
+        'mimes' => 'Format Gambar Harus jpeg, png, jpg',
+        'image' => 'File Harus Berisi Gambar',
+        'max' => 'Gambar Tidak Boleh Lebih Dari 2 Mb'
+    ];
+    public $rulesGambar = [
+        'sk_cpns' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'sk_pns' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'sk_kenaikan_pangkat_terakhir' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'skp_2tahun_terakhir' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'sk_mutasi' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'surat_pengantar_unit_kerja' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -36,23 +51,64 @@ class AdminKenaikangajiController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        //$data['password'] = Hash::make($data['id_golongan']);
-        // $data['level'] = 3;
-
-        
-        $input = Kenaikangaji::create($data);
-        $respon = array();
-        $respon['adaAksi'] = true;
-        if ($input) {
-            $respon['sukses'] = true;
-            $respon['pesan'] = 'Berhasil Input Kenaikan Gaji';
+        $validator = Validator::make($request->allFiles(), $this->rulesGambar, $this->messages);
+        if ($validator->fails()) {
+            return redirect()
+                        ->back()
+                        ->withErrors($validator)
+                        ->withInput();
         } else {
-            $respon['sukses'] = false;
-            $respon['pesan'] = 'Gagal Input Kenaikan Gaji';
-        }
+            $data = $request->all();
+            // upload 
+            $fileSkCpns = $request->file('sk_cpns');
+            $nameSkCpns = Str::random(32) . round(microtime(true)) . '.' . $fileSkCpns->guessExtension();
+            $fileSkCpns->move('upload', $nameSkCpns);
+            $data['sk_cpns'] = $nameSkCpns;
 
-        return back()->with($respon);
+            // upload 
+            $fileSkpns = $request->file('sk_pns');
+            $nameSkpns = Str::random(32) . round(microtime(true)) . '.' . $fileSkpns->guessExtension();
+            $fileSkpns->move('upload', $nameSkpns);
+            $data['sk_pns'] = $nameSkpns;
+
+            // upload 
+            $fileSKKenaikanPangkatTerakhir = $request->file('sk_kenaikan_pangkat_terakhir');
+            $nameSKKenaikanPangkatTerakhir = Str::random(32) . round(microtime(true)) . '.' . $fileSKKenaikanPangkatTerakhir->guessExtension();
+            $fileSKKenaikanPangkatTerakhir->move('upload', $nameSKKenaikanPangkatTerakhir);
+            $data['sk_kenaikan_pangkat_terakhir'] = $nameSKKenaikanPangkatTerakhir;
+
+            // upload 
+            $fileSKP = $request->file('skp_2tahun_terakhir');
+            $nameSKP = Str::random(32) . round(microtime(true)) . '.' . $fileSKP->guessExtension();
+            $fileSKP->move('upload', $nameSKP);
+            $data['skp_2tahun_terakhir'] = $nameSKP;
+
+            // upload 
+            $fileMutasi = $request->file('sk_mutasi');
+            $nameMutasi = Str::random(32) . round(microtime(true)) . '.' . $fileMutasi->guessExtension();
+            $fileMutasi->move('upload', $nameMutasi);
+            $data['sk_mutasi'] = $nameMutasi;
+
+            // upload 
+            $fileSuratPengantar = $request->file('surat_pengantar_unit_kerja');
+            $nameSuratPengantar = Str::random(32) . round(microtime(true)) . '.' . $fileSuratPengantar->guessExtension();
+            $fileSuratPengantar->move('upload', $nameSuratPengantar);
+            $data['surat_pengantar_unit_kerja'] = $nameSuratPengantar;
+
+
+           $input = Kenaikangaji::create($data);
+            $respon = array();
+            $respon['adaAksi'] = true;
+            if ($input) {
+                $respon['sukses'] = true;
+                $respon['pesan'] = 'Berhasil Input Kenaikan Gaji';
+            } else {
+                $respon['sukses'] = false;
+                $respon['pesan'] = 'Gagal Input Kenaikan Gaji';
+            }
+
+            return back()->with($respon);
+        }
     }
 
     /**

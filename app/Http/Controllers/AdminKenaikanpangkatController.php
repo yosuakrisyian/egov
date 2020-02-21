@@ -2,11 +2,27 @@
 
 namespace App\Http\Controllers;
 use App\Kenaikanpangkat;
-
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AdminKenaikanpangkatController extends Controller
 {
+    public $messages = [
+        'required' => 'Harap Isi :attribute Anda',
+        'mimes' => 'Format Gambar Harus jpeg, png, jpg',
+        'image' => 'File Harus Berisi Gambar',
+        'max' => 'Gambar Tidak Boleh Lebih Dari 2 Mb'
+    ];
+    public $rulesGambar = [
+        'sk_cpns' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'sk_pns' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'sk_pangkat_terakhir' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'dp3_2tahun_terakhir' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'karpeg' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'daftar_riwayat_pekerjaan' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        'nota_persetujuan_bkn' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -36,23 +52,69 @@ class AdminKenaikanpangkatController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        //$data['password'] = Hash::make($data['id_golongan']);
-        // $data['level'] = 3;
-
-        
-        $input = Kenaikanpangkat::create($data);
-        $respon = array();
-        $respon['adaAksi'] = true;
-        if ($input) {
-            $respon['sukses'] = true;
-            $respon['pesan'] = 'Berhasil Input Kenaikan Pangkat';
+        $validator = Validator::make($request->allFiles(), $this->rulesGambar, $this->messages);
+        if ($validator->fails()) {
+            return redirect()
+                        ->back()
+                        ->withErrors($validator)
+                        ->withInput();
         } else {
-            $respon['sukses'] = false;
-            $respon['pesan'] = 'Gagal Input Kenaikan Pangkat';
-        }
+            $data = $request->all();
+            // upload 
+            $fileSkCpns = $request->file('sk_cpns');
+            $nameSkCpns = Str::random(32) . round(microtime(true)) . '.' . $fileSkCpns->guessExtension();
+            $fileSkCpns->move('upload', $nameSkCpns);
+            $data['sk_cpns'] = $nameSkCpns;
 
-        return back()->with($respon);
+            // upload 
+            $fileSkpns = $request->file('sk_pns');
+            $nameSkpns = Str::random(32) . round(microtime(true)) . '.' . $fileSkpns->guessExtension();
+            $fileSkpns->move('upload', $nameSkpns);
+            $data['sk_pns'] = $nameSkpns;
+
+            // upload 
+            $fileSkPangkatTerakhir = $request->file('sk_pangkat_terakhir');
+            $nameSkPangkatTerakhir = Str::random(32) . round(microtime(true)) . '.' . $fileSkPangkatTerakhir->guessExtension();
+            $fileSkPangkatTerakhir->move('upload', $nameSkPangkatTerakhir);
+            $data['sk_pangkat_terakhir'] = $nameSkPangkatTerakhir;
+
+             // upload 
+             $fileDp32tahunTerakhir = $request->file('dp3_2tahun_terakhir');
+             $nameDp32tahunTerakhir = Str::random(32) . round(microtime(true)) . '.' . $fileDp32tahunTerakhir->guessExtension();
+             $fileDp32tahunTerakhir->move('upload', $nameDp32tahunTerakhir);
+             $data['dp3_2tahun_terakhir'] = $nameDp32tahunTerakhir;
+ 
+             // upload 
+             $fileKarpeg = $request->file('karpeg');
+             $nameKarpeg = Str::random(32) . round(microtime(true)) . '.' . $fileKarpeg->guessExtension();
+             $fileKarpeg->move('upload', $nameKarpeg);
+             $data['karpeg'] = $nameKarpeg;
+ 
+             // upload 
+             $fileDaftarRiwayatPekerjaan = $request->file('daftar_riwayat_pekerjaan');
+             $nameDaftarRiwayatPekerjaan = Str::random(32) . round(microtime(true)) . '.' . $fileDaftarRiwayatPekerjaan->guessExtension();
+             $fileDaftarRiwayatPekerjaan->move('upload', $nameDaftarRiwayatPekerjaan);
+             $data['daftar_riwayat_pekerjaan'] = $nameDaftarRiwayatPekerjaan;
+
+             // upload 
+             $fileNotaPersetujuanBKN = $request->file('nota_persetujuan_bkn');
+             $nameNotaPersetujuanBKN = Str::random(32) . round(microtime(true)) . '.' . $fileNotaPersetujuanBKN->guessExtension();
+             $fileNotaPersetujuanBKN->move('upload', $nameNotaPersetujuanBKN);
+             $data['nota_persetujuan_bkn'] = $nameNotaPersetujuanBKN;
+
+           $input = Kenaikanpangkat::create($data);
+            $respon = array();
+            $respon['adaAksi'] = true;
+            if ($input) {
+                $respon['sukses'] = true;
+                $respon['pesan'] = 'Berhasil Input Kenaikan Pangkat';
+            } else {
+                $respon['sukses'] = false;
+                $respon['pesan'] = 'Gagal Input Kenaikan Pangkat';
+            }
+
+            return back()->with($respon);
+        }
     }
 
     /**

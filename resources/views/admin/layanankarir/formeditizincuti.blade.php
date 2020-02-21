@@ -14,7 +14,7 @@
                             <div class="card">
                                 <div class="header">
 
-                                <form method="post" action="{{ route('updateizincuti',$data->nik_nip) }}">
+                                <form method="post" action="{{ route('updateadminizincuti',$data->nik_nip) }}" >
                                     @csrf
                                     <div class="modal-body">
                                         <div class="form-group form-float">

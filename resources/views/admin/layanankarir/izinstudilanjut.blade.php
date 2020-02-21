@@ -79,10 +79,10 @@
                                                 <button onClick="showSuratKeteranganPT({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('formeditizinstudilanjut', $data->nik_nip) }}">
+                                                    <a href="{{ route('formeditadminizinstudilanjut', $data->nik_nip) }}">
                                                         <button class="btn btn-warning">Edit</button>
                                                     </a>
-                                                    <a href="{{ route('deleteizinstudilanjut', $data->nik_nip) }}">
+                                                    <a href="{{ route('deleteadminizinstudilanjut', $data->nik_nip) }}">
                                                         <button onClick="return konfirmasi()" class="btn btn-danger">Delete</button>
                                                     </a>
                                                 </td>
@@ -106,7 +106,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title" id="defaultModalLabel">Input Data Izin Studi Lanjut</h4>
                 </div>
-                <form method="post" action="{{ route('inputizinstudilanjut') }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('inputadminizinstudilanjut') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group form-float">

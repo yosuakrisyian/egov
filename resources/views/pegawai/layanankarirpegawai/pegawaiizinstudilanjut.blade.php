@@ -35,6 +35,45 @@
                         </div>
 
                         <div class="body">
+                        <div class="row">
+                                <div class="col-md-6">
+                                    <table class="table table-responsive table-bordered">
+                                        <tr>
+                                            <td>
+                                                NIK
+                                            </td>
+                                            <td>
+                                                {{ Auth()->user()->nik }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Nama
+                                            </td>
+                                            <td>
+                                                {{ Auth()->user()->name }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Golongan
+                                            </td>
+                                            <td>
+                                                {{ Auth()->user()->golongan }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Jabatan
+                                            </td>
+                                            <td>
+                                                {{ Auth()->user()->jabatan }}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                           </div>
+
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
@@ -79,10 +118,10 @@
                                                 <button onClick="showSuratKeteranganPT({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('formeditizinstudilanjut', $data->nik_nip) }}">
+                                                    <a href="{{ route('formeditpegawaiizinstudilanjut', $data->nik_nip) }}">
                                                         <button class="btn btn-warning">Edit</button>
                                                     </a>
-                                                    <a href="{{ route('deleteizinstudilanjut', $data->nik_nip) }}">
+                                                    <a href="{{ route('deletepegawaiizinstudilanjut', $data->nik_nip) }}">
                                                         <button onClick="return konfirmasi()" class="btn btn-danger">Delete</button>
                                                     </a>
                                                 </td>
@@ -106,7 +145,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title" id="defaultModalLabel">Input Data Izin Studi Lanjut</h4>
                 </div>
-                <form method="post" action="{{ route('inputizinstudilanjut') }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('inputpegawaiizinstudilanjut') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group form-float">

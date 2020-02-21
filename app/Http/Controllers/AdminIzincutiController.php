@@ -2,11 +2,21 @@
 
 namespace App\Http\Controllers;
 use App\Izincuti;
-
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AdminIzincutiController extends Controller
 {
+    public $messages = [
+        'required' => 'Harap Isi :attribute Anda',
+        'mimes' => 'Format Gambar Harus jpeg, png, jpg',
+        'image' => 'File Harus Berisi Gambar',
+        'max' => 'Gambar Tidak Boleh Lebih Dari 2 Mb'
+    ];
+    public $rulesGambar = [
+        'satuan_organisasi' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -36,23 +46,36 @@ class AdminIzincutiController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
-        //$data['password'] = Hash::make($data['id_golongan']);
-        // $data['level'] = 3;
-
-        
-        $input = Izincuti::create($data);
-        $respon = array();
-        $respon['adaAksi'] = true;
-        if ($input) {
-            $respon['sukses'] = true;
-            $respon['pesan'] = 'Berhasil Input Izin Cuti';
+       
+        $validator = Validator::make($request->allFiles(), $this->rulesGambar, $this->messages);
+        if ($validator->fails()) {
+            return redirect()
+                        ->back()
+                        ->withErrors($validator)
+                        ->withInput();
         } else {
-            $respon['sukses'] = false;
-            $respon['pesan'] = 'Gagal Input Izin Cuti';
-        }
+            $data = $request->all();
+            // upload surat permohonan
+            $fileSatuanOrganisasi = $request->file('satuan_organisasi');
+            $nameSatuanOrganisasi = Str::random(32) . round(microtime(true)) . '.' . $fileSatuanOrganisasi->guessExtension();
+            $fileSatuanOrganisasi->move('upload', $nameSatuanOrganisasi);
+            $data['satuan_organisasi'] = $nameSatuanOrganisasi;
 
-        return back()->with($respon);
+
+           $input = Izincuti::create($data);
+            $respon = array();
+            $respon['adaAksi'] = true;
+            if ($input) {
+                $respon['sukses'] = true;
+                $respon['pesan'] = 'Berhasil Input Izin Studi Lanjut';
+            } else {
+                $respon['sukses'] = false;
+                $respon['pesan'] = 'Gagal Input Izin Studi Lanjut';
+            }
+
+            return back()->with($respon);
+
+        }
     }
 
     /**

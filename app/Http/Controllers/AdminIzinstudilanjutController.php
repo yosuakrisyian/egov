@@ -116,7 +116,7 @@ class AdminIzinstudilanjutController extends Controller
     public function show($nik_nip)
     {
         $data = Izinstudilanjut::where('nik_nip', $nik_nip)->first();
-        return view('admin.layanankarir.formeditizinstudilanjut')->with(['data' => $data]);
+        return view('admin.layanankarir.formeditadminizinstudilanjut')->with(['data' => $data]);
     }
 
     /**

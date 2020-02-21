@@ -332,7 +332,7 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="pages/ui/alerts.html">Rencana Karir</a>
+                                <!-- <a href="pages/ui/alerts.html">Rencana Karir</a> -->
                             </li>
                             <li>
                                 <a href="{{route('homeAdminIzinstudilanjut')}}">Izin Studi Lanjut</a>

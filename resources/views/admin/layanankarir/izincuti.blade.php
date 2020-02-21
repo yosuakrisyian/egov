@@ -59,16 +59,18 @@
                                                 <td>{{ $data->nama_lengkap }}</td>
                                                 <td>{{ $data->pangkat_gol }}</td>
                                                 <td>{{ $data->jabatan }}</td>
-                                                <td>{{ $data->satuan_organisasi }}</td>
+                                                <td>
+                                                    <button onClick="showSatuanOrganisasi({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
+                                                </td>
                                                 <td>{{ $data->tanggal_cuti }}</td>
                                                 <td>{{ $data->batas_tanggalcuti }}</td>
                                                 <td>{{ $data->kategori_cuti }}</td>
                                                 <td>{{ $data->alasan_cuti }}</td>
                                                 <td>
-                                                    <a href="{{ route('formeditizincuti', $data->nik_nip) }}">
+                                                    <a href="{{ route('formeditadminizincuti', $data->nik_nip) }}">
                                                         <button class="btn btn-warning">Edit</button>
                                                     </a>
-                                                    <a href="{{ route('deleteizincuti', $data->nik_nip) }}">
+                                                    <a href="{{ route('deleteadminizincuti', $data->nik_nip) }}">
                                                         <button onClick="return konfirmasi()" class="btn btn-danger">Delete</button>
                                                     </a>
                                                 </td>
@@ -92,7 +94,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title" id="defaultModalLabel">Input Data Izin Cuti</h4>
                 </div>
-                <form method="post" action="{{ route('inputizincuti') }}">
+                <form method="post" action="{{ route('inputadminizincuti') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group form-float">
@@ -125,7 +127,7 @@
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="file" name="satuan_organisasi" class="form-control" required="required" autocomplete="off">
+                                <input type="file" name="satuan_organisasi" class="form-control" autocomplete="off">
                                 <label class="form-label">Satuan Organisasi</label>
                             </div>
                         </div>
@@ -175,5 +177,29 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade bs-example-modal-lg1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Gambar</h4>
+            </div>
+            <div class="modal-body">
+                <img width="100%" id="image" class="img-responsive" alt="">
+            </div>
+            <div id="btn-verf1" class="modal-footer">
+            </div>
+
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" language="javascript">
+function showSatuanOrganisasi (data) {
+    $("#image").attr("src","{!! url('upload/" + data.satuan_organisasi + "') !!}")
+}
+</script>
 
  @endsection
