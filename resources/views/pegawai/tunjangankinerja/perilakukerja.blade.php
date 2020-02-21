@@ -27,7 +27,7 @@
                                                 NIK
                                             </td>
                                             <td>
-                                                {{ $data->nik }}
+                                                {{ $datas->nik }}
                                             </td>
                                         </tr>
                                         <tr>
@@ -35,7 +35,7 @@
                                                 Nama
                                             </td>
                                             <td>
-                                                {{ $data->name }}
+                                                {{ $datas->name }}
                                             </td>
                                         </tr>
                                         <tr>
@@ -43,7 +43,7 @@
                                                 Golongan
                                             </td>
                                             <td>
-                                                {{ $data->golongan }}
+                                                {{ $datas->golongan }}
                                             </td>
                                         </tr>
                                         <tr>
@@ -51,13 +51,11 @@
                                                 Jabatan
                                             </td>
                                             <td>
-                                                {{ $data->jabatan }}
+                                                {{ $datas->jabatan }}
                                             </td>
                                         </tr>
                                 </table>
 
-                                <form method="post" action="{{ route('updatepegawai',$data->nik) }}">
-                                    @csrf
                                     <div class="modal-body">
                                         <div class="form-group form-float">
                                             <div class="form-line">
@@ -106,8 +104,6 @@
                                         <button type="submit" class="btn btn-link waves-effect">SIMPAN</button>
                                         <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                                     </div>
-                                </form>
-
                                 <h2>
                                 <button type="button" class="btn bg-green waves-effect m-r-20" data-toggle="modal" data-target="#defaultModal">Tambah</button>
                                 </h2>

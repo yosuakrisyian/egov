@@ -104,16 +104,26 @@ Route::group(['middleware' => ['auth','ceklevel:2']], function(){
     // route pegawai perilaku kerja
     Route::get('/pegawaiperilakukerja', 'PegawaiPerilakukerjaController@index')->name('homePegawaiPerilakukerja');
     Route::post('/pegawaiperilakukerja/inputperilakukerja', 'PegawaiPerilakukerjaController@store')->name('inputperilakukerja');
-    Route::get('/pegawaiperilakukerja/delete/{nik}', 'PegawaiPerilakukerjaController@destroy')->name('deleteperilakukerja');
+    
 
     // route pegawai data perilaku kerja
-    Route::get('/pegawaidataperilakukerja', 'PegawaiPerilakukerjaController@index')->name('homePegawaiPerilakukerja');
-    Route::post('/pegawaidataperilakukerja/inputperilakukerja', 'PegawaiPerilakukerjaController@store')->name('inputperilakukerja');
-    Route::get('/pegawaidataperilakukerja/delete/{nik}', 'PegawaiPerilakukerjaController@destroy')->name('deleteperilakukerja');
-
+    Route::get('/pegawaidataperilakukerja', 'PegawaiDataPerilakukerjaController@index')->name('homeDataPegawaiPerilakukerja');
+    Route::get('/pegawaidataperilakukerja/inputdataperilakukerja/{nik}', 'PegawaiDataPerilakukerjaController@show')->name('inputdataperilakukerja');
+   
     // route pegawai lihat skp
     Route::get('/pegawailihatskp', 'PegawaiLihatSkpController@index')->name('homePegawailihatskp');
     Route::post('/pegawailihatskp/bytahun', 'PegawaiLihatSkpController@show')->name('showPegawailihatskp');
-    Route::get('/pegawaidataperilakukerja', 'PegawaiDataPerilakukerjaController@index')->name('homeDataPegawaiPerilakukerja');
-    Route::get('/pegawaidataperilakukerja/inputdataperilakukerja/{nik}', 'PegawaiDataPerilakukerjaController@show')->name('inputdataperilakukerja');
+    });
+
+
+// route jalurnya penilai
+Route::group(['middleware' => ['auth','ceklevel:3']], function(){
+    Route::get('/user/penilai', 'PenilaiController@index')->name('homePenilai');
+
+    // route penilai hitung tpp
+    Route::get('/penilaihitungtpp', 'PenilaiHitungtppController@index')->name('homePenilaiDatatpp');
+    Route::post('/penilaihitungtpp/inputperilakukerja', 'PenilaiHitungtppController@store')->name('inputperilakukerja');
+    Route::get('/penilaihitungtpp/delete/{nik}', 'PenilaiHitungtppController@destroy')->name('deleteperilakukerja');
+
+
 });

@@ -301,7 +301,7 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="active">
-                        <a href="{{route('homePegawai')}}">
+                        <a href="{{route('homePenilai')}}">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
@@ -377,7 +377,7 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="{{route('homePegawaiPerilakukerja')}}">Perilaku Kerja</a>
+                                <a href="{{route('homePenilaiDatatpp')}}">Perhitungan TPP</a>
                             </li>
                             <li>
                                 <a href="{{route('homeDataPegawaiPerilakukerja')}}">Data Perilaku Kerja</a>
