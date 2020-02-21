@@ -65,10 +65,10 @@
                                                 <td>{{ $data->waktu }}</td>
                                                 <td>{{ $data->biaya }}</td>
                                                 <td>
-                                                    <a href="{{ route('formeditrealisasiskp', $data->nik_nip) }}">
+                                                    <a href="{{ route('adminformeditrealisasiskp', $data->nik_nip) }}">
                                                         <button class="btn btn-warning">Edit</button>
                                                     </a>
-                                                    <a href="{{ route('deleterealisasiskp', $data->nik_nip) }}">
+                                                    <a href="{{ route('admindeleterealisasiskp', $data->nik_nip) }}">
                                                         <button onClick="return konfirmasi()" class="btn btn-danger">Delete</button>
                                                     </a>
                                                 </td>
@@ -92,7 +92,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title" id="defaultModalLabel">Input Realisasi SKP</h4>
                 </div>
-                <form method="post" action="{{ route('inputrealisasiskp') }}">
+                <form method="post" action="{{ route('admininputrealisasiskp') }}">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group form-float">

@@ -301,7 +301,7 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="active">
-                        <a href="{{route('homePegawai')}}">
+                        <a href="{{route('homePenilai')}}">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
@@ -332,19 +332,19 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <!-- <a href="pages/ui/alerts.html">Rencana Karir</a> -->
+                                <a href="pages/ui/alerts.html">Rencana Karir</a>
                             </li>
                             <li>
                                 <a href="{{route('homePegawaiIzinstudilanjut')}}">Izin Studi Lanjut</a>
                             </li>
                             <li>
-                            <a href="{{route('homePegawaiIzincuti')}}">Izin Cuti</a>
+                            </li>
+
+                            <li>
+                               
                             </li>
                             <li>
-                            <a href="{{route('homePegawaiKenaikanpangkat')}}">Kenaikan Pangkat</a>   
-                            </li>
-                            <li>
-                            <a href="{{route('homePegawaiKenaikangaji')}}">Kenaikan Gaji</a>   
+                               
                             </li>
                                                                                                      
                         </ul>
@@ -377,21 +377,13 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="{{route('homePegawaiPerilakukerja')}}">Perilaku Kerja</a>
+                                <a href="{{route('homePenilaiDatatpp')}}">Perhitungan TPP</a>
                             </li>
                             <li>
                                 <a href="{{route('homeDataPegawaiPerilakukerja')}}">Data Perilaku Kerja</a>
                             </li>
                         </ul>
-                    </li> 
-                    <li>
-                        <a href="{{ route('PegawaiSurat') }}">
-                            <i class="material-icons">layers</i>
-                            <span>Surat</span>
-                        </a>
-                        
-                    </li>
-
+                    </li>  
                     <li>
                          <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();

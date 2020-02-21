@@ -30,7 +30,9 @@
                     <div class="card">
                         <div class="header">
                             <h2>
+                            @if($withInputButton)
                             <button type="button" class="btn bg-green waves-effect m-r-20" data-toggle="modal" data-target="#defaultModal">Tambah</button>
+                            @endif
                             </h2>
                         </div>
 
@@ -95,10 +97,10 @@
                                                 <td>{{ $data->waktu }}</td>
                                                 <td>{{ $data->biaya }}</td>
                                                 <td>
-                                                    <a href="{{ route('formedittargetskp', $data->nik_nip) }}">
+                                                    <a href="{{ route('pegawaiformedittargetskp', $data->nik_nip) }}">
                                                         <button class="btn btn-warning">Edit</button>
                                                     </a>
-                                                    <a href="{{ route('deletetargetskp', $data->nik_nip) }}">
+                                                    <a href="{{ route('pegawaideletetargetskp', $data->nik_nip) }}">
                                                         <button onClick="return konfirmasi()" class="btn btn-danger">Delete</button>
                                                     </a>
                                                 </td>
@@ -122,37 +124,10 @@
                 <div class="modal-header">
                     <h4 class="modal-title" id="defaultModalLabel">Input Target SKP</h4>
                 </div>
-                <form method="post" action="{{ route('inputtargetskp') }}">
+                <form method="post" action="{{ route('pegawaiinputtargetskp') }}">
                     @csrf
                     <div class="modal-body">
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" readonly value="{{ Auth()->user()->nik }}" name="nik_nip" id="nip" class="form-control" required="required" autocomplete="off">
-                                <label class="form-label">NIK NIP</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" readonly value="{{ Auth()->user()->name }}" name="nama" id="nama" class="form-control" required="required" autocomplete="off">
-                                <label class="form-label">Nama</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" name="golongan" id="golongan" class="form-control" required="required" autocomplete="off">
-                                <label class="form-label">Golongan</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" name="jabatan" id="jabatan" class="form-control" required="required" autocomplete="off">
-                                <label class="form-label">Jabatan</label>
-                            </div>
-                        </div>
-
+                        
                         <div class="form-group form-float">
                             <div class="form-line">
                                 <input type="text" name="kegiatan_tugas_jabatan" id="kegiatan_tugas_jabatan" class="form-control" required="required" autocomplete="off">

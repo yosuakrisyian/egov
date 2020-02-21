@@ -56,17 +56,17 @@ Route::group(['middleware' => ['auth','ceklevel:1']], function(){
 
     // route admin target skp
     Route::get('/admintargetskp', 'AdminTargetSkpController@index')->name('homeAdmintargetskp');
-    Route::post('/admintargetskp/inputtargetskp', 'AdminTargetSkpController@store')->name('inputtargetskp');
-    Route::get('/admintargetskp/formedit/{nik}', 'AdminTargetSkpController@show')->name('formedittargetskp');
-    Route::post('/admintargetskp/update/{nik}', 'AdminTargetSkpController@update')->name('updatetargetskp');
-    Route::get('/admintargetskp/delete/{nik}', 'AdminTargetSkpController@destroy')->name('deletetargetskp');
+    Route::post('/admintargetskp/admininputtargetskp', 'AdminTargetSkpController@store')->name('admininputtargetskp');
+    Route::get('/admintargetskp/adminformedit/{nik}', 'AdminTargetSkpController@show')->name('adminformedittargetskp');
+    Route::post('/admintargetskp/adminupdate/{nik}', 'AdminTargetSkpController@update')->name('adminupdatetargetskp');
+    Route::get('/admintargetskp/admindelete/{nik}', 'AdminTargetSkpController@destroy')->name('admindeletetargetskp');
 
     // route admin realisasi skp
     Route::get('/adminrealisasiskp', 'AdminRealisasiSkpController@index')->name('homeAdminRealisasiSkp');
-    Route::post('/adminrealisasiskp/inputrealisasiskp', 'AdminRealisasiSkpController@store')->name('inputrealisasiskp');
-    Route::get('/adminrealisasiskp/formedit/{nik}', 'AdminRealisasiSkpController@show')->name('formeditrealisasiskp');
-    Route::post('/adminrealisasiskp/update/{nik}', 'AdminRealisasiSkpController@update')->name('updaterealisasiskp');
-    Route::get('/adminrealisasiskp/delete/{nik}', 'AdminRealisasiSkpController@destroy')->name('deleterealisasiskp');
+    Route::post('/adminrealisasiskp/admininputrealisasiskp', 'AdminRealisasiSkpController@store')->name('admininputrealisasiskp');
+    Route::get('/adminrealisasiskp/adminformedit/{nik}', 'AdminRealisasiSkpController@show')->name('adminformeditrealisasiskp');
+    Route::post('/adminrealisasiskp/adminupdate/{nik}', 'AdminRealisasiSkpController@update')->name('adminupdaterealisasiskp');
+    Route::get('/adminrealisasiskp/admindelete/{nik}', 'AdminRealisasiSkpController@destroy')->name('admindeleterealisasiskp');
 
     // route admin kenaikan pangkat
     Route::get('/adminkenaikanpangkat', 'AdminKenaikanpangkatController@index')->name('homeAdminKenaikanpangkat');
@@ -117,23 +117,22 @@ Route::group(['middleware' => ['auth','ceklevel:2']], function(){
     Route::post('/pegawaikenaikangaji/update/{nik}', 'PegawaiKenaikangajiController@update')->name('updatepegawaikenaikangaji');
     Route::get('/pegawaikenaikangaji/delete/{nik}', 'PegawaiKenaikangajiController@destroy')->name('deletepegawaikenaikangaji');
 
-    // route pegawai target skp
+    //  route pegawai target skp
     Route::get('/pegawaitargetskp', 'PegawaiTargetSkpController@index')->name('homePegawaitargetskp');
-    Route::post('/pegawaitargetskp/inputtargetskp', 'PegawaiTargetSkpController@store')->name('inputtargetskp');
-    Route::get('/pegawaitargetskp/formedit/{nik}', 'PegawaiTargetSkpController@show')->name('formedittargetskp');
-    Route::post('/pegawaitargetskp/update/{nik}', 'PegawaiTargetSkpController@update')->name('updatetargetskp');
-    Route::get('/pegawaitargetskp/delete/{nik}', 'PegawaiTargetSkpController@destroy')->name('deletetargetskp');
+    Route::post('/pegawaitargetskp/pegawaiinputtargetskp', 'PegawaiTargetSkpController@store')->name('pegawaiinputtargetskp');
+    Route::get('/pegawaitargetskp/pegawaiformedit/{nik}', 'PegawaiTargetSkpController@show')->name('pegawaiformedittargetskp');
+    Route::post('/pegawaitargetskp/pegawaiupdate/{nik}', 'PegawaiTargetSkpController@update')->name('pegawaiupdatetargetskp');
+    Route::get('/pegawaitargetskp/pegawaidelete/{nik}', 'PegawaiTargetSkpController@destroy')->name('pegawaideletetargetskp');
 
     // route pegawai perilaku kerja
     Route::get('/pegawaiperilakukerja', 'PegawaiPerilakukerjaController@index')->name('homePegawaiPerilakukerja');
     Route::post('/pegawaiperilakukerja/inputperilakukerja', 'PegawaiPerilakukerjaController@store')->name('inputperilakukerja');
-    Route::get('/pegawaiperilakukerja/delete/{nik}', 'PegawaiPerilakukerjaController@destroy')->name('deleteperilakukerja');
+    
 
     // route pegawai data perilaku kerja
-    Route::get('/pegawaidataperilakukerja', 'PegawaiPerilakukerjaController@index')->name('homePegawaiPerilakukerja');
-    Route::post('/pegawaidataperilakukerja/inputperilakukerja', 'PegawaiPerilakukerjaController@store')->name('inputperilakukerja');
-    Route::get('/pegawaidataperilakukerja/delete/{nik}', 'PegawaiPerilakukerjaController@destroy')->name('deleteperilakukerja');
-
+    Route::get('/pegawaidataperilakukerja', 'PegawaiDataPerilakukerjaController@index')->name('homeDataPegawaiPerilakukerja');
+    Route::get('/pegawaidataperilakukerja/inputdataperilakukerja/{nik}', 'PegawaiDataPerilakukerjaController@show')->name('inputdataperilakukerja');
+   
     // izin studi
     Route::post('/pegawaiizinstudilanjut/inputpegawaiizinstudilanjut', 'PegawaiIzinstudilanjutController@store')->name('inputpegawaiizinstudilanjut');
     Route::get('/pegawaiizinstudilanjut/formeditpegawaipegawaiizinstudilanjut/{nik}', 'PegawaiIzinstudilanjutController@show')->name('formeditpegawaiizinstudilanjut');
@@ -147,5 +146,22 @@ Route::group(['middleware' => ['auth','ceklevel:2']], function(){
     Route::post('/pegawaisurat/updatepegawaisurat/{nik}', 'PegawaiSuratController@update')->name('updatepegawaisurat');
     Route::get('/pegawaisurat/deletepegawaisurat/{nik}', 'PegawaiSuratController@destroy')->name('deletepegawaisurat');
     Route::get('/pegawaisurat/lihatsurat/{nik}', 'PegawaiSuratController@lihat')->name('viewsurat');
+
+    // route pegawai lihat skp
+    Route::get('/pegawailihatskp', 'PegawaiLihatSkpController@index')->name('homePegawailihatskp');
+    Route::post('/pegawailihatskp/bytahun', 'PegawaiLihatSkpController@show')->name('showPegawailihatskp');
+
+});
+
+
+// route jalurnya penilai
+Route::group(['middleware' => ['auth','ceklevel:3']], function(){
+    Route::get('/user/penilai', 'PenilaiController@index')->name('homePenilai');
+
+    // route penilai hitung tpp
+    Route::get('/penilaihitungtpp', 'PenilaiHitungtppController@index')->name('homePenilaiDatatpp');
+    Route::post('/penilaihitungtpp/inputperilakukerja', 'PenilaiHitungtppController@store')->name('inputperilakukerja');
+    Route::get('/penilaihitungtpp/delete/{nik}', 'PenilaiHitungtppController@destroy')->name('deleteperilakukerja');
+
 
 });
