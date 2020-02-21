@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Welcome To | Bootstrap Based Admin Template - Material Design</title>
+    <title>E-Gov Provinsi Lampung</title>
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
@@ -70,7 +70,7 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.html">ADMINBSB - MATERIAL DESIGN</a>
+                <a class="navbar-brand" href="index.html">E-Gov Provinsi Lampung</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -279,8 +279,8 @@
                     <img src="{{ url('images/user.png')}}" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin E-Gov</div>
-                    <div class="email">john.doe@example.com</div>
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth()->user()->name }}</div>
+                    <div class="email">{{ Auth()->user()->nik }}</div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
@@ -306,7 +306,7 @@
                             <span>Home</span>
                         </a>
                     </li>
-                    <li>
+                    <!--<li>
                         <a href="{{route('homeAdminPegawai')}}">
                             <i class="material-icons">text_fields</i>
                             <span>Pegawai</span>
@@ -323,7 +323,7 @@
                             <i class="material-icons">layers</i>
                             <span>Golongan</span>
                         </a>
-                    </li>
+                    </li> -->
                    
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
@@ -380,7 +380,7 @@
                                 <a href="{{route('homePegawaiPerilakukerja')}}">Perilaku Kerja</a>
                             </li>
                             <li>
-                                <a href="pages/medias/carousel.html">Perhitungan Tunjangan Kinerja</a>
+                                <a href="{{route('homeDataPegawaiPerilakukerja')}}">Data Perilaku Kerja</a>
                             </li>
                         </ul>
                     </li>  
@@ -401,10 +401,10 @@
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
-                    &copy; 2016 - 2017 <a href="javascript:void(0);">AdminBSB - Material Design</a>.
+                    &copy; 2020 <a href="javascript:void(0);">Tim E-Gov UBL</a>.
                 </div>
                 <div class="version">
-                    <b>Version: </b> 1.0.5
+                    <b>Version: </b> 1.0
                 </div>
             </div>
             <!-- #Footer -->

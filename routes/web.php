@@ -114,4 +114,6 @@ Route::group(['middleware' => ['auth','ceklevel:2']], function(){
     // route pegawai lihat skp
     Route::get('/pegawailihatskp', 'PegawaiLihatSkpController@index')->name('homePegawailihatskp');
     Route::post('/pegawailihatskp/bytahun', 'PegawaiLihatSkpController@show')->name('showPegawailihatskp');
+    Route::get('/pegawaidataperilakukerja', 'PegawaiDataPerilakukerjaController@index')->name('homeDataPegawaiPerilakukerja');
+    Route::get('/pegawaidataperilakukerja/inputdataperilakukerja/{nik}', 'PegawaiDataPerilakukerjaController@show')->name('inputdataperilakukerja');
 });
