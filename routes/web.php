@@ -165,3 +165,12 @@ Route::group(['middleware' => ['auth','ceklevel:3']], function(){
 
 
 });
+
+
+
+// route jalurnya penilai
+Route::group(['middleware' => ['auth','ceklevel:4']], function(){
+    Route::get('kepalabagian', 'KepalabagianController@index')->name('homeKepalabagian');
+
+
+});

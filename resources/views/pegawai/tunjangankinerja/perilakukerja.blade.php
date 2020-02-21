@@ -56,7 +56,7 @@
                                         </tr>
                                 </table>
 
-                                    <div class="modal-body">
+                                    
                                         <div class="form-group form-float">
                                             <div class="form-line">
                                                 <input type="number" name="orientasi_pelayanan" maxlength="3" class="form-control" required="required" autocomplete="off">
@@ -98,15 +98,8 @@
                                                 <label class="form-label">Kepemimpinan</label>
                                             </div>
                                         </div>
-                                        
-                                    </div>
-                                    <div class="modal-footer">
+                                           
                                         <button type="submit" class="btn btn-link waves-effect">SIMPAN</button>
-                                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
-                                    </div>
-                                <h2>
-                                <button type="button" class="btn bg-green waves-effect m-r-20" data-toggle="modal" data-target="#defaultModal">Tambah</button>
-                                </h2>
 
                             </div>
                         </div>
