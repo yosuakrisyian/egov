@@ -14,9 +14,10 @@ class PegawaiTargetSkpController extends Controller
      */
     public function index()
     {
-        $datas = TargetSKP::where('nik_nip', Auth()->user()->nik)
+        $datas = TargetSKP::whereYear('waktu', date('Y'))
+                            ->where('nik_nip', Auth()->user()->nik)
                            ->paginate(5);
-        return view('pegawai.kinerja.targetskp')->with(['datas' => $datas]);
+        return view('pegawai.kinerja.targetskp')->with(['datas' => $datas, 'withInputButton' => true]);
     }
 
     /**
@@ -36,10 +37,28 @@ class PegawaiTargetSkpController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $data = $request->all();
+    {  
+        $dataUser = Auth()->user();
+        $nik = $dataUser->nik;
+        $nama = $dataUser->name;
+        $golongan = $dataUser->golongan;
+        $jabatan = $dataUser->jabatan;
 
-        
+        $data = $request->all();
+        $data['nik_nip'] = $nik;
+        $data['nama'] = $nama;
+        $data['golongan'] = $golongan;
+        $data['jabatan'] = $jabatan;
+        // array_push($data, [
+        //     'nik_nip' => $nik,
+        //     'nama' => $nama,
+        //     'golongan' => $golongan,
+        //     'jabatan' => $jabatan
+        // ]);
+
+        // $data = $request->all();
+
+        // var_dump($data);
         $input = TargetSKP::create($data);
         $respon = array();
         $respon['adaAksi'] = true;
@@ -63,7 +82,7 @@ class PegawaiTargetSkpController extends Controller
     public function show($nik_nip)
     {
         $data = TargetSKP::where('nik_nip', $nik_nip)->first();
-        return view('pegawai.kinerja.formedittargetskp')->with(['data' => $data]);
+        return view('pegawai.kinerja.pegawaiformedittargetskp')->with(['data' => $data]);
 
 
     }

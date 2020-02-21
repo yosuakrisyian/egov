@@ -64,7 +64,7 @@ class AdminRealisasiSkpController extends Controller
     public function show($nik_nip)
     {
         $data = RealisasiSKP::where('nik_nip', $nik_nip)->first();
-        return view('admin.kinerja.formeditrealisasiskp')->with(['data' => $data]);
+        return view('admin.kinerja.adminformeditrealisasiskp')->with(['data' => $data]);
 
 
     }

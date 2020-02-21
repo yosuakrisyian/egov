@@ -366,7 +366,7 @@
                                 <a href="pages/tables/editable-table.html">Perhitungan SKP</a>
                             </li>
                             <li>
-                                <a href="pages/tables/editable-table.html">Lihat SKP</a>
+                                <a href="{{route('homePegawailihatskp')}}">Lihat SKP</a>
                             </li>
                         </ul>
                     </li>

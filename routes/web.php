@@ -56,17 +56,17 @@ Route::group(['middleware' => ['auth','ceklevel:1']], function(){
 
     // route admin target skp
     Route::get('/admintargetskp', 'AdminTargetSkpController@index')->name('homeAdmintargetskp');
-    Route::post('/admintargetskp/inputtargetskp', 'AdminTargetSkpController@store')->name('inputtargetskp');
-    Route::get('/admintargetskp/formedit/{nik}', 'AdminTargetSkpController@show')->name('formedittargetskp');
-    Route::post('/admintargetskp/update/{nik}', 'AdminTargetSkpController@update')->name('updatetargetskp');
-    Route::get('/admintargetskp/delete/{nik}', 'AdminTargetSkpController@destroy')->name('deletetargetskp');
+    Route::post('/admintargetskp/admininputtargetskp', 'AdminTargetSkpController@store')->name('admininputtargetskp');
+    Route::get('/admintargetskp/adminformedit/{nik}', 'AdminTargetSkpController@show')->name('adminformedittargetskp');
+    Route::post('/admintargetskp/adminupdate/{nik}', 'AdminTargetSkpController@update')->name('adminupdatetargetskp');
+    Route::get('/admintargetskp/admindelete/{nik}', 'AdminTargetSkpController@destroy')->name('admindeletetargetskp');
 
     // route admin realisasi skp
     Route::get('/adminrealisasiskp', 'AdminRealisasiSkpController@index')->name('homeAdminRealisasiSkp');
-    Route::post('/adminrealisasiskp/inputrealisasiskp', 'AdminRealisasiSkpController@store')->name('inputrealisasiskp');
-    Route::get('/adminrealisasiskp/formedit/{nik}', 'AdminRealisasiSkpController@show')->name('formeditrealisasiskp');
-    Route::post('/adminrealisasiskp/update/{nik}', 'AdminRealisasiSkpController@update')->name('updaterealisasiskp');
-    Route::get('/adminrealisasiskp/delete/{nik}', 'AdminRealisasiSkpController@destroy')->name('deleterealisasiskp');
+    Route::post('/adminrealisasiskp/admininputrealisasiskp', 'AdminRealisasiSkpController@store')->name('admininputrealisasiskp');
+    Route::get('/adminrealisasiskp/adminformedit/{nik}', 'AdminRealisasiSkpController@show')->name('adminformeditrealisasiskp');
+    Route::post('/adminrealisasiskp/adminupdate/{nik}', 'AdminRealisasiSkpController@update')->name('adminupdaterealisasiskp');
+    Route::get('/adminrealisasiskp/admindelete/{nik}', 'AdminRealisasiSkpController@destroy')->name('admindeleterealisasiskp');
 
     // route admin kenaikan pangkat
     Route::get('/adminkenaikanpangkat', 'AdminKenaikanpangkatController@index')->name('homeAdminKenaikanpangkat');
@@ -94,12 +94,12 @@ Route::group(['middleware' => ['auth','ceklevel:2']], function(){
     Route::post('/pegawaiizinstudilanjut/update/{nik}', 'PegawaiIzinstudilanjutController@update')->name('updateizinstudilanjut');
     Route::get('/pegawaiizinstudilanjut/delete/{nik}', 'PegawaiIzinstudilanjutController@destroy')->name('deleteizinstudilanjut');
 
-    // route pegawai target skp
+    //  route pegawai target skp
     Route::get('/pegawaitargetskp', 'PegawaiTargetSkpController@index')->name('homePegawaitargetskp');
-    Route::post('/pegawaitargetskp/inputtargetskp', 'PegawaiTargetSkpController@store')->name('inputtargetskp');
-    Route::get('/pegawaitargetskp/formedit/{nik}', 'PegawaiTargetSkpController@show')->name('formedittargetskp');
-    Route::post('/pegawaitargetskp/update/{nik}', 'PegawaiTargetSkpController@update')->name('updatetargetskp');
-    Route::get('/pegawaitargetskp/delete/{nik}', 'PegawaiTargetSkpController@destroy')->name('deletetargetskp');
+    Route::post('/pegawaitargetskp/pegawaiinputtargetskp', 'PegawaiTargetSkpController@store')->name('pegawaiinputtargetskp');
+    Route::get('/pegawaitargetskp/pegawaiformedit/{nik}', 'PegawaiTargetSkpController@show')->name('pegawaiformedittargetskp');
+    Route::post('/pegawaitargetskp/pegawaiupdate/{nik}', 'PegawaiTargetSkpController@update')->name('pegawaiupdatetargetskp');
+    Route::get('/pegawaitargetskp/pegawaidelete/{nik}', 'PegawaiTargetSkpController@destroy')->name('pegawaideletetargetskp');
 
     // route pegawai perilaku kerja
     Route::get('/pegawaiperilakukerja', 'PegawaiPerilakukerjaController@index')->name('homePegawaiPerilakukerja');
@@ -110,4 +110,8 @@ Route::group(['middleware' => ['auth','ceklevel:2']], function(){
     Route::get('/pegawaidataperilakukerja', 'PegawaiPerilakukerjaController@index')->name('homePegawaiPerilakukerja');
     Route::post('/pegawaidataperilakukerja/inputperilakukerja', 'PegawaiPerilakukerjaController@store')->name('inputperilakukerja');
     Route::get('/pegawaidataperilakukerja/delete/{nik}', 'PegawaiPerilakukerjaController@destroy')->name('deleteperilakukerja');
+
+    // route pegawai lihat skp
+    Route::get('/pegawailihatskp', 'PegawaiLihatSkpController@index')->name('homePegawailihatskp');
+    Route::post('/pegawailihatskp/bytahun', 'PegawaiLihatSkpController@show')->name('showPegawailihatskp');
 });

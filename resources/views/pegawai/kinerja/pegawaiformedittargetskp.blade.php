@@ -1,4 +1,4 @@
-@extends('layouts.MyLayout')
+@extends('layouts.PegawaiLayout')
 @section('content')
 
 <section class="content">
@@ -14,37 +14,10 @@
                             <div class="card">
                                 <div class="header">
 
-                                <form method="post" action="{{ route('updaterealisasiskp',$data->nik_nip) }}">
+                                <form method="post" action="{{ route('pegawaiupdatetargetskp',$data->nik_nip) }}">
                                     @csrf
                                     <div class="modal-body">
-                                        <div class="form-group form-float">
-                                            <div class="form-line">
-                                                <input type="text" name="nik_nip" value="{{$data->nik_nip}}" id="nip" class="form-control" required="required" autocomplete="off">
-                                                <label class="form-label">NIK NIP</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group form-float">
-                                            <div class="form-line">
-                                                <input type="text" name="nama" value="{{$data->nama}}" id="nama" class="form-control" required="required" autocomplete="off">
-                                                <label class="form-label">Nama</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group form-float">
-                                            <div class="form-line">
-                                                <input type="text" name="golongan" value="{{$data->golongan}}" id="golongan" class="form-control" required="required" autocomplete="off">
-                                                <label class="form-label">Golongan</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group form-float">
-                                            <div class="form-line">
-                                                <input type="text" name="jabatan" value="{{$data->jabatan}}" id="jabatan" class="form-control" required="required" autocomplete="off">
-                                                <label class="form-label">Jabatan</label>
-                                            </div>
-                                        </div>
-                                        
+                                                                 
                                         <div class="form-group form-float">
                                             <div class="form-line">
                                                 <input type="text" name="kegiatan_tugas_jabatan" value="{{$data->kegiatan_tugas_jabatan}}" id="kegiatan_tugas_jabatan" class="form-control" required="required" autocomplete="off">

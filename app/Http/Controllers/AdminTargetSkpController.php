@@ -64,7 +64,7 @@ class AdminTargetSkpController extends Controller
     public function show($nik_nip)
     {
         $data = TargetSKP::where('nik_nip', $nik_nip)->first();
-        return view('admin.kinerja.formedittargetskp')->with(['data' => $data]);
+        return view('admin.kinerja.adminformedittargetskp')->with(['data' => $data]);
 
 
     }
