@@ -380,7 +380,7 @@
                                 <a href="{{route('homePenilaiDatatpp')}}">Perhitungan TPP</a>
                             </li>
                             <li>
-                                <a href="{{route('homeDataPegawaiPerilakukerja')}}">Data Perilaku Kerja</a>
+                                <a href="{{route('homePenilailanjuthitungtpp')}}">Hitung Lanjut</a>
                             </li>
                         </ul>
                     </li>  

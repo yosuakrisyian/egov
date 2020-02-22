@@ -1,12 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Perilakukerja;
-use App\User;
 
 use Illuminate\Http\Request;
 
-class PegawaiPerilakukerjaController extends Controller
+class PenilaiLanjutHitungtppController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +13,7 @@ class PegawaiPerilakukerjaController extends Controller
      */
     public function index()
     {
-        $datas = Perilakukerja::paginate(5);
-        return view('pegawai.tunjangankinerja.perilakukerja')->with(['datas' => $datas]);
+        return view('penilai.tunjangankinerjapenilai.lanjuthitung');
     }
 
     /**
@@ -35,27 +32,9 @@ class PegawaiPerilakukerjaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $nik)
+    public function store(Request $request)
     {
-        $data = $request->all();
-        //$data['password'] = Hash::make($data['id_golongan']);
-        // $data['level'] = 3;
-
-        $pegawaiDinilai = User::where('nik', $nik);
-
-        
-        $input = Perilakukerja::create($data);
-        $respon = array();
-        $respon['adaAksi'] = true;
-        if ($input) {
-        $respon['sukses'] = true;
-        $respon['pesan'] = 'Berhasil Input Perilaku Kerja';
-        } else {
-        $respon['sukses'] = false;
-        $respon['pesan'] = 'Gagal Input Perilaku Kerja';
-        }
-
-        return back()->with($respon);
+        //
     }
 
     /**
@@ -98,20 +77,8 @@ class PegawaiPerilakukerjaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($nik_nip)
+    public function destroy($id)
     {
-        $delete = Perilakukerja::where('nik_nip', $nik_nip)->delete();
-
-        $respon = array();
-        $respon['adaAksi'] = true;
-        if ($delete) {
-            $respon['sukses'] = true;
-            $respon['pesan'] = 'Berhasil Hapus Perilaku Kerja';
-        } else {
-            $respon['sukses'] = false;
-            $respon['pesan'] = 'Gagal Hapus Perilaku Kerja';
-        }
-
-        return redirect()->route('homePegawaiPerilakukerja')->with($respon);
+        //
     }
 }

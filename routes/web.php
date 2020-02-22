@@ -126,7 +126,7 @@ Route::group(['middleware' => ['auth','ceklevel:2']], function(){
 
     // route pegawai perilaku kerja
     Route::get('/pegawaiperilakukerja', 'PegawaiPerilakukerjaController@index')->name('homePegawaiPerilakukerja');
-    Route::post('/pegawaiperilakukerja/inputperilakukerja', 'PegawaiPerilakukerjaController@store')->name('inputperilakukerja');
+    Route::post('/pegawaiperilakukerja/inputperilakukerja/{nik}', 'PegawaiPerilakukerjaController@store')->name('inputperilakukerja');
     
 
     // route pegawai data perilaku kerja
@@ -160,8 +160,11 @@ Route::group(['middleware' => ['auth','ceklevel:3']], function(){
 
     // route penilai hitung tpp
     Route::get('/penilaihitungtpp', 'PenilaiHitungtppController@index')->name('homePenilaiDatatpp');
-    Route::post('/penilaihitungtpp/inputperilakukerja', 'PenilaiHitungtppController@store')->name('inputperilakukerja');
-    Route::get('/penilaihitungtpp/delete/{nik}', 'PenilaiHitungtppController@destroy')->name('deleteperilakukerja');
+    //Route::post('/penilaihitungtpp/inputperilakukerja', 'PenilaiHitungtppController@store')->name('inputperilakukerja');
+    //Route::get('/penilaihitungtpp/delete/{nik}', 'PenilaiHitungtppController@destroy')->name('deleteperilakukerja');
+
+    // route lanjut hitung tpp
+    Route::get('/penilailanjuthitungtpp', 'PenilaiLanjutHitungtppController@index')->name('homePenilailanjuthitungtpp');
 
 
 });

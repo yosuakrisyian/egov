@@ -8,7 +8,8 @@ class Perilakukerja extends Model
 {
     protected $table = 'tb_perilakukerja';
     protected $fillable = [
-        'nik_nip',
+        'nik_penilai',
+        'nik_dinilai',
         'nama_lengkap',
         'orientasi_pelayanan',
         'integritas',

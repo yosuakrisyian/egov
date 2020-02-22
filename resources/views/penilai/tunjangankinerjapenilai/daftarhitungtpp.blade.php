@@ -11,19 +11,7 @@
                 </h2>
             </div>
 
-            @if(session('adaAksi'))
-                @if(session('sukses'))
-                    <div class="alert bg-teal alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        {{ session('pesan') }}
-                    </div>
-                @else
-                    <div class="alert bg-pink alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        {{ session('pesan') }}
-                    </div>
-                @endif
-            @endif
+           
 
             <!-- Basic Examples -->
             <div class="row clearfix">
@@ -51,8 +39,8 @@
                                                 <td>{{ $data->golongan }}</td>
                                                 <td>{{ $data->jabatan }}</td>
                                                 <td>
-                                                    <a href="{{ route('inputdataperilakukerja', $data->nik) }}">
-                                                        <button class="btn btn-warning">Beri Nilai</button>
+                                                    <a href="">
+                                                        <button class="btn btn-warning">Hitung TPP</button>
                                                     </a>
                                                 </td>
                                             </tr>
@@ -69,4 +57,4 @@
         </div>
     </section>
 
- @endsection                
+ @endsection
