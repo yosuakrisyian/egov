@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\RealisasiSKP;
+use App\User;
 
 use Illuminate\Http\Request;
 
-class AdminRealisasiSkpController extends Controller
+class PenilaiDataRealisasiSkpController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,11 @@ class AdminRealisasiSkpController extends Controller
      */
     public function index()
     {
-        $datas = RealisasiSKP::paginate(5);
-        return view('admin.kinerja.realisasiskp')->with(['datas' => $datas]);
+        $datas = User::where([
+            ['level', '=',2],
+            ['nik', '<>', Auth()->user()->nik]
+        ])->paginate(5);
+        return view('penilai.kinerja.datarealisasiskp')->with(['datas' => $datas]);
     }
 
     /**
@@ -25,7 +29,7 @@ class AdminRealisasiSkpController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -41,7 +45,7 @@ class AdminRealisasiSkpController extends Controller
         // $data['level'] = 3;
 
         
-        $input = RealisasiSKP::create($data);
+        $input = RealisasiSkp::create($data);
         $respon = array();
         $respon['adaAksi'] = true;
         if ($input) {
@@ -52,7 +56,7 @@ class AdminRealisasiSkpController extends Controller
             $respon['pesan'] = 'Gagal Input Realisasi SKP';
         }
 
-        return back()->with($respon);
+        return redirect()->route('homeDataPenilaiRealisasiSkp')->with($response);
     }
 
     /**
@@ -61,12 +65,10 @@ class AdminRealisasiSkpController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($nik_nip)
+    public function show($nik)
     {
-        $data = RealisasiSKP::where('nik_nip', $nik_nip)->first();
-        return view('admin.kinerja.adminformeditrealisasiskp')->with(['data' => $data]);
-
-
+        $datas = User::where('nik', $nik)->first();
+        return view('penilai.kinerja.realisasiskp')->with(['datas' => $datas]);
     }
 
     /**
@@ -87,22 +89,9 @@ class AdminRealisasiSkpController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $nik_nip)
+    public function update(Request $request, $id)
     {
-        $data=$request->all();
-        unset($data['_token']);
-        $update = RealisasiSKP::where('nik_nip', $nik_nip)->update($data);
-        $respon = array();
-        $respon['adaAksi'] = true;
-        if ($update) {
-            $respon['sukses'] = true;
-            $respon['pesan'] = 'Berhasil Edit Realisasi Skp';
-        } else {
-            $respon['sukses'] = false;
-            $respon['pesan'] = 'Gagal Edit Realisasi SKP';
-        }
-
-        return redirect()->route('homeAdminRealisasiSkp')->with($respon);
+        //
     }
 
     /**
@@ -111,20 +100,8 @@ class AdminRealisasiSkpController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($nik_nip)
+    public function destroy($id)
     {
-        $delete = RealisasiSKP::where('nik_nip', $nik_nip)->delete();
-
-        $respon = array();
-        $respon['adaAksi'] = true;
-        if ($delete) {
-            $respon['sukses'] = true;
-            $respon['pesan'] = 'Berhasil Hapus Realisasi SKP';
-        } else {
-            $respon['sukses'] = false;
-            $respon['pesan'] = 'Gagal Hapus Realisasi SKP';
-        }
-
-        return redirect()->route('homeAdminRealisasiSkp')->with($respon);
+        //
     }
 }

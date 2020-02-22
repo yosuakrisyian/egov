@@ -364,7 +364,7 @@
                                 <a href="{{route('homeAdminRealisasiSkp')}}">Realisasi SKP</a>
                             </li>
                             <li>
-                                <a href="pages/tables/editable-table.html">Perhitungan SKP</a>
+                                <a href="pages/tables/editable-table.html">Nilai SKP</a>
                             </li>
                             <li>
                                 <a href="pages/tables/editable-table.html">Lihat SKP</a>
