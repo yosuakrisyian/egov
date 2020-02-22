@@ -163,12 +163,21 @@ Route::group(['middleware' => ['auth','ceklevel:3']], function(){
     Route::post('/penilaihitungtpp/inputperilakukerja', 'PenilaiHitungtppController@store')->name('inputperilakukerja');
     Route::get('/penilaihitungtpp/delete/{nik}', 'PenilaiHitungtppController@destroy')->name('deleteperilakukerja');
 
+    // route penilai realisasi skp
+    Route::get('/penilairealisasiskp', 'PenilaiRealisasiSkpController@index')->name('homePenilaiRealisasiSkp');
+    Route::post('/penilairealisasiskp/inputrealisasiskp', 'PenilaiRealisasiSkpController@store')->name('inputrealisasiskp');
+    
+
+    // route penilai data realisasi skp
+    Route::get('/penilaidatarealisasiskp', 'PenilaiDataRealisasiSkpController@index')->name('homeDataPenilaiRealisasiSkp');
+    Route::get('/penilaidatarealisasiskp/inputdatarealisasiskp/{nik}', 'PenilaiDataRealisasiSkpController@show')->name('inputdatarealisasiskp');
+
 
 });
 
 
 
-// route jalurnya penilai
+// route jalurnya kepala bagian
 Route::group(['middleware' => ['auth','ceklevel:4']], function(){
     Route::get('kepalabagian', 'KepalabagianController@index')->name('homeKepalabagian');
 

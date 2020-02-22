@@ -360,7 +360,7 @@
                                 <a href="{{route('homePegawaitargetskp')}}">Target SKP</a>
                             </li>
                             <li>
-                                <a href="{{route('homeAdminRealisasiSkp')}}">Realisasi SKP</a>
+                                <a href="{{route('homeDataPenilaiRealisasiSkp')}}">Realisasi SKP</a>
                             </li>
                             <li>
                                 <a href="pages/tables/editable-table.html">Perhitungan SKP</a>
