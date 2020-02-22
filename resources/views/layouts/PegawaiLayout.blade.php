@@ -377,7 +377,7 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="{{route('homePegawaiPerilakukerja')}}">Perilaku Kerja</a>
+                                <!-- <a href="{{route('homePegawaiPerilakukerja')}}">Perilaku Kerja</a> -->
                             </li>
                             <li>
                                 <a href="{{route('homeDataPegawaiPerilakukerja')}}">Data Perilaku Kerja</a>

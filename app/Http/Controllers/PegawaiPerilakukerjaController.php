@@ -41,21 +41,46 @@ class PegawaiPerilakukerjaController extends Controller
         //$data['password'] = Hash::make($data['id_golongan']);
         // $data['level'] = 3;
 
-        $pegawaiDinilai = User::where('nik', $nik);
+        $pegawaiDinilai = User::where('nik', $nik)->first();
+        $dataPenilai = Auth()->user();
 
-        
-        $input = Perilakukerja::create($data);
-        $respon = array();
-        $respon['adaAksi'] = true;
-        if ($input) {
-        $respon['sukses'] = true;
-        $respon['pesan'] = 'Berhasil Input Perilaku Kerja';
+        $data['nik_penilai'] = $dataPenilai['nik'];
+        $data['nik_dinilai'] = $pegawaiDinilai['nik'];
+
+        $belumAda = PerilakuKerja::wheremonth('created_at', date('m'))
+        ->where([
+            ['nik_penilai', '=', $dataPenilai['nik']],
+            ['nik_dinilai', '=', $pegawaiDinilai['nik']]
+        ])->first();
+        $respon;
+        // var_dump($belumAda);
+        if (!$belumAda) {
+            $input = Perilakukerja::create($data);
+            $respon = array();
+            $respon['adaAksi'] = true;
+            if ($input) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Input Perilaku Kerja';
+            } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Input Perilaku Kerja';
+            }
+            $respon = [
+                'adaAksi' => true,
+                'sukses' => true,
+                'pesan' => 'Berhasil Menilai'
+            ];
+
         } else {
-        $respon['sukses'] = false;
-        $respon['pesan'] = 'Gagal Input Perilaku Kerja';
+            $respon = [
+                'adaAksi' => true,
+                'sukses' => false,
+                'pesan' => 'Ada Sudah Menilai Pegawai Tersebut Bulan Ini'
+            ];
         }
-
-        return back()->with($respon);
+        return redirect()->route('homeDataPegawaiPerilakukerja')->with($respon);
+        
+        
     }
 
     /**
