@@ -151,14 +151,14 @@
                             <div class="form-line">
                                 <label class="form-label">Golongan</label>
                                 <select class="form-control" name="golongan">
-                                    <option value="IA">IIA</option>
-                                    <option value="IB">IIB</option>
-                                    <option value="IC">IIC</option>
-                                    <option value="ID">IID</option>
-                                    <option value="IIA">IIIA</option>
-                                    <option value="IIB">IIIB</option>
-                                    <option value="IIC">IIIC</option>
-                                    <option value="IID">IIID</option>
+                                    <option value="IIA">IIA</option>
+                                    <option value="IIB">IIB</option>
+                                    <option value="IIC">IIC</option>
+                                    <option value="IIIA">IIIA</option>
+                                    <option value="IIIB">IIIB</option>
+                                    <option value="IIIC">IIIC</option>
+                                    <option value="IVA">IVA</option>
+                                    <option value="IVB">IVB</option>
                                 </select>
                             </div>
                         </div>

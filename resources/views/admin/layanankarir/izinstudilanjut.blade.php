@@ -49,6 +49,7 @@
                                             <th>SK Terakhir</th>
                                             <th>DP3</th>
                                             <th>Surat Keterangan PT</th>
+                                            <th>Tanggal Pengajuan</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -78,6 +79,7 @@
                                                 <td>
                                                 <button onClick="showSuratKeteranganPT({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
                                                 </td>
+                                                <td>{{ $data->tanggal_pengajuan }}</td>
                                                 <td>
                                                     <a href="{{ route('formeditadminizinstudilanjut', $data->nik_nip) }}">
                                                         <button class="btn btn-warning">Edit</button>
@@ -86,6 +88,7 @@
                                                         <button onClick="return konfirmasi()" class="btn btn-danger">Delete</button>
                                                     </a>
                                                 </td>
+                                                
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -176,6 +179,13 @@
                             <div class="form-line">
                                 <input type="file" name="surat_keterangan_pt" class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">Surat Keterangan PT</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="date" name="tanggal_pengajuan" class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">Tanggal Pengajuan</label>
                             </div>
                         </div>
 

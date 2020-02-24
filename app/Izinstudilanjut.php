@@ -17,6 +17,7 @@ class Izinstudilanjut extends Model
         'sk_pns',
         'sk_terakhir',
         'dp3',
-        'surat_keterangan_pt'
+        'surat_keterangan_pt',
+        'tanggal_pengajuan'
     ];
 }

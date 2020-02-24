@@ -88,6 +88,8 @@
                                             <th>SK Terakhir</th>
                                             <th>DP3</th>
                                             <th>Surat Keterangan PT</th>
+                                            <th>Tanggal Pengajuan</th>
+                                            <th>Status</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -117,12 +119,16 @@
                                                 <td>
                                                 <button onClick="showSuratKeteranganPT({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
                                                 </td>
+                                                <td>{{ $data->tanggal_pengajuan }}</td>
+                                                <td>{{ $data->status }}</td>
                                                 <td>
-                                                    <a href="{{ route('formeditpegawaiizinstudilanjut', $data->nik_nip) }}">
-                                                        <button class="btn btn-warning">Edit</button>
+                                                </a>
+                                                    <a href="{{ route('updatepegawaiizinstudilanjut', $data->nik_nip) }}">
+                                                        <button onClick="return konfirmasi()" class="btn btn-danger">Edit</button>
+                                                    </a>
                                                     </a>
                                                     <a href="{{ route('deletepegawaiizinstudilanjut', $data->nik_nip) }}">
-                                                        <button onClick="return konfirmasi()" class="btn btn-danger">Delete</button>
+                                                        <button onClick="return konfirmasi()" class="btn btn-danger">Hapus</button>
                                                     </a>
                                                 </td>
                                             </tr>
@@ -150,28 +156,28 @@
                     <div class="modal-body">
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" name="nik_nip" id="nip" class="form-control" required="required" autocomplete="off">
+                                <input type="text" name="nik_nip" id="nip" value={{ Auth()->user()->nik }} class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">NIK NIP</label>
                             </div>
                         </div>
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control" required="required" autocomplete="off">
+                                <input type="text" name="nama_lengkap" id="nama_lengkap" value={{ Auth()->user()->name }} class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">Nama Lengkap</label>
                             </div>
                         </div>
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" name="pangkat_gol" id="pangkat_gol" class="form-control" required="required" autocomplete="off">
+                                <input type="text" name="pangkat_gol" id="pangkat_gol" value={{ Auth()->user()->golongan }} class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">Pangkat Gol</label>
                             </div>
                         </div>
                         
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" name="jabatan" class="form-control" required="required" autocomplete="off">
+                                <input type="text" name="jabatan" value={{ Auth()->user()->jabatan }} class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">Jabatan</label>
                             </div>
                         </div>
@@ -218,9 +224,16 @@
                             </div>
                         </div>
 
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="date" name="tanggal_pengajuan" class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">Tanggal Pengajuan</label>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-link waves-effect">Ajukan</button>
+                        <button type="submit" class="btn btn-link waves-effect">Simpan</button>
                         <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Batal</button>
                     </div>
                 </form>

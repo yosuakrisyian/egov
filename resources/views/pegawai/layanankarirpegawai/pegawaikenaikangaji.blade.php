@@ -35,12 +35,52 @@
                         </div>
 
                         <div class="body">
+                        <div class="row">
+                                <div class="col-md-6">
+                                    <table class="table table-responsive table-bordered">
+                                        <tr>
+                                            <td>
+                                                NIK
+                                            </td>
+                                            <td>
+                                                {{ Auth()->user()->nik }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Nama
+                                            </td>
+                                            <td>
+                                                {{ Auth()->user()->name }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Golongan
+                                            </td>
+                                            <td>
+                                                {{ Auth()->user()->golongan }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Jabatan
+                                            </td>
+                                            <td>
+                                                {{ Auth()->user()->jabatan }}
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                           </div>
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
                                             <th>NIK/NIP</th>
                                             <th>Nama Lengkap</th>
+                                            <th>Pangkat Gol</th>
+                                            <th>Jabatan</th>
                                             <th>Gaji</th>
                                             <th>SK CPNS</th>
                                             <th>SK PNS</th>
@@ -49,6 +89,8 @@
                                             <th>SKP 2Tahun Terakhir</th>
                                             <th>SK Mutasi</th>
                                             <th>Surat Pengantar Unit Kerja</th>
+                                            <th>Tanggal Pengajuan</th>
+                                            <th>Status</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -58,6 +100,8 @@
                                             <tr>
                                                 <td>{{ $data->nik_nip }}</td>
                                                 <td>{{ $data->nama_lengkap }}</td>
+                                                <td>{{ $data->pangkat_gol }}</td>
+                                                <td>{{ $data->jabatan }}</td>
                                                 <td>{{ $data->gaji }}</td>
                                                 <td>
                                                     <button onClick="showSkCpns({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
@@ -78,12 +122,17 @@
                                                 <td>
                                                     <button onClick="showSuratPengantarUnitKerja({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
                                                 </td>
+                                                <td>{{ $data->tanggal_pengajuan }}</td>
+                                                <td>{{ $data->status }}</td>
                                                 <td>
-                                                    <a href="{{ route('formeditpegawaikenaikangaji', $data->nik_nip) }}">
-                                                        <button class="btn btn-warning">Edit</button>
+
+                                                </a>
+                                                    <a href="{{ route('updatepegawaikenaikangaji', $data->nik_nip) }}">
+                                                        <button onClick="return konfirmasi()" class="btn btn-danger">Edit</button>
+                                                    </a>
                                                     </a>
                                                     <a href="{{ route('deletepegawaikenaikangaji', $data->nik_nip) }}">
-                                                        <button onClick="return konfirmasi()" class="btn btn-danger">Delete</button>
+                                                        <button onClick="return konfirmasi()" class="btn btn-danger">Hapus</button>
                                                     </a>
                                                 </td>
                                             </tr>
@@ -111,15 +160,29 @@
                     <div class="modal-body">
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" name="nik_nip" id="nip" class="form-control" required="required" autocomplete="off">
+                                <input type="text" name="nik_nip" id="nip" value={{ Auth()->user()->nik }} class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">NIK NIP</label>
                             </div>
                         </div>
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control" required="required" autocomplete="off">
+                                <input type="text" name="nama_lengkap" id="nama_lengkap" value={{ Auth()->user()->name }} class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">Nama Lengkap</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="text" name="pangkat_gol" id="pangkat_gol" value={{ Auth()->user()->golongan }} class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">Pangkat Gol</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="text" name="jabatan" value={{ Auth()->user()->jabatan }} class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">Jabatan</label>
                             </div>
                         </div>
                         
@@ -179,9 +242,16 @@
                             </div>
                         </div>
 
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="date"  name="tanggal_pengajuan" class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">Tanggal Pengajuan</label>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-link waves-effect">Ajukan</button>
+                        <button type="submit" class="btn btn-link waves-effect">Simpan</button>
                         <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">Batal</button>
                     </div>
                 </form>

@@ -10,6 +10,8 @@ class Pegawaikenaikangaji extends Model
     protected $fillable = [
         'nik_nip',
         'nama_lengkap',
+        'pangkat_gol',
+        'jabatan',
         'gaji',
         'sk_cpns',
         'sk_pns',
@@ -17,6 +19,8 @@ class Pegawaikenaikangaji extends Model
         'gaji_berkala_sebelumnya',
         'skp_2tahun_terakhir',
         'sk_mutasi',
-        'surat_pengantar_unit_kerja'
+        'surat_pengantar_unit_kerja',
+        'tanggal_pengajuan',
+        'status'
     ];
 }

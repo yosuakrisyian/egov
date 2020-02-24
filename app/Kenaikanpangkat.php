@@ -10,6 +10,7 @@ class Kenaikanpangkat extends Model
     protected $fillable = [
         'nik_nip',
         'nama_lengkap',
+        'pangkat_gol',
         'jabatan',
         'sk_cpns',
         'sk_pns',
@@ -17,6 +18,7 @@ class Kenaikanpangkat extends Model
         'dp3_2tahun_terakhir',
         'karpeg',
         'daftar_riwayat_pekerjaan',
-        'nota_persetujuan_bkn'
+        'nota_persetujuan_bkn',
+        'tanggal_pengajuan'
     ];
 }

@@ -168,9 +168,58 @@ Route::group(['middleware' => ['auth','ceklevel:3']], function(){
 
 
 
-// route jalurnya penilai
+// route jalurnya kabag
 Route::group(['middleware' => ['auth','ceklevel:4']], function(){
     Route::get('kepalabagian', 'KepalabagianController@index')->name('homeKepalabagian');
 
+    // izinstudi
+    Route::get('/kabagizinstudilanjut', 'KabagIzinstudilanjutController@index')->name('homeKabagIzinstudilanjut');
+    Route::post('/kabagizinstudilanjut/inputkabagizinstudilanjut', 'KabagIzinstudilanjutController@store')->name('inputkabagizinstudilanjut');
+    Route::get('/kabagizinstudilanjut/formeditkabagpegawaiizinstudilanjut/{nik}', 'KabagIzinstudilanjutController@show')->name('formeditkabagizinstudilanjut');
+    Route::post('/kabagizinstudilanjut/updatekabag/{nik}', 'KabagIzinstudilanjutController@update')->name('updatekabagizinstudilanjut');
+    Route::get('/kabagizinstudilanjut/deletekabag/{nik}', 'KabagIzinstudilanjutController@destroy')->name('deletekabagizinstudilanjut');
 
+    // izincuti
+    Route::get('/kabagizincuti', 'KabagIzincutiController@index')->name('homeKabagIzincuti');
+    Route::post('/kabagizincuti/inputkabagizincuti', 'KabagIzincutiController@store')->name('inputkabagizincuti');
+    Route::get('/kabagizincuti/formeditkabag/{nik}', 'KabagIzincutiController@show')->name('formeditkabagizincuti');
+    Route::post('/kabagizincuti/updatekabag/{nik}', 'KabagIzincutiController@update')->name('updatekabagizincuti');
+    Route::get('/kabagizincuti/deletekabag/{nik}', 'KabagIzincutiController@destroy')->name('deletekabagizincuti');
+
+    // surat
+    Route::get('/kabagsurat', 'KabagSuratController@index')->name('KabagSurat');
+    // Route::post('/kabagsurat/inputkabagsurat', 'KabagSuratController@store')->name('inputkabagsurat');
+    // Route::get('/kabagsurat/formeditkabagsurat/{nik}', 'KabagSuratController@show')->name('formeditkabagsurat');
+    // Route::post('/kabagsurat/updatekabagsurat/{nik}', 'KabagSuratController@update')->name('updatekabagsurat');
+    // Route::get('/kabagsurat/deletekabagsurat/{nik}', 'KabagSuratController@destroy')->name('deletekabagsurat');
+    // Route::get('/kabagsurat/lihatsurat/{nik}', 'KabagSuratController@lihat')->name('viewkabagsurat');
+
+    // route pegawai kenaikan pangkat
+    Route::get('/kabagkenaikanpangkat', 'KabagKenaikanpangkatController@index')->name('homeKabagKenaikanpangkat');
+    Route::post('/kabagkenaikanpangkat/inputkabagkenaikanpangkat', 'KabagKenaikanpangkatController@store')->name('inputkabagkenaikanpangkat');
+    Route::get('/kabagkenaikanpangkat/formedit/{nik}', 'KabagKenaikanpangkatController@show')->name('formeditkabagkenaikanpangkat');
+    Route::post('/kabagkenaikanpangkat/update/{nik}', 'KabagKenaikanpangkatController@update')->name('updatekabagkenaikanpangkat');
+    Route::get('/kabagkenaikanpangkat/delete/{nik}', 'KabagKenaikanpangkatController@destroy')->name('deletekabagkenaikanpangkat');
+
+    // route pegawai kenaikan gaji
+    Route::get('/kabagkenaikangaji', 'KabagKenaikangajiController@index')->name('homeKabagKenaikangaji');
+    Route::post('/kabagkenaikangaji/inputkabagkenaikangaji', 'KabagKenaikangajiController@store')->name('inputkabagkenaikangaji');
+    Route::get('/kabagkenaikangaji/formedit/{nik}', 'KabagKenaikangajiController@show')->name('formeditkabagkenaikangaji');
+    Route::post('/kabagkenaikangaji/update/{nik}', 'KabagKenaikangajiController@update')->name('updatekabagkenaikangaji');
+    Route::get('/kabagkenaikangaji/delete/{nik}', 'KabagKenaikangajiController@destroy')->name('deletekabagkenaikangaji');
+
+    // Hasil Akhir
+    Route::get('/hasilakhir', 'HasilAkhirController@index')->name('homeHasilAkhir');
+    Route::post('/hasilakhir/inputhasilakhir', 'HasilAkhirController@store')->name('inputhasilakhir');
+    Route::get('/hasilakhir/formedithasilakhir/{nik}', 'HasilAkhirController@show')->name('formedithasilakhir');
+    Route::post('/hasilakhir/updatehasilakhir/{nik}', 'HasilAkhirController@update')->name('updatehasilakhir');
+    Route::get('/hasilakhir/deletehasilakhir/{nik}', 'HasilAkhirController@destroy')->name('deletehasilakhir');
+    Route::get('/hasilakhir/lihathasilakhir/{nik}', 'HasilAkhirController@create')->name('viewnilai');
+
+    //surat kabag
+    Route::post('/kabagsurat/inputkabagsurat', 'KabagSuratController@store')->name('inputkabagsurat');
+    Route::get('/kabagsurat/formeditkabagsurat/{nik}', 'KabagSuratController@show')->name('formeditkabagsurat');
+    Route::post('/kabagsurat/updatekabagsurat/{nik}', 'KabagSuratController@update')->name('updatekabagsurat');
+    Route::get('/kabagsurat/deletekabagsurat/{nik}', 'KabagSuratController@destroy')->name('deletekabagsurat');
+    Route::get('/kabagsurat/lihatsurat/{nik}', 'KabagSuratController@lihat')->name('viewkabagsurat');
 });

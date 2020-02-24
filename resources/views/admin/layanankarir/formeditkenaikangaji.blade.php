@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="block-header">
             <h2>
-                    EDIT DATA KENAIKAN GAJI              
+                    EDIT DATA KENAIKAN GAJI           
             </h2>
         </div>
 
@@ -14,7 +14,7 @@
                             <div class="card">
                                 <div class="header">
 
-                                <form method="post" action="{{ route('updatekenaikangaji',$data->nik_nip) }}">
+                                <form method="post" action="{{ route('updateadminkenaikangaji',$data->nik_nip) }}">
                                     @csrf
                                     <div class="modal-body">
                                         <div class="form-group form-float">
@@ -30,11 +30,25 @@
                                                 <label class="form-label">Nama Lengkap</label>
                                             </div>
                                         </div>
+
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" name="pangkat_gol" value="{{$data->pangkat_gol}}" id="nama_lengkap" class="form-control" required="required" autocomplete="off">
+                                                <label class="form-label">Pangkat Gol</label>
+                                            </div>
+                                        </div>
                                         
                                         <div class="form-group form-float">
                                             <div class="form-line">
+                                                <input type="text" name="jabatan" value="{{$data->jabatan}}" class="form-control" required="required" autocomplete="off">
+                                                <label class="form-label">Jabatan</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
                                                 <input type="number" name="gaji" value="{{$data->gaji}}" class="form-control" required="required" autocomplete="off">
-                                                <label class="form-label">Gaji</label>
+                                                <label class="form-label">Jabatan</label>
                                             </div>
                                         </div>
 
@@ -87,6 +101,19 @@
                                             </div>
                                         </div>
 
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="date" name="tanggal_pengajuan" value="{{$data->nota_persetujuan_bkn}}" class="form-control" required="required" autocomplete="off">
+                                                <label class="form-label">Tanggal Pengajuan</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="number" name="status" value="{{$data->status}}" class="form-control" required="required" autocomplete="off">
+                                                <label class="form-label">Status</label>
+                                            </div>
+                                        </div>
                                         
                                     </div>
                                     <div class="modal-footer">

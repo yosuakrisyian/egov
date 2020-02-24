@@ -14,8 +14,8 @@ class PegawaiSuratController extends Controller
      */
     public function index()
     {
-        $datas = Pegawaisurat::paginate(5);
-        return view('pegawai.surat.pegawaisurat')->with(['datas' => $datas]);
+        $data = Pegawaisurat::paginate(5);
+        return view('pegawai.surat.pegawaisurat')->with(['datas' => $data]);
     }
 
     /**
@@ -62,7 +62,7 @@ class PegawaiSuratController extends Controller
      */
     public function show($id)
     {
-        $data = Pegawaisurat::where('id_golongan', $id)->first();
+        $data = Pegawaisurat::where('nik_nip', $id)->first();
         return view('pegawai.surat.pegawaisurat')->with(['data' => $data]);
     }
 
@@ -88,11 +88,11 @@ class PegawaiSuratController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $nik)
     {
         $data=$request->all();
         unset($data['_token']);
-        $update = Pegawaisurat::where('id_golongan', $id)->update($data);
+        $update = Pegawaisurat::where('nik_nip', $nik)->update($data);
         $respon = array();
         $respon['adaAksi'] = true;
         if ($update) {
@@ -112,9 +112,9 @@ class PegawaiSuratController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($nik)
     {
-        $delete = Pegawaisurat::where('id_golongan', $id)->delete();
+        $delete = Pegawaisurat::where('nik_nip', $nik)->delete();
 
         $respon = array();
         $respon['adaAksi'] = true;

@@ -54,6 +54,22 @@
                                                 {{ Auth()->user()->name }}
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td>
+                                                Golongan
+                                            </td>
+                                            <td>
+                                                {{ Auth()->user()->golongan }}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                Jabatan
+                                            </td>
+                                            <td>
+                                                {{ Auth()->user()->jabatan }}
+                                            </td>
+                                        </tr>
 
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
@@ -69,6 +85,7 @@
                                             <th>Fakultas</th>
                                             <th>Program Studi</th>
                                             <th>Jenjang</th>
+                                            <th>Tanggal</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -86,6 +103,7 @@
                                                 <td>{{ $data->fakultas }}</td>
                                                 <td>{{ $data->program_studi }}</td>
                                                 <td>{{ $data->jenjang }}</td>
+                                                <td>{{ $data->tanggal }}</td>
                                                 
                                                 <td>
                                                     <a href="{{ route('formeditpegawaisurat', $data->nik_nip) }}">
@@ -123,28 +141,28 @@
                     <div class="modal-body">
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" name="nik_nip" id="nip" class="form-control" required="required" autocomplete="off">
+                                <input type="text" name="nik_nip" id="nip" value={{ Auth()->user()->nik }} class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">NIK NIP</label>
                             </div>
                         </div>
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control" required="required" autocomplete="off">
+                                <input type="text" name="nama_lengkap" id="nama_lengkap" value={{ Auth()->user()->name }} class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">Nama Lengkap</label>
                             </div>
                         </div>
-
+                        
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" name="pangkat_gol" id="pangkat_gol" class="form-control" required="required" autocomplete="off">
+                                <input type="text" name="pangkat_gol" id="pangkat_gol" value={{ Auth()->user()->golongan }} class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">Pangkat Gol</label>
                             </div>
                         </div>
                         
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" name="jabatan" class="form-control" required="required" autocomplete="off">
+                                <input type="text" name="jabatan" id="jabatan" value={{ Auth()->user()->jabatan }} class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">Jabatan</label>
                             </div>
                         </div>
@@ -188,6 +206,13 @@
                             <div class="form-line">
                                 <input type="text" name="jenjang" class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">Jenjang</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="date" name="tanggal" class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">Tanggal</label>
                             </div>
                         </div>
 

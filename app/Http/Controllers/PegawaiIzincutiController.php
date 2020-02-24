@@ -5,6 +5,8 @@ use App\Pegawaiizincuti;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use DateTime;
+use App\JenisCuti;
 
 class PegawaiIzincutiController extends Controller
 {
@@ -24,8 +26,10 @@ class PegawaiIzincutiController extends Controller
      */
     public function index()
     {
-        $datas = Pegawaiizincuti::paginate(5);
-        return view('pegawai.layanankarirpegawai.pegawaiizincuti')->with(['datas' => $datas]);
+        $datas = Pegawaiizincuti::where('nik_nip', Auth()->user()->nik)->paginate(5);
+        $jenisCuti = JenisCuti::all();
+        // $batasIzin = Pegawaiizincuti::where
+        return view('pegawai.layanankarirpegawai.pegawaiizincuti')->with(['datas' => $datas, 'cutis' => $jenisCuti]);
     }
 
     /**
@@ -44,29 +48,56 @@ class PegawaiIzincutiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function cekIzinCuti ($jumlahHari, $jenisCuti) {
+        $dataCuti = JenisCuti::where('nama', $jenisCuti)->first();
+        if ($jumlahHari > $dataCuti->batas_izin) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public function store(Request $request)
     {
-       
-        $data = $request->all();
-        //$data['password'] = Hash::make($data['id_golongan']);
-        // $data['level'] = 3;
-
-        // upload surat permohonan
-        $fileSatuanOrganisasi = $request->file('satuan_organisasi');
-        $nameSatuanOrganisasi = Str::random(32) . round(microtime(true)) . '.' . $fileSatuanOrganisasi->guessExtension();
-        $fileSatuanOrganisasi->move('upload', $nameSatuanOrganisasi);
-        $data['satuan_organisasi'] = $nameSatuanOrganisasi;
-        
-        $input = Pegawaiizincuti::create($data);
         $respon = array();
         $respon['adaAksi'] = true;
-        if ($input) {
-            $respon['sukses'] = true;
-            $respon['pesan'] = 'Berhasil Input Izin Cuti';
+
+        $data = $request->all();
+        $tglMulai = new DateTime($data['tanggal_cuti']);
+        $tglSelesai = new DateTime($data['batas_tanggalcuti']);
+        $selisih = $tglMulai->diff($tglSelesai)->days + 1;
+
+        $data['jumlah_hari'] = $selisih;
+        if ($this->cekIzinCuti($selisih, $data['kategori_cuti'])) {
+             //  upload surat permohonan
+             $fileSatuanOrganisasi = $request->file('satuan_organisasi');
+             $nameSatuanOrganisasi = Str::random(32) . round(microtime(true)) . '.' . $fileSatuanOrganisasi->guessExtension();
+             $fileSatuanOrganisasi->move('upload', $nameSatuanOrganisasi);
+             $data['satuan_organisasi'] = $nameSatuanOrganisasi;
+ 
+             $dataUser = Auth()->user();
+             $data['nik_nip'] = $dataUser->nik;
+             $data['nama_lengkap'] = $dataUser->name;
+             $data['pangkat_gol'] = $dataUser->golongan;
+             $data['jabatan'] = $dataUser->jabatan;
+             
+ 
+             $input = Pegawaiizincuti::create($data);
+             if ($input) {
+                 $respon['sukses'] = true;
+                 $respon['pesan'] = 'Berhasil Input Izin Cuti';
+             } else {
+                 $respon['sukses'] = false;
+                 $respon['pesan'] = 'Gagal Input Izin Cuti';
+             }
         } else {
+
             $respon['sukses'] = false;
-            $respon['pesan'] = 'Gagal Input Izin Cuti';
+            $respon['pesan'] = 'Jumlah Hari Melebihi Batas';
+           
         }
+
 
         return back()->with($respon);
     }

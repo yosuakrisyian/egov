@@ -332,19 +332,19 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="pages/ui/alerts.html">Rencana Karir</a>
+                                
                             </li>
                             <li>
-                                <a href="{{route('homePegawaiIzinstudilanjut')}}">Izin Studi Lanjut</a>
+                                <a href="{{route('homeKabagIzinstudilanjut')}}">Izin Studi Lanjut</a>
                             </li>
                             <li>
-                            </li>
-
-                            <li>
-                               
+                                <a href="{{route('homeKabagIzincuti')}}">Izin Cuti</a>
                             </li>
                             <li>
-                               
+                                <a href="{{route('homeKabagKenaikanpangkat')}}">Kenaikan Pangkat</a>
+                            </li>
+                            <li>
+                                <a href="{{route('homeKabagKenaikangaji')}}">Kenaikan gaji</a>
                             </li>
                                                                                                      
                         </ul>
@@ -384,6 +384,17 @@
                             </li>
                         </ul>
                     </li>  
+
+                    <a href="{{ route('KabagSurat') }}">
+                            <i class="material-icons">layers</i>
+                            <span>Surat</span>
+                        </a>
+
+                        <a href="{{ route('homeHasilAkhir') }}">
+                            <i class="material-icons">layers</i>
+                            <span>Hasil Kenaikan Pangkat</span>
+                        </a>
+
                     <li>
                          <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();

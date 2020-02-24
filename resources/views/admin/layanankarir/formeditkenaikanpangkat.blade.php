@@ -30,6 +30,13 @@
                                                 <label class="form-label">Nama Lengkap</label>
                                             </div>
                                         </div>
+
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" name="pangkat_gol" value="{{$data->pangkat_gol}}" id="nama_lengkap" class="form-control" required="required" autocomplete="off">
+                                                <label class="form-label">Pangkat Gol</label>
+                                            </div>
+                                        </div>
                                         
                                         <div class="form-group form-float">
                                             <div class="form-line">
@@ -84,6 +91,13 @@
                                             <div class="form-line">
                                                 <input type="file" name="nota_persetujuan_bkn" value="{{$data->nota_persetujuan_bkn}}" class="form-control" required="required" autocomplete="off">
                                                 <label class="form-label">Nota Persetujuan BKN</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="date" name="tanggal_pengajuan" value="{{$data->nota_persetujuan_bkn}}" class="form-control" required="required" autocomplete="off">
+                                                <label class="form-label">Tanggal Pengajuan</label>
                                             </div>
                                         </div>
 

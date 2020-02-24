@@ -17,6 +17,7 @@ class Pegawaisurat extends Model
         'perguruan_tinggi',
         'fakultas',
         'program_studi',
-        'jenjang'
+        'jenjang',
+        'tanggal'
     ];
 }

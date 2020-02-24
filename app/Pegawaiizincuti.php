@@ -13,9 +13,11 @@ class Pegawaiizincuti extends Model
         'pangkat_gol',
         'jabatan',
         'satuan_organisasi',
+        'jumlah_hari',
         'tanggal_cuti',
         'batas_tanggalcuti',
         'kategori_cuti',
-        'alasan_cuti'
+        'alasan_cuti',
+        'status'
     ];
 }

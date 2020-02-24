@@ -33,6 +33,20 @@
                                         
                                         <div class="form-group form-float">
                                             <div class="form-line">
+                                                <input type="text" name="pangkat_gol" value="{{$data->pangkat_gol}}" class="form-control" required="required" autocomplete="off">
+                                                <label class="form-label">Pangkat Gol</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" name="jabatan" value="{{$data->jabatan}}" id="nama_lengkap" class="form-control" required="required" autocomplete="off">
+                                                <label class="form-label">Jabatan</label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
                                                 <input type="number" name="gaji" value="{{$data->gaji}}" class="form-control" required="required" autocomplete="off">
                                                 <label class="form-label">Gaji</label>
                                             </div>
@@ -87,6 +101,12 @@
                                             </div>
                                         </div>
 
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="date" name="tanggal_pengajuan" value="{{$data->tanggal_pengajuan}}" class="form-control" required="required" autocomplete="off">
+                                                <label class="form-label">Tanggal Pengajuan</label>
+                                            </div>
+                                        </div>
                                         
                                     </div>
                                     <div class="modal-footer">

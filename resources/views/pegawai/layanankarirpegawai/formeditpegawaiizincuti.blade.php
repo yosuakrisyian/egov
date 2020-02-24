@@ -54,6 +54,13 @@
 
                                         <div class="form-group form-float">
                                             <div class="form-line">
+                                                <input type="number" name="jumlah_hari" value="{{$data->jumlah_hari}}" class="form-control" required="required" autocomplete="off">
+                                                <label class="form-label">Jumlah Hari</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
                                                 <input type="date"  name="tanggal_cuti" value="{{$data->tanggal_cuti}}" class="form-control" required="required" autocomplete="off">
                                                 <label class="form-label">Tanggal Cuti</label>
                                             </div>

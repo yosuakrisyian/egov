@@ -41,14 +41,18 @@
                                         <tr>
                                             <th>NIK/NIP</th>
                                             <th>Nama Lengkap</th>
+                                            <th>Pangkat Gol</th>
+                                            <th>Jabatan</th>
                                             <th>Gaji</th>
                                             <th>SK CPNS</th>
                                             <th>SK PNS</th>
                                             <th>SK Kenaikan Pangkat Terakhir</th>
-                                            <th>Gaji Bekala Sebelumnya</th>
+                                            <th>Gaji Berkala Sebelumnya</th>
                                             <th>SKP 2Tahun Terakhir</th>
                                             <th>SK Mutasi</th>
-                                            <th>Surat Pengantar Unit Kerja</th>
+                                            <th>Surat Pengantar unit Kerja</th>
+                                            <th>Tanggal Pengajuan</th>
+                                            <th>Status</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -58,6 +62,8 @@
                                             <tr>
                                                 <td>{{ $data->nik_nip }}</td>
                                                 <td>{{ $data->nama_lengkap }}</td>
+                                                <td>{{ $data->pangkat_gol }}</td>
+                                                <td>{{ $data->jabatan }}</td>
                                                 <td>{{ $data->gaji }}</td>
                                                 <td>
                                                     <button onClick="showSkCpns({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
@@ -78,6 +84,8 @@
                                                 <td>
                                                     <button onClick="showSuratPengantarUnitKerja({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
                                                 </td>
+                                                <td>{{ $data->tanggal_pengajuan }}</td>
+                                                <td>{{ $data->status }}</td>
                                                 <td>
                                                     <a href="{{ route('formeditadminkenaikangaji', $data->nik_nip) }}">
                                                         <button class="btn btn-warning">Edit</button>
@@ -122,7 +130,21 @@
                                 <label class="form-label">Nama Lengkap</label>
                             </div>
                         </div>
+
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="text" name="pangkat_gol" id="pangkat_gol" class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">Pangkat Gol</label>
+                            </div>
+                        </div>
                         
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="text" name="jabatan" class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">Jabatan</label>
+                            </div>
+                        </div>
+
                         <div class="form-group form-float">
                             <div class="form-line">
                                 <input type="number" name="gaji" class="form-control" required="required" autocomplete="off">
@@ -146,8 +168,8 @@
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="file" name="sk_Kenaikan_pangkat_terakhir" class="form-control" required="required" autocomplete="off">
-                                <label class="form-label">SK Kenaikan Pangkat Terakhir</label>
+                                <input type="file" name="sk_kenaikan_pangkat_terakhir" class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">SK Kenaikan pangkat Terakhir</label>
                             </div>
                         </div>
 
@@ -176,6 +198,20 @@
                             <div class="form-line">
                                 <input type="file"  name="surat_pengantar_unit_kerja" class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">Surat Pengantar Unit Kerja</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="date" name="tanggal_pengajuan" class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">Tanggal Pengajuan</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="number" name="status" class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">Status</label>
                             </div>
                         </div>
 

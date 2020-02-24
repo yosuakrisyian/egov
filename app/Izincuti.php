@@ -13,6 +13,7 @@ class Izincuti extends Model
         'pangkat_gol',
         'jabatan',
         'satuan_organisasi',
+        'jumlah_hari',
         'tanggal_cuti',
         'batas_tanggalcuti',
         'kategori_cuti',

@@ -44,6 +44,7 @@
                                             <th>Pangkat Gol</th>
                                             <th>Jabatan</th>
                                             <th>Satuan Organisasi</th>
+                                            <th>Jumlah Hari</th>
                                             <th>Tanggal Cuti</th>
                                             <th>Batas Tanggal Cuti</th>
                                             <th>Kategori Cuti</th>
@@ -62,6 +63,7 @@
                                                 <td>
                                                     <button onClick="showSatuanOrganisasi({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
                                                 </td>
+                                                <td>{{ $data->jumlah_hari}}</td>
                                                 <td>{{ $data->tanggal_cuti }}</td>
                                                 <td>{{ $data->batas_tanggalcuti }}</td>
                                                 <td>{{ $data->kategori_cuti }}</td>
@@ -129,6 +131,13 @@
                             <div class="form-line">
                                 <input type="file" name="satuan_organisasi" class="form-control" autocomplete="off">
                                 <label class="form-label">Satuan Organisasi</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <input type="number" name="jumlah_hari" class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">Jumlah Hari</label>
                             </div>
                         </div>
 
