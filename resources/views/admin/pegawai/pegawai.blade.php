@@ -151,14 +151,28 @@
                             <div class="form-line">
                                 <label class="form-label">Golongan</label>
                                 <select class="form-control" name="golongan">
-                                    <option value="IIA">IIA</option>
-                                    <option value="IIB">IIB</option>
-                                    <option value="IIC">IIC</option>
-                                    <option value="IIIA">IIIA</option>
-                                    <option value="IIIB">IIIB</option>
-                                    <option value="IIIC">IIIC</option>
-                                    <option value="IVA">IVA</option>
-                                    <option value="IVB">IVB</option>
+                                    <option value="Ia">Ia</option>
+                                    <option value="Ib">Ib</option>
+                                    <option value="Ic">Ic</option>
+                                    <option value="Id">Id</option>
+                                    <option value="IIa">IIa</option>
+                                    <option value="IIb">IIb</option>
+                                    <option value="IIc">IIc</option>
+                                    <option value="IId">IId</option>
+                                    <option value="IIIa">IIIa</option>
+                                    <option value="IIIb">IIIb</option>
+                                    <option value="IIIc">IIIc</option>
+                                    <option value="IIId">IIId</option>
+                                    <option value="IVa">IVa</option>
+                                    <option value="IVb">IVb</option>
+                                    <option value="IVc">IVc</option>
+                                    <option value="IVd">IVd</option>
+                                    <option value="Eselon Ib">Eselon Ib</option>
+                                    <option value="Eselon IIa">Eselon IIa</option>
+                                    <option value="Eselon IIb">Eselon IIb</option>
+                                    <option value="Eselon IIIa">Eselon IIIa</option>
+                                    <option value="Eselon IIIb">Eselon IIIb</option>
+                                    <option value="Eselon IVa">Eselon IVa</option>
                                 </select>
                             </div>
                         </div>

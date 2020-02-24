@@ -57,6 +57,8 @@
                                 </table>
 
                                     
+                            <form action="{{ route('inputperilakukerja', $datas->nik) }}" method="post">
+                                @csrf
                                         <div class="form-group form-float">
                                             <div class="form-line">
                                                 <input type="number" name="orientasi_pelayanan" maxlength="3" class="form-control" required="required" autocomplete="off">
@@ -81,7 +83,7 @@
                                         <div class="form-group form-float">
                                             <div class="form-line">
                                                 <input type="number" name="disiplin" maxlength="3" class="form-control" required="required" autocomplete="off">
-                                                <label class="form-label">Disiplin Lahir</label>
+                                                <label class="form-label">Disiplin</label>
                                             </div>
                                         </div>
 
@@ -100,6 +102,7 @@
                                         </div>
                                            
                                         <button type="submit" class="btn btn-link waves-effect">SIMPAN</button>
+                            </form>
 
                             </div>
                         </div>

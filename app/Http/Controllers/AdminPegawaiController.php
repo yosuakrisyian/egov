@@ -15,7 +15,7 @@ class AdminPegawaiController extends Controller
      */
     public function index()
     {
-        $datas = User::where('level', 2)->paginate(5);
+        $datas = User::where('level', 2)->paginate(50);
         return view('admin.pegawai.pegawai')->with(['datas' => $datas]);
     }
 

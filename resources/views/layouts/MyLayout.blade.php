@@ -54,7 +54,7 @@
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
     <!-- Search Bar -->
-    <div class="search-bar">
+    <!-- <div class="search-bar">
         <div class="search-icon">
             <i class="material-icons">search</i>
         </div>
@@ -62,7 +62,7 @@
         <div class="close-search">
             <i class="material-icons">close</i>
         </div>
-    </div>
+    </div> -->
     <!-- #END# Search Bar -->
     <!-- Top Bar -->
     <nav class="navbar">
@@ -75,10 +75,10 @@
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Call Search -->
-                    <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
+                    <!-- <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li> -->
                     <!-- #END# Call Search -->
                     <!-- Notifications -->
-                    <li class="dropdown">
+                    <!-- <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
                             <span class="label-count">7</span>
@@ -184,10 +184,10 @@
                                 <a href="javascript:void(0);">View All Notifications</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                     <!-- #END# Notifications -->
                     <!-- Tasks -->
-                    <li class="dropdown">
+                    <!-- <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">flag</i>
                             <span class="label-count">9</span>
@@ -262,9 +262,9 @@
                                 <a href="javascript:void(0);">View All Tasks</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                     <!-- #END# Tasks -->
-                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
+                    <!-- <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li> -->
                 </ul>
             </div>
         </div>
@@ -286,11 +286,11 @@
                         <ul class="dropdown-menu pull-right">
                             <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
                             <li role="seperator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
+                            <!-- <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
                             <li role="seperator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -313,10 +313,10 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('homeAdminAtasan') }}">
+                        <!-- <a href="{{ route('homeAdminAtasan') }}">
                             <i class="material-icons">layers</i>
                             <span>Atasan</span>
-                        </a>
+                        </a> -->
                     </li>
                     <li>
                         <a href="{{ route('homeAdminGolongan') }}">
@@ -364,14 +364,14 @@
                                 <a href="{{route('homeAdminRealisasiSkp')}}">Realisasi SKP</a>
                             </li>
                             <li>
-                                <a href="pages/tables/editable-table.html">Perhitungan SKP</a>
+                                <a href="pages/tables/editable-table.html">Nilai SKP</a>
                             </li>
                             <li>
                                 <a href="pages/tables/editable-table.html">Lihat SKP</a>
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">perm_media</i>
                             <span>Tunjangan Kinerja</span>
@@ -384,7 +384,7 @@
                                 <a href="pages/medias/carousel.html">Perhitungan Tunjangan Kinerja</a>
                             </li>
                         </ul>
-                    </li>  
+                    </li>   -->
                     <li>
                          <a href="{{ route('logout') }}"
                             onclick="event.preventDefault();

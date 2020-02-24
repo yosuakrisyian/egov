@@ -91,7 +91,7 @@
                                     <tbody>
                                         @foreach($datas as $data)
                                             <tr>
-                                                <td>{{ $data->kegiatan_tugas_jabatan }}</td>
+                                                 <td>{{ $data->kegiatan_tugas_jabatan }}</td>
                                                 <td>{{ $data->kuantitas }}</td>
                                                 <td>{{ $data->kualitas }}</td>
                                                 <td>{{ $data->waktu }}</td>
@@ -156,7 +156,7 @@
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="date" name="waktu" class="form-control" required="required" autocomplete="off">
+                                <input type="text" name="waktu" class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">Waktu</label>
                             </div>
                         </div>

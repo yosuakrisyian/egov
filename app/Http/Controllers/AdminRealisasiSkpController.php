@@ -102,7 +102,7 @@ class AdminRealisasiSkpController extends Controller
             $respon['pesan'] = 'Gagal Edit Realisasi SKP';
         }
 
-        return redirect()->route('homeAdminrealisasiskp')->with($respon);
+        return redirect()->route('homeAdminRealisasiSkp')->with($respon);
     }
 
     /**
@@ -125,6 +125,6 @@ class AdminRealisasiSkpController extends Controller
             $respon['pesan'] = 'Gagal Hapus Realisasi SKP';
         }
 
-        return redirect()->route('homeAdminrealisasiskp')->with($respon);
+        return redirect()->route('homeAdminRealisasiSkp')->with($respon);
     }
 }

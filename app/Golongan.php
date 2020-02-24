@@ -8,8 +8,7 @@ class Golongan extends Model
 {
     protected $table = 'tb_golongan';
     protected $fillable = [
-        'jenis_golongan',
-        'pangkat',
+        'besaran_dasar',
         'golongan'
     ];
 }

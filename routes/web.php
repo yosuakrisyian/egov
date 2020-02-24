@@ -126,7 +126,7 @@ Route::group(['middleware' => ['auth','ceklevel:2']], function(){
 
     // route pegawai perilaku kerja
     Route::get('/pegawaiperilakukerja', 'PegawaiPerilakukerjaController@index')->name('homePegawaiPerilakukerja');
-    Route::post('/pegawaiperilakukerja/inputperilakukerja', 'PegawaiPerilakukerjaController@store')->name('inputperilakukerja');
+    Route::post('/pegawaiperilakukerja/inputperilakukerja/{nik}', 'PegawaiPerilakukerjaController@store')->name('inputperilakukerja');
     
 
     // route pegawai data perilaku kerja
@@ -160,8 +160,35 @@ Route::group(['middleware' => ['auth','ceklevel:3']], function(){
 
     // route penilai hitung tpp
     Route::get('/penilaihitungtpp', 'PenilaiHitungtppController@index')->name('homePenilaiDatatpp');
-    Route::post('/penilaihitungtpp/inputperilakukerja', 'PenilaiHitungtppController@store')->name('inputperilakukerja');
-    Route::get('/penilaihitungtpp/delete/{nik}', 'PenilaiHitungtppController@destroy')->name('deleteperilakukerja');
+    Route::get('/penilaihitungtpp/inputhitungtpp/{nik}', 'PenilaiHitungtppController@show')->name('inputhitungtpp');
+    //Route::get('/penilaihitungtpp/delete/{nik}', 'PenilaiHitungtppController@destroy')->name('deleteperilakukerja');
+
+    // route lanjut hitung tpp
+    Route::post('/penilailanjuthitungtpp/inputlanjuthitungtpp/{nik}', 'PenilaiLanjutHitungtppController@show')->name('inputlanjuthitungtpp');
+
+    // route hasil hitung tpp
+    Route::post('/penilaihasilhitungtpp/inputhasilhitungtpp/{nik}', 'PenilaiHitungtppHasilController@store')->name('inputhasilhitungtpp');
+
+    // route penilai lihat hasil tpp
+    Route::get('/penilailihathasiltpp', 'PenilaiLihatHasiltppController@index')->name('homePenilaiLihattpp');
+
+    // route penilai realisasi skp
+    Route::get('/penilairealisasiskp', 'PenilaiRealisasiSkpController@index')->name('homePenilaiRealisasiSkp');
+    Route::post('/penilairealisasiskp/inputrealisasiskp', 'PenilaiRealisasiSkpController@store')->name('inputrealisasiskp');
+    
+
+    // route penilai data realisasi skp
+    Route::get('/penilaidatarealisasiskp', 'PenilaiDataRealisasiSkpController@index')->name('homeDataPenilaiRealisasiSkp');
+    Route::get('/penilaidatarealisasiskp/inputdatarealisasiskp/{nik}', 'PenilaiDataRealisasiSkpController@show')->name('inputdatarealisasiskp');
+
+    // route lihat perilaku kerja
+    Route::get('/penilailihatperilakukerja', 'PenilaiLihatPerilakukerjaController@index')->name('homePenilailihatperilakukerja');
+
+    // route penilai daftar hitung skp
+    Route::get('/penilaidaftarhitungskp', 'PenilaiDaftarHitungSkpController@index')->name('homePenilaiDaftarHitungSkp');
+
+    // route penilai hasil skp
+    Route::get('/penilaihasilskp/{nik}', 'PenilaiHasilSkpController@index')->name('homePenilaiHasilSkp');
 
 
 });

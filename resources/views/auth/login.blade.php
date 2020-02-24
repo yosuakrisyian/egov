@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Sign In | Bootstrap Based Admin Template - Material Design</title>
+    <title>E-Gov Provinsi Lampung</title>
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
@@ -28,7 +28,8 @@
 <body class="login-page">
     <div class="login-box">
         <div class="logo">
-            <a href="javascript:void(0);">Admin<b>E-GOV</b></a>
+            <img src="{{ url('images/lampung.png')}}" width="30%">  
+            <a href="javascript:void(0);"><b> E-GOV <br><small> Provinsi Lampung</small></b></a>
             <!-- <small>Admin BootStrap Based - Material Design</small> -->
         </div>
         @error('email')
@@ -40,13 +41,13 @@
             <div class="body">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
-                    <div class="msg">Sign in to start your session</div>
+                    <div class="msg">Silahkan Masuk Terlebih Dahulu</div>
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
                         </span>
                         <div class="form-line">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                         </div>
                     </div>
                     <div class="input-group">
@@ -54,13 +55,13 @@
                             <i class="material-icons">lock</i>
                         </span>
                         <div class="form-line">
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="current-password">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-8 p-t-5">
-                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                            <label for="rememberme">Remember Me</label>
+                            <!-- <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                            <label for="rememberme">Remember Me</label> -->
                         </div>
                         <div class="col-xs-4">
                             <button class="btn btn-block bg-pink waves-effect" type="submit">SIGN IN</button>

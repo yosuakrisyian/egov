@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Perilakukerja;
+use App\RealisasiSkp;
 use App\User;
 
 use Illuminate\Http\Request;
 
-class PegawaiPerilakukerjaController extends Controller
+class PenilaiRealisasiSkpController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class PegawaiPerilakukerjaController extends Controller
      */
     public function index()
     {
-        $datas = Perilakukerja::paginate(50);
-        return view('pegawai.tunjangankinerja.perilakukerja')->with(['datas' => $datas]);
+        $datas = RealisasiSKP::paginate(5);
+        return view('penilai.kinerja.realisasiskp')->with(['datas' => $datas]);
     }
 
     /**
@@ -47,40 +47,19 @@ class PegawaiPerilakukerjaController extends Controller
         $data['nik_penilai'] = $dataPenilai['nik'];
         $data['nik_dinilai'] = $pegawaiDinilai['nik'];
 
-        $belumAda = PerilakuKerja::wheremonth('created_at', date('m'))
-        ->where([
-            ['nik_penilai', '=', $dataPenilai['nik']],
-            ['nik_dinilai', '=', $pegawaiDinilai['nik']]
-        ])->first();
-        $respon;
-        // var_dump($belumAda);
-        if (!$belumAda) {
-            $input = Perilakukerja::create($data);
-            $respon = array();
-            $respon['adaAksi'] = true;
-            if ($input) {
+        
+        $input = RealisasiSKP::create($data);
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($input) {
             $respon['sukses'] = true;
-            $respon['pesan'] = 'Berhasil Input Perilaku Kerja';
-            } else {
-            $respon['sukses'] = false;
-            $respon['pesan'] = 'Gagal Input Perilaku Kerja';
-            }
-            $respon = [
-                'adaAksi' => true,
-                'sukses' => true,
-                'pesan' => 'Berhasil Menilai'
-            ];
-
+            $respon['pesan'] = 'Berhasil Input Realisasi SKP';
         } else {
-            $respon = [
-                'adaAksi' => true,
-                'sukses' => false,
-                'pesan' => 'Ada Sudah Menilai Pegawai Tersebut Bulan Ini'
-            ];
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Input Realisasi SKP';
         }
-        return redirect()->route('homeDataPegawaiPerilakukerja')->with($respon);
-        
-        
+
+        return redirect()->route('homeDataPenilaiRealisasiSkp')->with($respon);
     }
 
     /**
@@ -125,18 +104,18 @@ class PegawaiPerilakukerjaController extends Controller
      */
     public function destroy($nik_nip)
     {
-        $delete = Perilakukerja::where('nik_nip', $nik_nip)->delete();
+        $delete = RealisasiSkp::where('nik_nip', $nik_nip)->delete();
 
         $respon = array();
         $respon['adaAksi'] = true;
         if ($delete) {
             $respon['sukses'] = true;
-            $respon['pesan'] = 'Berhasil Hapus Perilaku Kerja';
+            $respon['pesan'] = 'Berhasil Hapus Realisasi SKP';
         } else {
             $respon['sukses'] = false;
-            $respon['pesan'] = 'Gagal Hapus Perilaku Kerja';
+            $respon['pesan'] = 'Gagal Hapus Realisasi SKP';
         }
 
-        return redirect()->route('homePegawaiPerilakukerja')->with($respon);
+        return redirect()->route('homePenilaiRealisasiSkp')->with($respon);
     }
 }

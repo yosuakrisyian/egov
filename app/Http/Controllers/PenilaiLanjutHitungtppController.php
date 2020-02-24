@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Penilaihasiltpp;
 use App\User;
 
 use Illuminate\Http\Request;
 
-class PegawaiDataPerilakukerjaController extends Controller
+class PenilaiLanjutHitungtppController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +15,8 @@ class PegawaiDataPerilakukerjaController extends Controller
      */
     public function index()
     {
-        $datas = User::where([
-            ['level', '=',2],
-            ['nik', '<>', Auth()->user()->nik]
-        ])->paginate(50);
-        return view('pegawai.tunjangankinerja.dataperilakukerja')->with(['datas' => $datas]);
+        $datas = Penilaihasiltpp::paginate(50);
+        return view('penilai.tunjangankinerjapenilai.lanjuthitung')->with(['datas' => $datas]);
     }
 
     /**
@@ -39,7 +37,20 @@ class PegawaiDataPerilakukerjaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $input = Penilaihasiltpp::create($data);
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($input) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Input Realisasi SKP';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Input Realisasi SKP';
+        }
+
+        return redirect()->route('homePenilaiDatatpp')->with($respon);
     }
 
     /**
@@ -48,10 +59,9 @@ class PegawaiDataPerilakukerjaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($nik)
+    public function show($id)
     {
-        $datas = User::where('nik', $nik)->first();
-        return view('pegawai.tunjangankinerja.perilakukerja')->with(['datas' => $datas]);
+        //
     }
 
     /**
