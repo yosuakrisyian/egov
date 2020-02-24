@@ -184,6 +184,12 @@ Route::group(['middleware' => ['auth','ceklevel:3']], function(){
     // route lihat perilaku kerja
     Route::get('/penilailihatperilakukerja', 'PenilaiLihatPerilakukerjaController@index')->name('homePenilailihatperilakukerja');
 
+    // route penilai daftar hitung skp
+    Route::get('/penilaidaftarhitungskp', 'PenilaiDaftarHitungSkpController@index')->name('homePenilaiDaftarHitungSkp');
+
+    // route penilai hasil skp
+    Route::get('/penilaihasilskp/{nik}', 'PenilaiHasilSkpController@index')->name('homePenilaiHasilSkp');
+
 
 });
 

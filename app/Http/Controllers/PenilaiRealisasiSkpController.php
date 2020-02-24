@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\RealisasiSkp;
+use App\User;
 
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class PenilaiRealisasiSkpController extends Controller
      */
     public function index()
     {
-        $datas = RealisasiSkp::paginate(5);
+        $datas = RealisasiSKP::paginate(5);
         return view('penilai.kinerja.realisasiskp')->with(['datas' => $datas]);
     }
 
@@ -34,14 +35,20 @@ class PenilaiRealisasiSkpController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $nik)
     {
         $data = $request->all();
         //$data['password'] = Hash::make($data['id_golongan']);
         // $data['level'] = 3;
 
+        $pegawaiDinilai = User::where('nik', $nik)->first();
+        $dataPenilai = Auth()->user();
+
+        $data['nik_penilai'] = $dataPenilai['nik'];
+        $data['nik_dinilai'] = $pegawaiDinilai['nik'];
+
         
-        $input = RealisasiSkp::create($data);
+        $input = RealisasiSKP::create($data);
         $respon = array();
         $respon['adaAksi'] = true;
         if ($input) {

@@ -156,7 +156,7 @@
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="date" name="waktu" class="form-control" required="required" autocomplete="off">
+                                <input type="text" name="waktu" class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">Waktu</label>
                             </div>
                         </div>
