@@ -18,8 +18,6 @@
                             
                         </div>
 
-                        <form method="post" action="{{ route('inputrealisasiskp') }}">
-                    @csrf
 
                         <div class="body">
                            <div class="row">
@@ -30,7 +28,7 @@
                                                 NIK
                                             </td>
                                             <td>
-                                                {{ Auth()->user()->nik }}
+                                                {{ $datas->nik }}
                                             </td>
                                         </tr>
                                         <tr>
@@ -38,7 +36,7 @@
                                                 Nama
                                             </td>
                                             <td>
-                                                {{ Auth()->user()->name }}
+                                                 {{ $datas->name }}
                                             </td>
                                         </tr>
                                         <tr>
@@ -46,7 +44,7 @@
                                                 Golongan
                                             </td>
                                             <td>
-                                                {{ Auth()->user()->golongan }}
+                                                 {{ $datas->golongan}}
                                             </td>
                                         </tr>
                                         <tr>
@@ -54,10 +52,13 @@
                                                 Jabatan
                                             </td>
                                             <td>
-                                                {{ Auth()->user()->jabatan }}
+                                                {{ $datas->jabatan }}
                                             </td>
                                         </tr>
                                     </table>
+
+                                    <form method="post" action="{{ route('inputrealisasiskp', $datas->nik) }}">
+                                    @csrf
                            
                                 <div class="form-group form-float">
                             <div class="form-line">
@@ -87,7 +88,7 @@
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="date" name="waktu" class="form-control" required="required" autocomplete="off">
+                                <input type="text" name="waktu" class="form-control" required="required" autocomplete="off">
                                 <label class="form-label">Waktu</label>
                             </div>
                         </div>

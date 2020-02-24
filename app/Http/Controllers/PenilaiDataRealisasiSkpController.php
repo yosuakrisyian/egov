@@ -38,25 +38,33 @@ class PenilaiDataRealisasiSkpController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $nik)
     {
-        $data = $request->all();
-        //$data['password'] = Hash::make($data['id_golongan']);
-        // $data['level'] = 3;
+        // $data = $request->all();
+        // // //$data['password'] = Hash::make($data['id_golongan']);
+        // // // $data['level'] = 3;
 
-        
-        $input = RealisasiSkp::create($data);
-        $respon = array();
-        $respon['adaAksi'] = true;
-        if ($input) {
-            $respon['sukses'] = true;
-            $respon['pesan'] = 'Berhasil Input Realisasi SKP';
-        } else {
-            $respon['sukses'] = false;
-            $respon['pesan'] = 'Gagal Input Realisasi SKP';
-        }
+        // $pegawaiDinilai = User::where('nik', $nik)->first();
+        // $dataPenilai = Auth()->user();
 
-        return redirect()->route('homeDataPenilaiRealisasiSkp')->with($response);
+        // $data['nik_penilai'] = $dataPenilai['nik'];
+        // $data['nik_dinilai'] = $pegawaiDinilai['nik'];
+        // // $data['nama'] = $pegawaiDinilai['name'];
+        // // $data['golongan'] = $pegawaiDinilai['golongan'];
+        // // $data['jabatan'] = $pegawaiDinilai['jabatan'];\
+
+        // $input = RealisasiSKP::create($data);
+        // $respon = array();
+        // $respon['adaAksi'] = true;
+        // if ($input) {
+        //     $respon['sukses'] = true;
+        //     $respon['pesan'] = 'Berhasil Input Realisasi SKP';
+        // } else {
+        //     $respon['sukses'] = false;
+        //     $respon['pesan'] = 'Gagal Input Realisasi SKP';
+        // }
+
+        // return redirect()->route('homeDataPenilaiRealisasiSkp')->with($response);
     }
 
     /**
