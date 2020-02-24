@@ -7,31 +7,18 @@
         <div class="container-fluid">
             <div class="block-header">
                 <h2>
-                    DAFTAR PENERIMA TPP                  
+                    DATA PEGAWAI                    
                 </h2>
             </div>
-
-            @if(session('adaAksi'))
-                @if(session('sukses'))
-                    <div class="alert bg-teal alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        {{ session('pesan') }}
-                    </div>
-                @else
-                    <div class="alert bg-pink alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        {{ session('pesan') }}
-                    </div>
-                @endif
-            @endif
-
-
-           
 
             <!-- Basic Examples -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
+                        <div class="header">
+                            <h2>
+                            </h2>
+                        </div>
 
                         <div class="body">
                             <div class="table-responsive">
@@ -54,8 +41,8 @@
                                                 <td>{{ $data->golongan }}</td>
                                                 <td>{{ $data->jabatan }}</td>
                                                 <td>
-                                                    <a href="{{ route('inputhitungtpp', $data->nik) }}">
-                                                        <button class="btn btn-warning">Hitung TPP</button>
+                                                    <a href="">
+                                                        <button class="btn btn-warning">Lihat Slip TPP</button>
                                                     </a>
                                                 </td>
                                             </tr>
@@ -71,5 +58,4 @@
             <!-- #END# Basic Examples -->
         </div>
     </section>
-
- @endsection
+ @endsection                

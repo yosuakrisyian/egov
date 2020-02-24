@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\User;
+use App\Penilaihasiltpp;
 
 use Illuminate\Http\Request;
 
-class PenilaiHitungtppLanjutController extends Controller
+class PenilaiLihatHasiltppController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,8 @@ class PenilaiHitungtppLanjutController extends Controller
      */
     public function index()
     {
-        //
+        $datas = User::where('level', 2)->paginate(50);
+        return view('penilai.tunjangankinerjapenilai.lihathasiltpp')->with(['datas' => $datas]);
     }
 
     /**

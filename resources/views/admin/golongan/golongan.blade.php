@@ -28,9 +28,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>
-                            <button type="button" class="btn bg-green waves-effect m-r-20" data-toggle="modal" data-target="#defaultModal">Tambah</button>
-                            </h2>
+                            
                         </div>
 
                         <div class="body">
@@ -38,29 +36,18 @@
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
-                                            <th>ID Golongan</th>
-                                            <th>Jenis Golongan</th>
-                                            <th>Pangkat</th>
+                                            
+                                            <th>Besaran Dasar</th>
                                             <th>Golongan</th>
-                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     
                                     <tbody>
                                         @foreach($datas as $data)
                                             <tr>
-                                                <td>{{ $data->id_golongan }}</td>
-                                                <td>{{ $data->jenis_golongan }}</td>
-                                                <td>{{ $data->pangkat }}</td>
+                                                <td>{{ $data->besaran_dasar }}</td>
                                                 <td>{{ $data->golongan }}</td>
-                                                <td>
-                                                    <a href="{{ route('formeditgolongan', $data->id_golongan) }}">
-                                                        <button class="btn btn-warning">Edit</button>
-                                                    </a>
-                                                    <a href="{{ route('deletegolongan', $data->id_golongan) }}">
-                                                        <button onClick="return konfirmasi()" class="btn btn-danger">Delete</button>
-                                                    </a>
-                                                </td>
+                                                
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -86,15 +73,8 @@
                     <div class="modal-body">
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="text" name="jenis_golongan" id="jenis_golongan" class="form-control" required="required" autocomplete="off">
-                                <label class="form-label">Jenis Golongan</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group form-float">
-                            <div class="form-line">
-                                <input type="text" name="pangkat" id="pangkat" class="form-control" required="required" autocomplete="off">
-                                <label class="form-label">Pangkat</label>
+                                <input type="text" name="besaran_dasar" id="jenis_golongan" class="form-control" required="required" autocomplete="off">
+                                <label class="form-label">Besaran Dasar</label>
                             </div>
                         </div>
 

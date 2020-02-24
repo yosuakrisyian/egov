@@ -17,7 +17,7 @@ class PegawaiDataPerilakukerjaController extends Controller
         $datas = User::where([
             ['level', '=',2],
             ['nik', '<>', Auth()->user()->nik]
-        ])->paginate(5);
+        ])->paginate(50);
         return view('pegawai.tunjangankinerja.dataperilakukerja')->with(['datas' => $datas]);
     }
 

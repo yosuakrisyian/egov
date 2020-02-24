@@ -15,7 +15,7 @@ class PegawaiPerilakukerjaController extends Controller
      */
     public function index()
     {
-        $datas = Perilakukerja::paginate(5);
+        $datas = Perilakukerja::paginate(50);
         return view('pegawai.tunjangankinerja.perilakukerja')->with(['datas' => $datas]);
     }
 

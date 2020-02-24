@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Penilaihasiltpp;
+use App\User;
 
 use Illuminate\Http\Request;
 
@@ -13,7 +15,8 @@ class PenilaiLanjutHitungtppController extends Controller
      */
     public function index()
     {
-        return view('penilai.tunjangankinerjapenilai.lanjuthitung');
+        $datas = Penilaihasiltpp::paginate(50);
+        return view('penilai.tunjangankinerjapenilai.lanjuthitung')->with(['datas' => $datas]);
     }
 
     /**
@@ -34,7 +37,20 @@ class PenilaiLanjutHitungtppController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $input = Penilaihasiltpp::create($data);
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($input) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Input Realisasi SKP';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Input Realisasi SKP';
+        }
+
+        return redirect()->route('homePenilaiDatatpp')->with($respon);
     }
 
     /**

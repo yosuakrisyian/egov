@@ -22,7 +22,7 @@
                                                 NIK
                                             </td>
                                             <td>
-                                                
+                                            {{ $datas->nik }}
                                             </td>
                                         </tr>
                                         <tr>
@@ -30,7 +30,7 @@
                                                 Nama
                                             </td>
                                             <td>
-                                                
+                                            {{ $datas->name }}
                                             </td>
                                         </tr>
                                         <tr>
@@ -38,7 +38,7 @@
                                                 Golongan
                                             </td>
                                             <td>
-                                                
+                                            {{ $datas->golongan }}
                                             </td>
                                         </tr>
                                         <tr>
@@ -46,7 +46,7 @@
                                                 Jabatan
                                             </td>
                                             <td>
-                                                
+                                            {{ $datas->jabatan }}
                                             </td>
                                         </tr>
                                 </table>
@@ -65,16 +65,13 @@
                                                 Hasil SKP
                                             </td>
                                             <td>
-                                                
+                                                {{ $hasilSKP->nilai_capaian_skp_akhir }} ({{ $hasilSKP->predikat }})
                                             </td>
                                         </tr>
                                     </table>
                                 </div>
                             </div>
                         </div>
-
-
-
 
 
                     <div class="body">
@@ -88,17 +85,19 @@
                                             <th>Disiplin</th>
                                             <th>Kerjasama</th>
                                             <th>Kepemimpinan</th>
+                                            <th>Total Nilai</th>
                                         </tr>
                                     </thead>
                                     
                                     <tbody>
                                             <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
+                                                <td>{{ $hasil['rataRataOrientasiPelayanan'] }}</td>
+                                                <td>{{ $hasil['rataRataIntegritas'] }}</td>
+                                                <td>{{ $hasil['rataRataKomitmen'] }}</td>
+                                                <td>{{ $hasil['rataRataDisiplin'] }}</td>
+                                                <td>{{ $hasil['rataRataKerjasama'] }}</td>
+                                                <td>{{ $hasil['rataRataKepemimpinan'] }}</td>
+                                                <td>{{ $hasil['totalSkor'] }}</td>
                                             </tr>
                                     </tbody>
                                 </table>
@@ -124,41 +123,36 @@
                                                 Nilai Kehadiran Kerja
                                             </td>
                                             <td>
-                                                
+                                                {{ $absen['jumlahhadir'] }}
                                             </td>
                                         </tr> 
-                                        <tr>
-                                            <td>
-                                                Nilai SKP
-                                            </td>
-                                            <td>
-                                                
-                                            </td>
-                                        </tr>
                                         <tr>
                                             <td>
                                                 Masukan Nilai Capaian Kerja
                                             </td>
                                             <td>
+                                        <form action="{{ route('inputhasilhitungtpp', $datas->nik) }}" method="post">
+                                             @csrf
                                             <div class="form-group form-float">
                                                 <div class="form-line">
-                                                    <select class="form-control" name="jabatan">
-                                                        <option value="1">100%</option>
-                                                        <option value="0,75">75%</option>
-                                                        <option value="0,5">50%</option>
-                                                        <option value="0,25">25%</option>
-                                                        <option value="0">0%</option>
+                                                    <select class="form-control" name="nilaiCapaian">
+                                                        <option value="100">100%</option>
+                                                        <option value="75">75%</option>
+                                                        <option value="50">50%</option>
+                                                        <option value="25">25%</option>
                                                     </select>
                                                 </div>
                                             </div>
+                                            @if(!$sudahHitungTpp)
+                                                <button type="submit" class="btn btn-primary waves-effect">SIMPAN</button>
+                                            @endif
+                                            </form>
                                             </td>
                                         </tr>
                                                                                   
                                 </table>
                                 <td>
-                                            <a href="">
-                                                        <button class="btn btn-warning">Hitung TPP</button>
-                                            </a>
+                                            
                                         </td> 
                                 </div>
                             </div>
