@@ -107,7 +107,15 @@
                                                 <td>{{ $data->batas_tanggalcuti }}</td>
                                                 <td>{{ $data->kategori_cuti }}</td>
                                                 <td>{{ $data->alasan_cuti }}</td>
-                                                <td>{{ $data->status }}</td>
+                                                <td>
+                                                @if($data->status == 0)
+                                                    <span class="badge bg-orange">Belum Ada Aksi</span>
+                                                    @elseif($data->status == 1)
+                                                    <span class="badge bg-teal">Diterima</span>
+                                                    @else
+                                                    <span class="badge bg-pink">Ditolak</span>
+                                                    @endif
+                                                </td>
                                                 <td>
                                                 </a>
                                                     <a href="{{ route('updatepegawaiizincuti', $data->nik_nip) }}">

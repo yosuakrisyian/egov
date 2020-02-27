@@ -30,7 +30,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                            <button type="button" class="btn bg-green waves-effect m-r-20" data-toggle="modal" data-target="#defaultModal">Tambah</button>
+                            
                             </h2>
                         </div>
 

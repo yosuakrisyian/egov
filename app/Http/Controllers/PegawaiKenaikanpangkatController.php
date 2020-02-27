@@ -14,7 +14,7 @@ class PegawaiKenaikanpangkatController extends Controller
      */
     public function index()
     {
-        $datas = Pegawaikenaikanpangkat::paginate(5);
+        $datas = Pegawaikenaikanpangkat::where('nik_nip', Auth()->user()->nik)->paginate(5);
         return view('pegawai.layanankarirpegawai.pegawaikenaikanpangkat')->with(['datas' => $datas]);
     }
 

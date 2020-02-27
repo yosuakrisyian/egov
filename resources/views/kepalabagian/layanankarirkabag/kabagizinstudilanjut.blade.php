@@ -86,6 +86,7 @@
                                             <th>DP3</th>
                                             <th>Surat Keterangan PT</th>
                                             <th>Tanggal Pengajuan</th>
+                                            <th>Status</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -117,14 +118,24 @@
                                                 </td>
                                                 <td>{{ $data->tanggal_pengajuan }}</td>
                                                 <td>
-                                                    </a>
-                                                    <!-- <a href="{{ route('homeKabagIzinstudilanjut', $data->nik_nip) }}"> -->
+                                                    @if($data->status == 0)
+                                                    <span class="badge bg-orange">Belum Ada Aksi</span>
+                                                    @elseif($data->status == 1)
+                                                    <span class="badge bg-teal">Diterima</span>
+                                                    @else
+                                                    <span class="badge bg-pink">Ditolak</span>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    @if($data->status == 0)
+                                                    <a href="{{ route('terimakabagizinstudilanjut', $data->id_izinstudilanjut) }}">
                                                         <button onClick="return konfirmasi()" class="btn btn-danger">Diterima</button>
                                                     </a>
                                                     </a>
-                                                    <!-- <a href="{{ route('homeKabagIzinstudilanjut', $data->nik_nip) }}"> -->
+                                                    <a href="{{ route('tolakkabagizinstudilanjut', $data->id_izinstudilanjut) }}">
                                                         <button onClick="return konfirmasi()" class="btn btn-danger">Ditolak</button>
                                                     </a>
+                                                    @endif
                                                     </a>
                                                     <a href="{{ route('deletekabagizinstudilanjut', $data->nik_nip) }}">
                                                         <button onClick="return konfirmasi()" class="btn btn-danger">Hapus</button>

@@ -129,6 +129,46 @@ class KabagIzinstudilanjutController extends Controller
         //
     }
 
+    public function terima($id)
+    {
+        $update = Kabagizinstudilanjut::where('id_izinstudilanjut', $id)
+                    ->update([
+                        'status' => 1
+                    ]);
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($update) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Menerima Izin Studi Lanjut';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Menerima Izin Studi Lanjut';
+        }
+
+        return redirect()->route('homeKabagIzinstudilanjut')->with($respon);
+                        
+    }
+
+    public function tolak($id)
+    {
+        $update = Kabagizinstudilanjut::where('id_izinstudilanjut', $id)
+                    ->update([
+                        'status' => 2
+                    ]);
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($update) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Menolak Izin Studi Lanjut';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Menolak Izin Studi Lanjut';
+        }
+
+        return redirect()->route('homeKabagIzinstudilanjut')->with($respon);
+                        
+    }
+
     /**
      * Update the specified resource in storage.
      *

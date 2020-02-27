@@ -78,6 +78,46 @@ class KabagKenaikanpangkatController extends Controller
         //
     }
 
+    public function terima($id)
+    {
+        $update = Kabagkenaikanpangkat::where('id_kenaikan_pangkat', $id)
+                    ->update([
+                        'status' => 1
+                    ]);
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($update) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Menerima Kenaikan Pangkat';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Menerima Kenaikan Pangkat';
+        }
+
+        return redirect()->route('homeKabagKenaikanpangkat')->with($respon);
+                        
+    }
+
+    public function tolak($id)
+    {
+        $update = Kabagkenaikanpangkat::where('id_kenaikan_pangkat', $id)
+                    ->update([
+                        'status' => 2
+                    ]);
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($update) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Menolak Kenaikan Pangkat';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Menolak Kenaikan pangkat';
+        }
+
+        return redirect()->route('homeKabagKenaikanpangkat')->with($respon);
+                        
+    }
+
     /**
      * Update the specified resource in storage.
      *

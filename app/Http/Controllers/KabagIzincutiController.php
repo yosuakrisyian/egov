@@ -26,7 +26,7 @@ class KabagIzincutiController extends Controller
      */
     public function index()
     {
-        $datas = Kabagizincuti::where('nik_nip', Auth()->user()->nik)->paginate(5);
+        $datas = Kabagizincuti::paginate(5);
         $jenisCuti = JenisCuti::all();
         // $batasIzin = Pegawaiizincuti::where
         return view('kepalabagian.layanankarirkabag.kabagizincuti')->with(['datas' => $datas, 'cutis' => $jenisCuti]);
@@ -124,6 +124,46 @@ class KabagIzincutiController extends Controller
     {
         //
     }
+
+    public function terima($id)
+    {
+        $update = Kabagizincuti::where('id_izincuti', $id)
+                    ->update([
+                        'status' => 1
+                    ]);
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($update) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Menerima Izin Cuti';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Menerima Izin Izin Cuti';
+        }
+        return redirect()->route('homeKabagIzincuti')->with($respon);
+                        
+    }
+
+    public function tolak($id)
+    {
+        $update = Kabagizincuti::where('id_izincuti', $id)
+                    ->update([
+                        'status' => 2
+                    ]);
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($update) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Menolak Izin Cuti';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Menolak Izin Cuti';
+        }
+
+        return redirect()->route('homeKabagIzincuti')->with($respon);
+                        
+    } 
+
 
     /**
      * Update the specified resource in storage.

@@ -205,6 +205,8 @@ Route::group(['middleware' => ['auth','ceklevel:4']], function(){
     Route::get('/kabagizinstudilanjut/formeditkabagpegawaiizinstudilanjut/{nik}', 'KabagIzinstudilanjutController@show')->name('formeditkabagizinstudilanjut');
     Route::post('/kabagizinstudilanjut/updatekabag/{nik}', 'KabagIzinstudilanjutController@update')->name('updatekabagizinstudilanjut');
     Route::get('/kabagizinstudilanjut/deletekabag/{nik}', 'KabagIzinstudilanjutController@destroy')->name('deletekabagizinstudilanjut');
+    Route::get('/kabagizinstudilanjut/terima/{id}', 'KabagIzinstudilanjutController@terima')->name('terimakabagizinstudilanjut');
+    Route::get('/kabagizinstudilanjut/tolak/{id}', 'KabagIzinstudilanjutController@tolak')->name('tolakkabagizinstudilanjut');
 
     // izincuti
     Route::get('/kabagizincuti', 'KabagIzincutiController@index')->name('homeKabagIzincuti');
@@ -212,6 +214,9 @@ Route::group(['middleware' => ['auth','ceklevel:4']], function(){
     Route::get('/kabagizincuti/formeditkabag/{nik}', 'KabagIzincutiController@show')->name('formeditkabagizincuti');
     Route::post('/kabagizincuti/updatekabag/{nik}', 'KabagIzincutiController@update')->name('updatekabagizincuti');
     Route::get('/kabagizincuti/deletekabag/{nik}', 'KabagIzincutiController@destroy')->name('deletekabagizincuti');
+    Route::get('/kabagizincuti/terima/{id}', 'KabagIzincutiController@terima')->name('terimakabagizincuti');
+    Route::get('/kabagizincuti/tolak/{id}', 'KabagIzincutiController@tolak')->name('tolakkabagizincuti');
+    
 
     // surat
     Route::get('/kabagsurat', 'KabagSuratController@index')->name('KabagSurat');
@@ -227,6 +232,8 @@ Route::group(['middleware' => ['auth','ceklevel:4']], function(){
     Route::get('/kabagkenaikanpangkat/formedit/{nik}', 'KabagKenaikanpangkatController@show')->name('formeditkabagkenaikanpangkat');
     Route::post('/kabagkenaikanpangkat/update/{nik}', 'KabagKenaikanpangkatController@update')->name('updatekabagkenaikanpangkat');
     Route::get('/kabagkenaikanpangkat/delete/{nik}', 'KabagKenaikanpangkatController@destroy')->name('deletekabagkenaikanpangkat');
+    Route::get('/kabagkenaikanpangkat/terimaa/{id}', 'KabagKenaikanpangkatController@terima')->name('naikpangkat');
+    Route::get('/kabagkenaikanpangkat/tolakk/{id}', 'KabagKenaikanpangkatController@tolak')->name('tolaknaikpangkat');
 
     // route pegawai kenaikan gaji
     Route::get('/kabagkenaikangaji', 'KabagKenaikangajiController@index')->name('homeKabagKenaikangaji');
@@ -234,6 +241,8 @@ Route::group(['middleware' => ['auth','ceklevel:4']], function(){
     Route::get('/kabagkenaikangaji/formedit/{nik}', 'KabagKenaikangajiController@show')->name('formeditkabagkenaikangaji');
     Route::post('/kabagkenaikangaji/update/{nik}', 'KabagKenaikangajiController@update')->name('updatekabagkenaikangaji');
     Route::get('/kabagkenaikangaji/delete/{nik}', 'KabagKenaikangajiController@destroy')->name('deletekabagkenaikangaji');
+    Route::get('/kabagkenaikangaji/terima/{id}', 'KabagKenaikangajiController@terima')->name('terimakabagkenaikangaji');
+    Route::get('/kabagkenaikangaji/tolak/{id}', 'KabagKenaikangajiController@tolak')->name('tolakkabagkenaikangaji');
 
     // Hasil Akhir
     Route::get('/hasilakhir', 'HasilAkhirController@index')->name('homeHasilAkhir');
@@ -249,4 +258,8 @@ Route::group(['middleware' => ['auth','ceklevel:4']], function(){
     Route::post('/kabagsurat/updatekabagsurat/{nik}', 'KabagSuratController@update')->name('updatekabagsurat');
     Route::get('/kabagsurat/deletekabagsurat/{nik}', 'KabagSuratController@destroy')->name('deletekabagsurat');
     Route::get('/kabagsurat/lihatsurat/{nik}', 'KabagSuratController@lihat')->name('viewkabagsurat');
+
+    Route::get('/kabagkenaikanpangkat/terima/{id}', 'KabagKenaikanpangkatController@terima')->name('terimanaikpangkat');
+    Route::get('/kabagkenaikanpangkat/tolak/{id}', 'KabagKenaikanpangkatController@tolak')->name('tolaknaikpangkat');
+
 });

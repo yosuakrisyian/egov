@@ -20,6 +20,7 @@ class Kabagkenaikangaji extends Model
         'skp_2tahun_terakhir',
         'sk_mutasi',
         'surat_pengantar_unit_kerja',
-        'tanggal_pengajuan'
+        'tanggal_pengajuan',
+        'status'
     ];
 }
