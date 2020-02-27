@@ -89,6 +89,7 @@
                                             <th>Daftar Riwayat Pekerjaan</th>
                                             <th>Nota Persetujuan BKN</th>
                                             <th>Tanggal Pengajuan</th>
+                                            <th>Status </th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -123,15 +124,26 @@
                                                 </td>
                                                 <td>{{ $data->tanggal_pengajuan }}</td>
                                                 <td>
-                                                </a>
-                                                    <a href="{{ route('homeKabagKenaikanpangkat', $data->nik_nip) }}">
+                                                @if($data->status == 0)
+                                                    <span class="badge bg-orange">Belum Ada Aksi</span>
+                                                    @elseif($data->status == 1)
+                                                    <span class="badge bg-teal">Diterima</span>
+                                                    @else
+                                                    <span class="badge bg-pink">Ditolak</span>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                @if($data->status == 0)
+                                                    <a href="{{ route('naikpangkat', $data->id_kenaikan_pangkat) }}">
                                                         <button onClick="return konfirmasi()" class="btn btn-danger">Diterima</button>
                                                     </a>
                                                     </a>
-                                                    <a href="{{ route('homeKabagKenaikanpangkat', $data->nik_nip) }}">
+                                                    <a href="{{ route('tolaknaikpangkat', $data->id_kenaikan_pangkat) }}">
                                                         <button onClick="return konfirmasi()" class="btn btn-danger">Ditolak</button>
                                                     </a>
-                                                    <a href="{{ route('deletekabagkenaikanpangkat', $data->nik_nip) }}">
+                                                    @endif
+                                                    </a>
+                                                    <a href="{{ route('deletekabagkenaikangaji', $data->nik_nip) }}">
                                                         <button onClick="return konfirmasi()" class="btn btn-danger">Hapus</button>
                                                     </a>
                                                 </td>

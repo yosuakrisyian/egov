@@ -19,6 +19,7 @@ class Kabagkenaikanpangkat extends Model
         'karpeg',
         'daftar_riwayat_pekerjaan',
         'nota_persetujuan_bkn',
-        'tanggal_pengajuan'
+        'tanggal_pengajuan',
+        'status'
     ];
 }

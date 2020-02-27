@@ -86,6 +86,7 @@
                                             <th>Batas Tanggal Cuti</th>
                                             <th>Kategori Cuti</th>
                                             <th>Alasan Cuti</th>
+                                            <th>Status</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -105,16 +106,24 @@
                                                 <td>{{ $data->kategori_cuti }}</td>
                                                 <td>{{ $data->alasan_cuti }}</td>
                                                 <td>
-                                                    </a>
-                                                    <a href="{{ route('deletepegawaiizincuti', $data->nik_nip) }}">
+                                                @if($data->status == 0)
+                                                    <span class="badge bg-orange">Belum Ada Aksi</span>
+                                                    @elseif($data->status == 1)
+                                                    <span class="badge bg-teal">Diterima</span>
+                                                    @else
+                                                    <span class="badge bg-pink">Ditolak</span>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                @if($data->status == 0)
+                                                    <a href="{{ route('terimakabagizincuti', $data->id_izincuti) }}">
                                                         <button onClick="return konfirmasi()" class="btn btn-danger">Diterima</button>
                                                     </a>
-
                                                     </a>
-                                                    <a href="{{ route('deletepegawaiizincuti', $data->nik_nip) }}">
+                                                    <a href="{{ route('tolakkabagizincuti', $data->id_izincuti) }}">
                                                         <button onClick="return konfirmasi()" class="btn btn-danger">Ditolak</button>
                                                     </a>
-
+                                                    @endif
                                                     </a>
                                                     <a href="{{ route('deletekabagizincuti', $data->nik_nip) }}">
                                                         <button onClick="return konfirmasi()" class="btn btn-danger">Hapus</button>

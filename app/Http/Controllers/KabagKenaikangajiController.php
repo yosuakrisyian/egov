@@ -78,6 +78,45 @@ class KabagKenaikangajiController extends Controller
         //
     }
 
+    public function terima($id)
+    {
+        $update = Kabagkenaikangaji::where('id_kenaikangaji', $id)
+                    ->update([
+                        'status' => 1
+                    ]);
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($update) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Menerima Kenaikan Gaji';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Menerima Kenaikan Gaji';
+        }
+
+        return redirect()->route('homeKabagKenaikangaji')->with($respon);
+                        
+    }
+
+    public function tolak($id)
+    {
+        $update = Kabagkenaikangaji::where('id_kenaikangaji', $id)
+                    ->update([
+                        'status' => 2
+                    ]);
+        $respon = array();
+        $respon['adaAksi'] = true;
+        if ($update) {
+            $respon['sukses'] = true;
+            $respon['pesan'] = 'Berhasil Menolak Kenaikan Gaji';
+        } else {
+            $respon['sukses'] = false;
+            $respon['pesan'] = 'Gagal Menolak Kenaikan Gaji';
+        }
+
+        return redirect()->route('homeKabagKenaikangaji')->with($respon);
+                        
+    }
     /**
      * Update the specified resource in storage.
      *

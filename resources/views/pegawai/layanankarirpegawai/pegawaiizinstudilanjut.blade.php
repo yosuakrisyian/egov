@@ -120,7 +120,15 @@
                                                 <button onClick="showSuratKeteranganPT({{ $data }})" data-toggle="modal" data-target=".bs-example-modal-lg1" class="btn btn-success">Lihat Gambar</button>
                                                 </td>
                                                 <td>{{ $data->tanggal_pengajuan }}</td>
-                                                <td>{{ $data->status }}</td>
+                                                <td>
+                                                    @if($data->status == 0)
+                                                    <span class="badge bg-orange">Belum Ada Aksi</span>
+                                                    @elseif($data->status == 1)
+                                                    <span class="badge bg-teal">Diterima</span>
+                                                    @else
+                                                    <span class="badge bg-pink">Ditolak</span>
+                                                    @endif
+                                                </td>
                                                 <td>
                                                 </a>
                                                     <a href="{{ route('updatepegawaiizinstudilanjut', $data->nik_nip) }}">
