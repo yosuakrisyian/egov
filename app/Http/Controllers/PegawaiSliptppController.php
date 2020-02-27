@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\Penilaihasiltpp;
+use PDF;
 
 use Illuminate\Http\Request;
 
-class PenilaiLihatHasiltppController extends Controller
+class PegawaiSliptppController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,11 @@ class PenilaiLihatHasiltppController extends Controller
      */
     public function index()
     {
-        $datas = User::join('tb_hasiltpp', 'users.nik', '=','tb_hasiltpp.nik')
-                        ->where('level', 2)->paginate(50);
-        return view('penilai.tunjangankinerjapenilai.lihathasiltpp')->with(['datas' => $datas]);
+        $datas = User::join('tb_hasiltpp', 'tb_hasiltpp.nik', '=', 'users.nik')
+                        ->where([
+                            ['users.nik', '=', Auth()->user()->nik]
+                        ])->paginate(50);
+        return view('pegawai.tunjangankinerja.daftarslip')->with(['datas' => $datas]);
     }
 
     /**
@@ -58,9 +61,15 @@ class PenilaiLihatHasiltppController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function lihat($nik)
     {
-        //
+        
+        $data = User::join('tb_hasiltpp', 'tb_hasiltpp.nik', '=', 'users.nik')
+                        ->where([
+                            ['users.nik', '=', Auth()->user()->nik]
+                        ])->first();
+        $pdf = PDF::loadView('pegawai.tunjangankinerja.sliptpp', ['data' => $data], [])->setPaper('legal', 'potrait');
+        return $pdf->stream('surat.pdf');
     }
 
     /**

@@ -14,7 +14,7 @@ class AdminGolonganController extends Controller
      */
     public function index()
     {
-        $datas = Golongan::paginate(5);
+        $datas = Golongan::paginate(50);
         return view('admin.golongan.golongan')->with(['datas' => $datas]);
     }
 

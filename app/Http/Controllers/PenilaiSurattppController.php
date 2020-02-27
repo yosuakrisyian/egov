@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\Penilaihasiltpp;
-
+use PDF;
 use Illuminate\Http\Request;
 
-class PenilaiLihatHasiltppController extends Controller
+class PenilaiSurattppController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,7 @@ class PenilaiLihatHasiltppController extends Controller
      */
     public function index()
     {
-        $datas = User::join('tb_hasiltpp', 'users.nik', '=','tb_hasiltpp.nik')
-                        ->where('level', 2)->paginate(50);
-        return view('penilai.tunjangankinerjapenilai.lihathasiltpp')->with(['datas' => $datas]);
+        //
     }
 
     /**
@@ -58,9 +56,11 @@ class PenilaiLihatHasiltppController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function lihat($nik)
     {
-        //
+        $data = User::where('nik', $nik)->first();
+        $pdf = PDF::loadView('penilai.tunjangankinerjapenilai.penilaisurattpp', ['data' => $data], [])->setPaper('legal', 'potrait');
+        return $pdf->stream('surat.pdf');
     }
 
     /**

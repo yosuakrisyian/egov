@@ -63,13 +63,20 @@ class PenilaiHitungtppHasilController extends Controller
         $besaranDasar = $dataGolongan->besaran_dasar;
         
         $hasilTpp = ($totalSkor / 100) * $besaranDasar;
+        $nominalabsen = ($skorKehadiran / 100) * $besaranDasar;
+        $nominalcapaian = ($skorCapaian / 100) * $besaranDasar;
 
         // var_dump($hasilTpp);
         $data = [
             'nik' => $nik,
             'jumlahabsen' => $absen['jumlahhadir'],
             'nilai_capaiankinerja' => $nilaiCapaian,
-            'hasiltpp' => $hasilTpp
+            'hasiltpp' => $hasilTpp,
+            'persenabsen' => $persentaseKehadiran,
+            'skorabsen' => $skorKehadiran,
+            'nominalabsen' => $nominalabsen,
+            'skorcapaian' => $skorCapaian,
+            'nominalcapaian' => $nominalcapaian
         ];
         $insert = Penilaihasiltpp::insert($data);
         $respon;

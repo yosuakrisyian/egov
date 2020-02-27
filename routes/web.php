@@ -151,6 +151,10 @@ Route::group(['middleware' => ['auth','ceklevel:2']], function(){
     Route::get('/pegawailihatskp', 'PegawaiLihatSkpController@index')->name('homePegawailihatskp');
     Route::post('/pegawailihatskp/bytahun', 'PegawaiLihatSkpController@show')->name('showPegawailihatskp');
 
+    //slip tpp
+    Route::get('/pegawaisliptpp', 'PegawaiSliptppController@index')->name('homePegawaiSlip');
+    Route::get('/pegawaisliptpp/lihatsliptpp/{nik}', 'PegawaiSliptppController@lihat')->name('lihatsliptpp');
+
 });
 
 
@@ -189,6 +193,9 @@ Route::group(['middleware' => ['auth','ceklevel:3']], function(){
 
     // route penilai hasil skp
     Route::get('/penilaihasilskp/{nik}', 'PenilaiHasilSkpController@index')->name('homePenilaiHasilSkp');
+
+    //surat
+    Route::get('/penilaisurathasiltpp/lihatpenilaisurattpp', 'PenilaiSurattppController@lihat')->name('viewsuratpenilaitpp');
 
 
 });

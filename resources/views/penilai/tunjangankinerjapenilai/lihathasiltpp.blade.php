@@ -25,11 +25,11 @@
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
-                                            <th>NIK/NIP</th>
+                                            <th>NIP</th>
                                             <th>Nama Lengkap</th>
                                             <th>Golongan</th>
                                             <th>Jabatan</th>
-                                            <th>Aksi</th>
+                                            <th>TPP</th>
                                         </tr>
                                     </thead>
                                     
@@ -40,11 +40,7 @@
                                                 <td>{{ $data->name }}</td>
                                                 <td>{{ $data->golongan }}</td>
                                                 <td>{{ $data->jabatan }}</td>
-                                                <td>
-                                                    <a href="">
-                                                        <button class="btn btn-warning">Lihat Slip TPP</button>
-                                                    </a>
-                                                </td>
+                                                <td>{{ $data->hasiltpp }}</td>
                                             </tr>
                                         @endforeach
                                     </tbody>

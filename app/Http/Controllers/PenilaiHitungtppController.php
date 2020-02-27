@@ -53,6 +53,13 @@ class PenilaiHitungtppController extends Controller
     {
         $datas = User::where('nik', $nik)->first();
         $hasilSKP = HasilSKP::where('nik', $nik)->first();
+        if (!$hasilSKP) {
+            return redirect()->route('homePenilaiDatatpp')->with([
+                'adaAksi' => true,
+                'sukses' => false,
+                'pesan' => 'Mohon Hitung SKP'
+            ]);
+        }
         $nilai = Perilakukerja::where('nik_dinilai', $nik)->get()->toArray();
         // var_dump($nilai[0]['komitmen']);
 
@@ -88,6 +95,13 @@ class PenilaiHitungtppController extends Controller
             'totalSkor' => $totalSkor
         ];
         $absen = Kehadirankerja::where('nik', $nik)->first();
+        if (!$absen) {
+            return redirect()->route('homePenilaiDatatpp')->with([
+                'adaAksi' => true,
+                'sukses' => false,
+                'pesan' => 'Mohon Input Absen Pegawai'
+            ]);
+        }
 
         $alreadyHitungTpp = Penilaihasiltpp::where('nik', $nik)->first();
         $sudahHitungTpp;

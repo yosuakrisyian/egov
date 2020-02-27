@@ -282,10 +282,10 @@
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth()->user()->name }}</div>
                     <div class="email">{{ Auth()->user()->nik }}</div>
                     <div class="btn-group user-helper-dropdown">
-                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
+                        <!-- <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
                             <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
-                            <li role="seperator" class="divider"></li>
+                            <li role="seperator" class="divider"></li> -->
                             <!-- <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
@@ -372,15 +372,15 @@
                     </li>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">perm_media</i>
-                            <span>Tunjangan Kinerja</span>
+                            <i class="material-icons">dvr</i>
+                            <span>Tambahan Penghasilan</span>
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <!-- <a href="{{route('homePegawaiPerilakukerja')}}">Perilaku Kerja</a> -->
+                                <a href="{{route('homeDataPegawaiPerilakukerja')}}">Data Perilaku Kerja</a>
                             </li>
                             <li>
-                                <a href="{{route('homeDataPegawaiPerilakukerja')}}">Data Perilaku Kerja</a>
+                                <a href="{{route('homePegawaiSlip')}}">Daftar Slip</a>
                             </li>
                         </ul>
                     </li> 

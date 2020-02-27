@@ -1,4 +1,4 @@
-@extends('layouts.PenilaiLayout')
+@extends('layouts.PegawaiLayout')
 @section('content')
 
 
@@ -7,26 +7,9 @@
         <div class="container-fluid">
             <div class="block-header">
                 <h2>
-                    DAFTAR PENERIMA TPP                  
+                    DAFTAR SLIP TPP                   
                 </h2>
             </div>
-
-            @if(session('adaAksi'))
-                @if(session('sukses'))
-                    <div class="alert bg-teal alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        {{ session('pesan') }}
-                    </div>
-                @else
-                    <div class="alert bg-pink alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                        {{ session('pesan') }}
-                    </div>
-                @endif
-            @endif
-
-
-           
 
             <!-- Basic Examples -->
             <div class="row clearfix">
@@ -38,11 +21,10 @@
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
-                                            <th>NIP</th>
+                                            <th>NIK</th>
                                             <th>Nama Lengkap</th>
-                                            <th>Golongan</th>
-                                            <th>Jabatan</th>
-                                            <th>Aksi</th>
+                                            <th>Slip Bulan</th>
+                                            <th>Slip TPP</th>
                                         </tr>
                                     </thead>
                                     
@@ -51,11 +33,10 @@
                                             <tr>
                                                 <td>{{ $data->nik }}</td>
                                                 <td>{{ $data->name }}</td>
-                                                <td>{{ $data->golongan }}</td>
-                                                <td>{{ $data->jabatan }}</td>
+                                                <td>{{ date('F', strtotime($data->created_at)) }}</td>
                                                 <td>
-                                                    <a href="{{ route('inputhitungtpp', $data->nik) }}">
-                                                        <button class="btn btn-warning">Hitung TPP</button>
+                                                    <a href="{{ route('lihatsliptpp', $data->nik) }}">
+                                                        <button class="btn btn-warning">Lihat Slip TPP</button>
                                                     </a>
                                                 </td>
                                             </tr>
@@ -72,4 +53,4 @@
         </div>
     </section>
 
- @endsection
+ @endsection                

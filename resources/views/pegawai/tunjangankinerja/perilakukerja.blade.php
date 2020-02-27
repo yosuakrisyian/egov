@@ -101,7 +101,7 @@
                                             </div>
                                         </div>
                                            
-                                        <button type="submit" class="btn btn-link waves-effect">SIMPAN</button>
+                                        <button type="submit" class="btn btn-primary waves-effect">SIMPAN</button>
                             </form>
 
                             </div>

@@ -11,6 +11,11 @@ class Penilaihasiltpp extends Model
         'nik',
         'jumlahabsen',
         'nilai_capaiankinerja',
-        'hasiltpp'
+        'hasiltpp',
+        'persenabsen',
+        'skorabsen',
+        'nominalabsen',
+        'skorcapaian',
+        'nominalcapaian'
     ];
 }

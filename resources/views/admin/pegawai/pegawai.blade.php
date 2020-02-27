@@ -128,8 +128,8 @@
 
                         <div class="form-group form-float">
                             <div class="form-line">
-                                <input type="date" name="tanggalLahir" class="form-control" required="required" autocomplete="off">
-                                <label class="form-label">Tanggal Lahir</label>
+                                <input type="date" name="tanggalLahir" placeholder="Tanggal Lahir" class="form-control" required="required" autocomplete="off">
+                                <!-- <label class="form-label">Tanggal Lahir</label> -->
                             </div>
                         </div>
 
