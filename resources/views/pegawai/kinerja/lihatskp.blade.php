@@ -31,6 +31,7 @@
                                                     <div class="form-group">
                                                         <div class="form-line">
                                                             <select class="form-control" name="tahun">
+                                                                <option value="2020">2020</option>
                                                                 <option value="2019">2019</option>
                                                                 <option value="2018">2018</option>
                                                             </select>

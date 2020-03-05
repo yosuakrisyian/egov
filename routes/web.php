@@ -178,7 +178,7 @@ Route::group(['middleware' => ['auth','ceklevel:3']], function(){
 
     // route penilai realisasi skp
     Route::get('/penilairealisasiskp', 'PenilaiRealisasiSkpController@index')->name('homePenilaiRealisasiSkp');
-    Route::post('/penilairealisasiskp/inputrealisasiskp', 'PenilaiRealisasiSkpController@store')->name('inputrealisasiskp');
+    Route::post('/penilairealisasiskp/inputrealisasiskp/{nik}', 'PenilaiRealisasiSkpController@store')->name('inputrealisasiskp');
     
 
     // route penilai data realisasi skp

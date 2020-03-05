@@ -140,9 +140,9 @@
                                     <option value="Kepala Dinas">Kepala Dinas</option>
                                     <option value="Kepala Biro">Kepala Biro</option>
                                     <option value="Kepala Bagian">Kepala Bagian</option>
-                                    <option value="Sekretaris">Kelapa Sub Bagian</option>
-                                    <option value="Sekretaris">Kelapa Seksi</option>
-                                    <option value="Bendahara">Staff Fungsional Umum</option>
+                                    <option value="Kepala Sub Bagian">Kelapa Sub Bagian</option>
+                                    <option value="Kepala Seksi">Kepala Seksi</option>
+                                    <option value="Staff Fungsional Umum">Staff Fungsional Umum</option>
                                 </select>
                             </div>
                         </div>

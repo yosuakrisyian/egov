@@ -75,10 +75,10 @@
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Call Search -->
-                    <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
+                    <!-- <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li> -->
                     <!-- #END# Call Search -->
                     <!-- Notifications -->
-                    <li class="dropdown">
+                    <!-- <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">notifications</i>
                             <span class="label-count">7</span>
@@ -184,10 +184,10 @@
                                 <a href="javascript:void(0);">View All Notifications</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                     <!-- #END# Notifications -->
                     <!-- Tasks -->
-                    <li class="dropdown">
+                    <!-- <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">flag</i>
                             <span class="label-count">9</span>
@@ -262,9 +262,9 @@
                                 <a href="javascript:void(0);">View All Tasks</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                     <!-- #END# Tasks -->
-                    <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
+                    <!-- <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li> -->
                 </ul>
             </div>
         </div>
@@ -281,7 +281,7 @@
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth()->user()->name }}</div>
                     <div class="email">{{ Auth()->user()->nik }}</div>
-                    <div class="btn-group user-helper-dropdown">
+                    <!-- <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
                             <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
@@ -292,7 +292,7 @@
                             <li role="seperator" class="divider"></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- #User Info -->

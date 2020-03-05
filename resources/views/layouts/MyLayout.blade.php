@@ -360,15 +360,7 @@
                             <li>
                                 <a href="{{route('homeAdmintargetskp')}}">Target SKP</a>
                             </li>
-                            <li>
-                                <a href="{{route('homeAdminRealisasiSkp')}}">Realisasi SKP</a>
-                            </li>
-                            <li>
-                                <a href="pages/tables/editable-table.html">Nilai SKP</a>
-                            </li>
-                            <li>
-                                <a href="pages/tables/editable-table.html">Lihat SKP</a>
-                            </li>
+                            
                         </ul>
                     </li>
                     <!-- <li>

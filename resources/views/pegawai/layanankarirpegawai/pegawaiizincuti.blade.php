@@ -118,9 +118,7 @@
                                                 </td>
                                                 <td>
                                                 </a>
-                                                    <a href="{{ route('updatepegawaiizincuti', $data->nik_nip) }}">
-                                                        <button onClick="return konfirmasi()" class="btn btn-danger">Edit</button>
-                                                    </a>
+                                                    
                                                     </a>
                                                     <a href="{{ route('deletepegawaiizincuti', $data->nik_nip) }}">
                                                         <button onClick="return konfirmasi()" class="btn btn-danger">Hapus</button>

@@ -14,7 +14,7 @@ class PegawaiTargetSkpController extends Controller
      */
     public function index()
     {
-        $datas = TargetSKP::whereYear('waktu', date('Y'))
+        $datas = TargetSKP::whereYear('created_at', date('Y'))
                             ->where('nik_nip', Auth()->user()->nik)
                            ->paginate(5);
         return view('pegawai.kinerja.targetskp')->with(['datas' => $datas, 'withInputButton' => true]);

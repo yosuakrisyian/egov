@@ -48,7 +48,7 @@ class PegawaiLihatSkpController extends Controller
         // $data = TargetSKP::all();
         $tahun = $request->tahun;
         // var_dump($tahun);
-        $datas = TargetSKP::whereYear('waktu', $tahun)->get();
+        $datas = TargetSKP::whereYear('created_at', $tahun)->get();
         // var_dump($data);
         return view('pegawai.kinerja.targetskp')->with(['datas' => $datas, 'withInputButton' => false]);
     }

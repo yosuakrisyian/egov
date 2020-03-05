@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\RealisasiSKP;
 use App\TargetSKP;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use App\HasilSKP;
 
 class PenilaiHasilSkpController extends Controller
@@ -27,6 +28,7 @@ class PenilaiHasilSkpController extends Controller
         $jumlah = sizeof($datas);
         $totalCapaianSKP = 0;
         $hasil;
+        // return Carbon::createFromDate($datas[0]['waktuRealisasi'])->diffInDays(Carbon::createFromDate($datas[0]['waktu']));
         foreach ($datas as $data) {
             $aspekKuantitas = ($data['kuantitasRealisasi'] / $data['kuantitas'] ) * 100;
             $aspekKualitas = ($data['kualitasRealisasi'] / $data['kualitas'] ) * 100;

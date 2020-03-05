@@ -14,9 +14,13 @@ class HasilAkhirController extends Controller
      */
     public function index()
     {
-        $datas = User::where('level', 2)->selectRaw(
+        $datas = User::where([
+            ['level', 2],
+            ['status', 1]
+        ])->selectRaw(
             '*, (year(curdate())-year(hariPertamaKerja)) as age'
             )->join('tb_hasilskp', 'users.nik', '=', 'tb_hasilskp.nik')
+            ->join('tb_kenaikan_pangkat', 'users.nik', '=', 'tb_kenaikan_pangkat.nik_nip')
             ->get();
         $newData = [];
         foreach ($datas as $data) {

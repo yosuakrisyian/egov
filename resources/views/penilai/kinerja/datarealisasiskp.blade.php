@@ -51,7 +51,7 @@
                                                 <td>{{ $data->golongan }}</td>
                                                 <td>{{ $data->jabatan }}</td>                                          
                                                 <td>
-                                                    <a href="{{ route('homePenilaiHasilSkp', $data->nik) }}">
+                                                    <a href="{{ route('inputdatarealisasiskp', $data->nik) }}">
                                                         <button class="btn btn-warning">Beri Nilai</button>
                                                     </a>
                                                 </td>
